@@ -12,6 +12,7 @@ using BibleForum.Data;
 using BibleForum.Models;
 using BibleForum.Services;
 using BibleForum.Data.Models;
+using BibleForum.Service;
 
 namespace BibleForum
 {
@@ -36,6 +37,9 @@ namespace BibleForum
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            // Add Scope
+            services.AddScoped<IForum, ForumService>();
 
             services.AddMvc();
         }
