@@ -11,6 +11,7 @@ namespace BibleForum.Controllers
     public class ForumController : Controller
     {
         private readonly IForum _forumService;
+        private readonly IPost _postService;
 
         public ForumController(IForum forumService)
         {
@@ -31,6 +32,12 @@ namespace BibleForum.Controllers
             };
 
             return View(model);
+        }
+
+        public IActionResult Topic(int id)
+        {
+            
+            return View();
         }
     }
 }
