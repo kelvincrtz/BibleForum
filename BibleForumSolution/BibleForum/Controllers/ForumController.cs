@@ -23,8 +23,7 @@ namespace BibleForum.Controllers
 
         public IActionResult Index()
         {
-            var forums = _forumService.GetAll()
-                .Select(forum => new ForumListingModel {
+            var forums = _forumService.GetAll().Select(forum => new ForumListingModel {
                 Id = forum.Id,
                 Title = forum.Title,
                 Description = forum.Description
