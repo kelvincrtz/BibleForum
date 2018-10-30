@@ -1,5 +1,6 @@
 ﻿using BibleForum.Data;
 using BibleForum.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,12 @@ namespace BibleForum.Service
 
         public Post GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Posts.Where(post => post.Id == id)
+                .Include(post => post.User)
+                .Include(post => post.Replies)
+                    .ThenInclude(postReplies => postReplies.User)
+                .Include(post => post.Forum)
+                .FirstOrDefault();
         }
 
         public IEnumerable<Post> GetFilteredPost(string searchQuery)
