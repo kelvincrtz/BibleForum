@@ -11,6 +11,7 @@ namespace BibleForum.Data
         Post GetById(int id);
         IEnumerable<Post> GetAll();
         IEnumerable<Post> GetFilteredPost(string searchQuery);
+        IEnumerable<Post> GetPostsByForum(int id);
 
         Task Add(Post post);
         Task Delete(int id);
