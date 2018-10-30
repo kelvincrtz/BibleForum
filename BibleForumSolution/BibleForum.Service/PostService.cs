@@ -45,7 +45,7 @@ namespace BibleForum.Service
                 .Include(post => post.Replies)
                     .ThenInclude(postReplies => postReplies.User)
                 .Include(post => post.Forum)
-                .FirstOrDefault();
+                .First();
         }
 
         public IEnumerable<Post> GetFilteredPost(string searchQuery)
