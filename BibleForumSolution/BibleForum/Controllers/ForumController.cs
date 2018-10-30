@@ -52,13 +52,32 @@ namespace BibleForum.Controllers
                 RepliesCount = post.Replies.Count(),
                 Forum = BuildForumListing(post)
             });
-            return View();
+
+            var model = new ForumTopicModel
+            {
+                Posts = postListings,
+                Forum = BuildForumListing(forum)
+            };
+
+            return View(model);
         }
 
         private ForumListingModel BuildForumListing(Post post)
         {
             var forum = post.Forum;
 
+            return new ForumListingModel
+            {
+                Id = forum.Id,
+                Description = forum.Description,
+                Title = forum.Title,
+                ImageUrl = forum.ImageUrl
+            };
+        }
+
+        //Overload method for Forum Type
+        private ForumListingModel BuildForumListing(Forum forum)
+        {
             return new ForumListingModel
             {
                 Id = forum.Id,

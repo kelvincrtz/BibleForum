@@ -40,6 +40,7 @@ namespace BibleForum
 
             // Add Scope
             services.AddScoped<IForum, ForumService>();
+            services.AddScoped<IPost, PostService>();
 
             services.AddMvc();
         }
