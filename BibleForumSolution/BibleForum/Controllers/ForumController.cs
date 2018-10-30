@@ -57,7 +57,15 @@ namespace BibleForum.Controllers
 
         private ForumListingModel BuildForumListing(Post post)
         {
-            throw new NotImplementedException();
+            var forum = post.Forum;
+
+            return new ForumListingModel
+            {
+                Id = forum.Id,
+                Description = forum.Description,
+                Title = forum.Title,
+                ImageUrl = forum.ImageUrl
+            };
         }
     }
 }

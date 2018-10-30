@@ -14,6 +14,5 @@ namespace BibleForum.Data.Models
 
         public virtual IEnumerable<Post> Posts { get; set; }
 
-
     }
 }
