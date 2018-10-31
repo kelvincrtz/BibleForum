@@ -46,6 +46,7 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
+        //A method to create a new Post FROM the Forum Index View
         public IActionResult Create (int id)
         {
             //Note ID is Forum ID
