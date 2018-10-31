@@ -54,6 +54,11 @@ namespace BibleForum.Service
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Post> GetLastestPosts(int n)
+        {
+            return GetAll().OrderByDescending(post => post.Created).Take(n);
+        }
+
         public IEnumerable<Post> GetPostsByForum(int id)
         {
             return _dbContext.Forums.Where(f => f.Id == id).First().Posts;

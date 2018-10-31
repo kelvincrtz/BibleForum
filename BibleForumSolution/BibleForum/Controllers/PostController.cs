@@ -72,7 +72,8 @@ namespace BibleForum.Controllers
 
             var post = BuildPost(model, user);
 
-            await _postService.Add(post);
+            //Use "await" because of the "async" method
+            await _postService.Add(post); 
             //TODO: Implement User Rating Management here
 
             return RedirectToAction("Index", "Post", new { id = post.Id });
@@ -80,7 +81,7 @@ namespace BibleForum.Controllers
 
         private Post BuildPost(NewPostModel model, ApplicationUser user)
         {
-
+            // Explain why forum is being overloaded here <-
             var forum = _forumService.GetById(model.ForumId);
 
             return new Post
