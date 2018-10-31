@@ -7,6 +7,12 @@
 <h2>Welcome to @Model.Forum.Title Forum!</h2>
 <h6>@Model.Forum.Description</h6>
 
+<span>
+    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-default">
+        Create Post
+    </a>
+</span>
+
 @if (Model.Posts.Any())
 {
     <table class="table table-bordered table-hover">
