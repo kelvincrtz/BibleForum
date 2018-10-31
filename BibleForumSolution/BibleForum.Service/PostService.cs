@@ -36,7 +36,11 @@ namespace BibleForum.Service
 
         public IEnumerable<Post> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Posts
+               .Include(post => post.User)
+               .Include(post => post.Replies)
+                   .ThenInclude(postReplies => postReplies.User)
+               .Include(post => post.Forum);
         }
 
         public Post GetById(int id)

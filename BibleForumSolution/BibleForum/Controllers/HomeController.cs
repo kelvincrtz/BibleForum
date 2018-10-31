@@ -42,6 +42,7 @@ namespace BibleForum.Controllers
                 Id = post.Id,
                 RepliesCount = post.Replies.Count(),
                 Title = post.Title,
+                //Get the Corresponding Forum for this Post via Post.ForumID
                 Forum = GetForumListingModelForPost(post)         
             });
 
