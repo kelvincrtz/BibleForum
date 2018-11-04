@@ -1,13 +1,26 @@
 ﻿body {
     padding: 50px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-01.png");
+    background-image: url("/images/theme/bg-03.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
+.navbar{
+    box-shadow: 0 5px 4px -6px #000;
+}
+
+.navLogo{
+    background-image:url("/images/logo-1.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+    padding-right:16px;
+    width:150px;
+    margin-right:12px;
+    background-position:center;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
