@@ -1,7 +1,7 @@
 ﻿body {
     padding: 50px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-03.jpg");
+    background-image: url("/images/theme/bg-02.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -110,6 +110,43 @@
     box-shadow:0 5px 4px -6px #000;
 }
 
+.frontPageContent{
+    background-color: rgba(255,255,255,0.4);
+    padding:16px;
+}
+
+#latestPosts {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 4px 0 16px 0;
+}
+
+/* Post Page */
+.postTitle{
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+.postSubTitle{
+    color: #888;
+    font-family: 'Roboto Mono';
+    font-size: 0.8em;
+}
+
+.postData{
+    display: inline-block;
+}
+
+.postDate{
+    color: #888;
+    font-family: 'Roboto Mono';
+    font-size: 0.8em;
+}
+
+.postLogo{
+   
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
