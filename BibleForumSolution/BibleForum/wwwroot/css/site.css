@@ -13,13 +13,78 @@
 }
 
 .navLogo{
-    background-image:url("/images/logo-1.png");
+    background-image:url("/images/logo-3.png");
     background-size:100%;
     background-repeat: no-repeat;
     padding-right:16px;
     width:150px;
     margin-right:12px;
     background-position:center;
+}
+
+.navbar li{
+}
+
+.sectionHeader{
+    background-color: rgba(0,0,0,0.9);
+    padding:8px 0 24px 25px;
+}
+
+.sectionHeading{
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Roboto';
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid #335;
+    margin-bottom: 12px;
+}
+
+.postHeading{
+    color: white;
+    font-size: 1.1em;
+    font-family: 'Roboto';
+    padding: 16px 0 16px 0;
+}
+
+.sectionInfo{
+    height: 400px;
+    background-color: white;
+}
+
+.frontPageSplash{
+    background-image: url("../images/theme/front-splash.png");
+    background-repeat:no-repeat;
+    background-position:left;
+    background-size:cover;
+}
+
+.frontPageLearn{
+    font-family: 'Roboto';
+    padding: 12px 0 0 32px;
+    height: 360px;
+}
+
+.sectionDescription{
+    color: #EEE;
+}
+
+.frontPageHeading {
+    font-size:3.4em;
+    margin: 16px 0;
+    color:floralwhite;
+}
+
+.frontPageSubHeading{
+    font-size: 1.2em;
+    color:floralwhite;
+}
+
+.frontPageHeading span {
+    background-color: hsla(240, 60%, 75%, 0.3);
+}
+
+.frontPageSubHeading span {
+    background-color: hsla(240, 60%, 75%, 0.3);
 }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
