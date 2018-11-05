@@ -22,6 +22,10 @@
     background-position:center;
 }
 
+.navbar {
+    background-color: #ffffff;
+}
+
 .navbar li{
 }
 
@@ -145,8 +149,14 @@
 }
 
 .postLogo{
-   
+   display: inline-block;
+   border-radius: 3px;
+   margin-right: 20px;
+   height: 40px;
+   width: 40px;
+   background-color: #ddd;
 }
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
