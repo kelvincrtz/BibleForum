@@ -1,7 +1,6 @@
 ﻿body {
     padding: 50px 0 20px 0;
-    background-color: #fff;
-    /*background-image: url("/images/theme/bg-02.jpg"); */
+    background-color: whitesmoke;
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,6 +14,7 @@
 .navLogo{
     background-image:url("/images/logo-3.png");
     background-size:100%;
+
     background-repeat: no-repeat;
     padding-right:16px;
     width:150px;
@@ -203,18 +203,18 @@
     margin-right: 20px;
 }
 
-/* Custom Buttons*/
+/* Custom Button -> Hover pattern*/
 .btn-back{
     background-color: #555;
     color: #fff !important;
     transition: ease-in 0.1s;
     border-radius: 0px !important;
 }
-
 .btn-back:hover{
     transition: ease-in 0.1s;
     background-color: #1E88E5 !important;
 }
+
 
 .btn-newReply{
     background-color: #5C6BC0 !important;
@@ -222,11 +222,11 @@
     transition: ease-in 0.1s;
     border-radius: 0px !important;
 }
-
 .btn-newReply:hover{
     background-color: #9FA8DA !important;
     transition: ease-in 0.1s;
 }
+
 
 .btn-file{
     color: white;
@@ -234,11 +234,11 @@
     background-color: #4FC3F7;
     transition: ease 0.3s;
 }
-
 .btn-file:hover{
     background-color: #039BE5;
     transition: ease 0.3s;
 }
+
 
 .btn-newpost{
     background-color: #C62828 !important;
@@ -246,12 +246,12 @@
     transition: ease-in 0.1s;
     border-radius: 0px !important;
 }
-
 .btn-newpost:hover{
     transition: ease-in 0.1s;
     background-color: #E53935 !important;
     color: #fff !important;
 }
+
 
 .btn-submitPost{
     background-color: #00695C !important;
@@ -259,7 +259,6 @@
     transition: ease-in 0.1s;
     border-radius: 0px !important;
 }
-
 .btn-submitPost:hover{
     transition: ease-in 0.1s;
     background-color: #00897B !important;
