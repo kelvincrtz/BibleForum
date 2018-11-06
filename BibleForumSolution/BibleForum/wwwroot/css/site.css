@@ -114,9 +114,9 @@
     box-shadow:0 5px 4px -6px #000;
 }
 
-.frontPageContent{
-    background-color: rgba(255,255,255,0.4);
-    padding:16px;
+.frontPageContent {
+    background-color: rgba(255, 255, 255,0.7);
+    padding: 16px;
 }
 
 #latestPosts {
@@ -263,6 +263,11 @@
     transition: ease-in 0.1s;
     background-color: #00897B !important;
     color: #fff !important;
+}
+
+/* Forum Topic Page*/
+.searchBar{
+    color:black;
 }
 
 /* Forum Page */
