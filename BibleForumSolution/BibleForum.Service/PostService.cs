@@ -55,7 +55,8 @@ namespace BibleForum.Service
 
         public IEnumerable<Post> GetFilteredPost(Forum forum, string searchQuery)
         {
-            return string.IsNullOrEmpty(searchQuery) ? 
+            return 
+                string.IsNullOrEmpty(searchQuery) ? 
                 forum.Posts : forum.Posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
         }
 
