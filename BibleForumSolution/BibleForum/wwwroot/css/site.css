@@ -115,15 +115,11 @@
 
 .frontPageContent {
     padding-bottom: 60px;
-    background-color: white;
 }
-
-
 
 #latestPosts {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333;
     margin: 4px 0 16px 0;
 }
 
@@ -136,7 +132,7 @@
 }
 
 /* Post Page */
-    .postTitle{
+.postTitle{
     font-family: 'Roboto';
     font-weight: bold;
 }
