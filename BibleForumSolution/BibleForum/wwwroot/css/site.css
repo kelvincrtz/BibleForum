@@ -14,7 +14,6 @@
 .navLogo{
     background-image:url("/images/logo-3.png");
     background-size:100%;
-
     background-repeat: no-repeat;
     padding-right:16px;
     width:150px;
@@ -115,9 +114,11 @@
 }
 
 .frontPageContent {
-    background-color: rgba(255, 255, 255,0.7);
-    padding: 16px;
+    padding-bottom: 60px;
+    background-color: white;
 }
+
+
 
 #latestPosts {
     font-size: 1.2em;
@@ -126,8 +127,16 @@
     margin: 4px 0 16px 0;
 }
 
+#latestPosts td {
+    background-color: rgba(255,255,255,0.9);
+}
+
+#latestPosts tr:hover {
+    background-color: rgba(0,116,238,1);
+}
+
 /* Post Page */
-.postTitle{
+    .postTitle{
     font-family: 'Roboto';
     font-weight: bold;
 }
@@ -265,10 +274,31 @@
     color: #fff !important;
 }
 
+
+.btn-forumSearch{
+    background: none !important; /*No Background*/
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+}
+.btn-forumSearch:hover {
+    color: blue;
+}
+
 /* Forum Topic Page*/
 .searchBar{
-    color:black;
+    padding: 3px 5px 2px 12px;
+    margin: 8px;
+    background-color: #333;
+    width: 25%;
+    transition: ease .3s;
+    border: none;
 }
+
+.searchBar:focus{
+    width: 60%;
+}
+
 
 /* Forum Page */
 #forumIndexTable td {

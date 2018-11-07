@@ -17,7 +17,7 @@
             <form asp-controller="Forum" asp-action="Search" method="post">
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search.." class="searchBar" onfocus="clearThis(this)" />
-                    <button type="submit" class="btn buttonSearch">
+                    <button type="submit" class="btn btn-forumSearch">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
@@ -42,7 +42,7 @@
     <div class="row forumIndexContent">
         @if (Model.Posts.Any())
         {
-            <table class="table table-hover table-bordered" id="forumIndexTable">
+            <table class="table table-hover" id="forumIndexTable">
                 <tbody>
                     @foreach (var post in Model.Posts)
                     {
