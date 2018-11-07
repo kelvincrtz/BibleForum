@@ -11,6 +11,10 @@ namespace BibleForum.Data
         Post GetById(int id);
         IEnumerable<Post> GetAll();
         IEnumerable<Post> GetFilteredPost(Forum forum, string searchQuery);
+
+        //Overload method
+        IEnumerable<Post> GetFilteredPost(string searchQuery);
+
         IEnumerable<Post> GetPostsByForum(int id);
         IEnumerable<Post> GetLastestPosts(int n);
 
