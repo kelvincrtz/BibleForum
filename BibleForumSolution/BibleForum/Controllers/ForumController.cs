@@ -36,11 +36,15 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
-        public IActionResult Topic(int id)
+        public IActionResult Topic(int id, string searchQuery)
         {
             var forum = _forumService.GetById(id);
-            var posts = _postService.GetPostsByForum(id);
 
+            //New List of empty List Post
+            var posts = new List<Post>();
+
+            posts = _postService.GetFilteredPost(forum, searchQuery).ToList();
+        
             var postListings = posts.Select(post => new PostListingModel
             {
                 Id = post.Id,
@@ -60,6 +64,13 @@ namespace BibleForum.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Search(int id, string searchQuery)
+        {
+            //Reuse the Topic View - No need to create a new model or a new view
+            return RedirectToAction("Topic", new { id, searchQuery });
         }
 
         private ForumListingModel BuildForumListing(Post post)
