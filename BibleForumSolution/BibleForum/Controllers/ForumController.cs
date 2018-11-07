@@ -67,10 +67,10 @@ namespace BibleForum.Controllers
         }
 
         [HttpPost]
-        public IActionResult Search(int id, string searchQuery)
+        public IActionResult Search(int id, string SearchQuery)
         {
             //Reuse the Topic View - No need to create a new model or a new view
-            return RedirectToAction("Topic", new { id, searchQuery });
+            return RedirectToAction("Topic", new { id, SearchQuery });
         }
 
         private ForumListingModel BuildForumListing(Post post)
