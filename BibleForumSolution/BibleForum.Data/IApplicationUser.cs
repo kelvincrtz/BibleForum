@@ -13,6 +13,8 @@ namespace BibleForum.Data
 
         //Task for async upload method - Uri for Url Azure Blob
         Task SetProfileImage(string id, Uri uri);
+
+        //What is Type?
         Task IncrementRating(string id, Type type);
 
     }
