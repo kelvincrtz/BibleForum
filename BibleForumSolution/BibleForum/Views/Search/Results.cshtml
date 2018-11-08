@@ -10,7 +10,7 @@
             <span>Search result for @Model.SearchQuery</span>
                 <form asp-controller="Search" asp-action="Search" method="post">
                     <div class="searchForm">
-                        <input asp-for="SearchQuery" type="text" placeholder="Search.." class="searchBar" onfocus="clearThis(this)" />
+                        <input asp-for="SearchQuery" type="text" placeholder="Search.." class="searchBar" />
                         <button type="submit" class="btn btn-forumSearch">
                             <i class="material-icons">search</i>
                         </button>
@@ -63,22 +63,18 @@
                 </tbody>
             </table>
         }
+        else if(Model.SearchQuery == ""){
+
+            <h3>Empty search. Search Again.</h3>
+        }
         else
         {
-            <div class="noPosts">
-                <i class="material-icons md-72">question_answer</i>
-                <h3>
-                    No search result found for @Model.SearchQuery <br />
-                </h3>
-            </div>
+        <div class="noPosts">
+            <i class="material-icons md-72">question_answer</i>
+            <h3>
+                No search result found for @Model.SearchQuery <br />
+            </h3>
+        </div>
         }
     </div>
 </div>
-
-@section Scripts{
-    <script>
-        function clearThis(target) {
-            target.value = "";
-        }
-    </script>
-}
