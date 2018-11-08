@@ -24,6 +24,10 @@ namespace BibleForum.Controllers
 
         public IActionResult Detail(string id)
         {
+            var model = new ProfileModel()
+            {
+
+            };
             return View();
         }
     }
