@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
+using BibleForum.Models.Profile;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +29,8 @@ namespace BibleForum.Controllers
             {
 
             };
-            return View();
+
+            return View(model);
         }
     }
 }
