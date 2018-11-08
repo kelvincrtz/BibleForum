@@ -1,0 +1,19 @@
+﻿using BibleForum.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BibleForum.Data
+{
+    public interface IApplicationUser
+    {
+        ApplicationUser GetById(string id);
+        IEnumerable<ApplicationUser> GetAll();
+
+        //Task for async upload method - Uri for Url Azure Blob
+        Task SetProfileImage(string id, Uri uri);
+        Task IncrementRating(string id, Type type);
+
+    }
+}
