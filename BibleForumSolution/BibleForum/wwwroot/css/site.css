@@ -382,8 +382,17 @@
     font-weight: bold;
 }
 
+#userProfileImage{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 /* Create Post */
-.createPostSection{
+.createPostSection {
     background-color: #fff;
     padding: 24px;
 }
