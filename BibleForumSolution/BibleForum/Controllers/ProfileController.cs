@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Profile;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,5 +42,24 @@ namespace BibleForum.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadProfileImage(IFormFile file)
+        {
+            var userID = _userManager.GetUserId(User);
+
+            //Connect to an Azure Storage Account Container
+            //Get Blob Storage
+
+            //Parse the Content Disposition response header
+            //Grab the filename
+
+            //Get a reference to a Block Blob
+            // On that block blob, Upload our file < --- fie Uploaded to the cloud
+
+            //Set the User's profile image to the URL
+            //Redirect to the user's profile page
+
+        } 
     }
 }
