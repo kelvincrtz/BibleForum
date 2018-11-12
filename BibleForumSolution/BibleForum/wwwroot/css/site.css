@@ -28,6 +28,11 @@
 .navbar li{
 }
 
+.admin-navbar{
+    color:red;
+    font-weight:bold;
+}
+
 .sectionHeader{
     background-color: rgba(0,0,0,0.9);
     padding:8px 0 24px 25px;
