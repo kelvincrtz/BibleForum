@@ -357,6 +357,23 @@
     padding-top: 30px;
 }
 
+.forumHeader{
+    font-family: 'Roboto';
+}
+
+.forumHeader {
+    background-color: rgba(0,0,0,0.9);
+    padding: 8px 0 14px 15px;
+}
+
+.forumHeading {
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Roboto';
+    padding: 16px 0 16px 0;
+    margin-bottom: 12px;
+}
+
 /* User Profiles */
 .userProfile{
     padding: 32px 0 64px 24px;

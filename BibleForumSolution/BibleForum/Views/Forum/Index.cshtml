@@ -1,23 +1,35 @@
 ﻿@model BibleForum.Models.Forum.ForumIndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Forum Index";
 }
 
-<h2>Index</h2>
 
-<table class="table table-hover">
-    <tbody>
-        @foreach(var forum in Model.ForumListing)
-        {
-            <tr>
-                <td>
-                    <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
-                        @forum.Title
-                    </a>
-                </td>
-                <td>@forum.Description</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container body-content">
+    <div class="forumHeader">
+        <div class="forumHeading">
+            <h2>Forum</h2>
+        </div>
+    </div>
+    <table class="table table-hover" id="forumIndexTable">
+        <tbody>
+            @foreach (var forum in Model.ForumListing)
+            {
+                <tr>
+                    <td>
+                        <div class="forumTitle">
+                            <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
+                                @forum.Title
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="forumDescription">
+                            @forum.Description
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
