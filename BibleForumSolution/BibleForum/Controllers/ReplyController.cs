@@ -14,11 +14,13 @@ namespace BibleForum.Controllers
     {
         private readonly IPost _postService;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IApplicationUser _userService;
 
-        public ReplyController(IPost postService, UserManager<ApplicationUser> userManager)
+        public ReplyController(IPost postService, UserManager<ApplicationUser> userManager, IApplicationUser userService)
         {
             _postService = postService;
             _userManager = userManager;
+            _userService = userService;
         }
 
         public async Task <IActionResult> Create(int id)
@@ -61,6 +63,9 @@ namespace BibleForum.Controllers
 
             await _postService.AddReply(reply);
 
+            //Raise the rating of the user
+            await _userService.UpdateUserRating(userId, typeof(PostReply));
+
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
 
@@ -74,6 +79,7 @@ namespace BibleForum.Controllers
                 Content = model.ReplyContent,
                 Created = DateTime.Now,
                 User = user
+                // id from the PostReplies data table is automated - No need to wire one for it
             };
         }
     }

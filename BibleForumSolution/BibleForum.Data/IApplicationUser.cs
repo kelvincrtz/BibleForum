@@ -15,7 +15,7 @@ namespace BibleForum.Data
         Task SetProfileImage(string id, Uri uri);
 
         //What is Type?
-        Task IncrementRating(string id, Type type);
+        Task UpdateUserRating(string userId, Type type);
 
     }
 }
