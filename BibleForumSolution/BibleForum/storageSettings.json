@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "AzureStorageAccount": ""
+    "AzureStorageAccount": "DefaultEndpointsProtocol=https;AccountName=bibleforum;AccountKey=ImbRPGY4AlOc8IxmFfwy0i1viXe+9OlOni6vsTLb1aTVm0OcNgiZ3CR3CG5QTYtyjeH+nRUPVzfSdL7ozAQAVQ==;EndpointSuffix=core.windows.net"
   }
 }
