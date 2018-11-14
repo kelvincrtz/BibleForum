@@ -208,6 +208,10 @@
     margin-right: 20px;
 }
 
+.noPosts{
+    align-content:center;
+}
+
 /* Custom Button -> Hover pattern*/
 .btn-back{
     background-color: #555;
