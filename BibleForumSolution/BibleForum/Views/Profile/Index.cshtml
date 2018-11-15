@@ -1,9 +1,50 @@
 ﻿@model BibleForum.Models.ApplicationUser.ProfileListModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index Profile";
 }
 
-<div>
-
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <div class="sectionHeading">
+            Browse Users
+        </div>
+    </div>
+    <div class="row" id="forumIndexContent">
+        <table class="table table-hover" id="userIndexTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Member Since</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var profile in Model.Profiles)
+                {
+                <tr class="userRow">
+                    <td>
+                        <a asp-controller="Profile" asp-action="Detail" asp-route-id="@profile.UserId">
+                            <div class="userProfile" style="background-image:url(@profile.ProfileImageUrl); background-size:cover;"></div>
+                        </a>
+                    </td>
+                    <td>
+                        @profile.UserName
+                    </td>
+                    <td>
+                        @profile.Email
+                    </td>
+                    <td>
+                        @profile.MemberSince
+                    </td>
+                    <td>
+                        @profile.UserRating
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
