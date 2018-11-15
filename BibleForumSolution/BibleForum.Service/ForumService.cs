@@ -17,14 +17,17 @@ namespace BibleForum.Service
             _dbContext = dbContext;
         }
 
-        public Task Create(Forum forum)
+        public async Task Create(Forum forum)
         {
-            throw new NotImplementedException();
+             _dbContext.Add(forum);
+             await _dbContext.SaveChangesAsync();
         }
 
-        public Task Delete(int forumId)
+        public async Task Delete(int forumId)
         {
-            throw new NotImplementedException();
+            var forum = GetById(forumId);
+            _dbContext.Remove(forum);
+            await _dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<Forum> GetAll()
