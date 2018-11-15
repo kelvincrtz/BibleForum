@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Forum;
 using BibleForum.Models.Post;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace BibleForum.Controllers
 {
@@ -14,11 +18,15 @@ namespace BibleForum.Controllers
     {
         private readonly IForum _forumService;
         private readonly IPost _postService;
+        private readonly IUpload _uploadService;
+        private readonly IConfiguration _configuration;
 
-        public ForumController(IForum forumService, IPost postService)
+        public ForumController(IForum forumService, IPost postService, IUpload uploadService, IConfiguration configuration)
         {
             _forumService = forumService;
             _postService = postService;
+            _uploadService = uploadService;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -44,7 +52,7 @@ namespace BibleForum.Controllers
             var posts = new List<Post>();
 
             posts = _postService.GetFilteredPost(forum, searchQuery).ToList();
-        
+
             var postListings = posts.Select(post => new PostListingModel
             {
                 Id = post.Id,
@@ -71,6 +79,62 @@ namespace BibleForum.Controllers
         {
             //Reuse the Topic View - No need to create a new model or a new view
             return RedirectToAction("Topic", new { id, SearchQuery });
+        }
+
+        public IActionResult Create()
+        {
+            //Create a empty model and pass it to the view
+
+            var model = new AddForumModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddForum(AddForumModel model)
+        {
+            var imageUri = "/images/users/default.png";
+
+            if(model.ImageUpload != null)
+            {
+                var blockBlob = UploadForumImage(model.ImageUpload);
+                imageUri = blockBlob.Uri.AbsoluteUri;
+            }
+
+            var forum = new Forum
+            {
+                Title = model.Title,
+                Description = model.Description,
+                Created = DateTime.Now,
+                ImageUrl = imageUri
+            };
+
+            await _forumService.Create(forum);
+            return RedirectToAction("Index", "Forum");
+        }
+
+        private CloudBlockBlob UploadForumImage(IFormFile file)
+        {
+
+            //Connect to an Azure Storage Account Container
+            var connectionString = _configuration.GetConnectionString("AzureStorageAccount");
+
+            //Get Blob Storage
+            var container = _uploadService.GetCloudBlobContainer(connectionString);
+
+            //Parse the Content Disposition response header
+            var contentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+
+            //Grab the filename
+            var filename = contentDisposition.FileName.Trim('"');
+
+            //Get a reference to a Block Blob
+            var blockBlob = container.GetBlockBlobReference(filename);
+
+            // On that block blob, Upload our file < --- fie Uploaded to the cloud
+            blockBlob.UploadFromStreamAsync(file.OpenReadStream());
+
+            return blockBlob;
         }
 
         private ForumListingModel BuildForumListing(Post post)
