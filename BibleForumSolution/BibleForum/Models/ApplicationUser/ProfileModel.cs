@@ -11,7 +11,7 @@ namespace BibleForum.Models.Profile
         public string UserId { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
-        public string UserRating { get; set; }
+        public int UserRating { get; set; }
         public string ProfileImageUrl { get; set; }
         public bool IsAdmin { get; set; }
 

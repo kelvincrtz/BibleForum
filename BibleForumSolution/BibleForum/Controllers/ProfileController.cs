@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
+using BibleForum.Models.ApplicationUser;
 using BibleForum.Models.Profile;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -40,8 +41,30 @@ namespace BibleForum.Controllers
                 MemberSince = user.MemberSince,
                 ProfileImageUrl = user.ImageUrl,
                 UserName = user.UserName,
-                UserRating = user.Rating.ToString(),
+                UserRating = user.Rating,
                 IsAdmin = userRoles.Contains("Admin")
+            };
+
+            return View(model);
+        }
+
+        public IActionResult Index()
+        {
+            var profiles = _userService.GetAll()
+                .OrderByDescending(rating => rating.Rating)
+                .Select(u => new ProfileModel
+                {
+                    UserId = u.Id,
+                    Email = u.Email,
+                    MemberSince = u.MemberSince,
+                    UserName = u.UserName,
+                    UserRating = u.Rating,
+                    ProfileImageUrl = u.ImageUrl
+                });
+
+            var model = new ProfileListModel
+            {
+                Profiles = profiles
             };
 
             return View(model);
