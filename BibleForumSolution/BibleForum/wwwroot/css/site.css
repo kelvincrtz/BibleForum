@@ -408,10 +408,36 @@
     display: inline-block;
     width: 200px;
     height: 200px;
+    background-size: 100%;
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: center;
 }
+
+/* User Profile Index */
+.userProfilePic{
+
+}
+
+
+/* Replies */
+.replyContent{
+    display:table;
+    background-color: #fff;
+    border-bottom: 1px solid #aaa;
+    width: inherit;
+}
+
+#postReplyRow{
+    background-color: #3F51B5;
+    padding: 8px;
+}
+
+.replyContentContainer, .replyAuthorContainer {
+    display: table-cell;
+    padding: 12px;
+}
+
 
 /* Create Post */
 .createPostSection {

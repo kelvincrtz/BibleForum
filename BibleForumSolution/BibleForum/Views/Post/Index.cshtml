@@ -40,7 +40,7 @@
 
     @if (User.Identity.IsAuthenticated)
     {
-        <div class="row">
+        <div class="row" id="postReplyRow">
             <span>
                 <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">Post Reply</a>
             </span>
