@@ -56,7 +56,7 @@ namespace BibleForum.Controllers
             var connectionString = _configuration.GetConnectionString("AzureStorageAccount");
            
             //Get Blob Storage
-            var container = _uploadService.GetCloudBlobContainer(connectionString);
+            var container = _uploadService.GetCloudBlobContainer(connectionString, "profile-images");
 
             //Parse the Content Disposition response header
             var contentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);

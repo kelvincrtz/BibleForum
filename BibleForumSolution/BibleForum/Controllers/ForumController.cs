@@ -120,7 +120,7 @@ namespace BibleForum.Controllers
             var connectionString = _configuration.GetConnectionString("AzureStorageAccount");
 
             //Get Blob Storage
-            var container = _uploadService.GetCloudBlobContainer(connectionString);
+            var container = _uploadService.GetCloudBlobContainer(connectionString, "forum-images");
 
             //Parse the Content Disposition response header
             var contentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
@@ -132,7 +132,7 @@ namespace BibleForum.Controllers
             var blockBlob = container.GetBlockBlobReference(filename);
 
             // On that block blob, Upload our file < --- fie Uploaded to the cloud
-            blockBlob.UploadFromStreamAsync(file.OpenReadStream());
+            blockBlob.UploadFromStreamAsync(file.OpenReadStream()).Wait();
 
             return blockBlob;
         }

@@ -9,12 +9,12 @@ namespace BibleForum.Service
 {
     public class UploadService : IUpload
     {
-        public CloudBlobContainer GetCloudBlobContainer(string connectionString)
+        public CloudBlobContainer GetCloudBlobContainer(string connectionString, string containerName)
         {
             var storageAccount = CloudStorageAccount.Parse(connectionString);
             var blobClient = storageAccount.CreateCloudBlobClient();
 
-            return blobClient.GetContainerReference("profile-images");
+            return blobClient.GetContainerReference(containerName);
         }
     }
 }

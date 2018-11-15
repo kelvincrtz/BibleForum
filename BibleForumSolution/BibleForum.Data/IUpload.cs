@@ -7,6 +7,6 @@ namespace BibleForum.Data
 {
     public interface IUpload
     {
-        CloudBlobContainer GetCloudBlobContainer(string connectionString);
+        CloudBlobContainer GetCloudBlobContainer(string connectionString, string containerName);
     }
 }
