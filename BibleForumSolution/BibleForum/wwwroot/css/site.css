@@ -421,11 +421,12 @@
 
 
 /* Replies */
-.replyContent{
-    display:table;
-    background-color: #fff;
-    border-bottom: 1px solid #aaa;
+.replyContent {
+    display: table;
+    background-color: lightgoldenrodyellow;
     width: inherit;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
+    padding: 10px 0 10px 10px;
 }
 
 #postReplyRow{
@@ -438,6 +439,34 @@
     padding: 12px;
 }
 
+.replyContentContainer {
+    border-left: 1px solid #ddd
+}
+
+.replyAuthorContainer {
+    padding: 12px;
+    color: #444;
+    font-family: 'Roboto';
+    width: 190px;
+}
+
+.isAdmin{
+   display: inline-block;
+   padding: 3px;
+   background-color: #FFEB3B;
+   color: #000;
+   font-family: 'Roboto Mono';
+}
+
+.smaller{
+    font-size: 0.8em;
+
+}
+
+#replyDivider{
+    height: 2px;
+    margin-bottom: 12px;
+}
 
 /* Create Post */
 .createPostSection {

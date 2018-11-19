@@ -22,7 +22,7 @@
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 @Model.AuthorName
             </a>
-            <span class="postData">@Model.Created</span>
+            <span class="postDate">@Model.Created</span>
             @if (Model.IsAuthorAdmin)
             {
                 <span class="isAdmin smaller"></span>
@@ -57,19 +57,22 @@
                     <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
                         @reply.AuthorName
                     </a>
+                    <br />
                     @if (reply.IsAuthorAdmin)
                     {
                         <div class="isAdmin smaller">Admin</div>
                         <br />
                     }
-                    <span>@reply.Created</span>
+                    <span class="postDate">@reply.Created</span>
                 </div>
                 <div class="col-md-9 replyContentContainer">
-                    <div class="postContent" style= "white-space: pre-line ">
+                    <div class="postContent" style="white-space: pre-line ">
                         @Html.Raw(reply.ReplyContent)
                     </div>
                 </div>
             </div>
+
+            <div class="row" id="replyDivider"></div>
         }
     }
     else
