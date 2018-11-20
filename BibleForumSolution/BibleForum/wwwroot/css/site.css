@@ -28,9 +28,10 @@
 .navbar li{
 }
 
-.sectionHeader{
+.sectionHeader {
     background-color: rgba(0,0,0,0.9);
-    padding:8px 0 24px 25px;
+    padding: 8px 0 24px 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
 .sectionHeading{
@@ -432,9 +433,10 @@
     padding: 10px 0 10px 10px;
 }
 
-#postReplyRow{
-    background-color: #3F51B5;
+#postReplyRow {
+    background-color: darkseagreen;
     padding: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
 .replyContentContainer, .replyAuthorContainer {
@@ -475,11 +477,12 @@
 .createPostSection {
     background-color: #fff;
     padding: 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
 .authorBlock{
     padding: 18px;
-    border: 1px dashed #ddd;
+    border: 1px dashed #00897B;
     margin-bottom: 8px;
 }
 
