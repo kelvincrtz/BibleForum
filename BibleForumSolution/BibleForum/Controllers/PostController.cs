@@ -45,6 +45,7 @@ namespace BibleForum.Controllers
                 Replies = replies,
                 ForumId = post.Forum.Id,
                 ForumName = post.Forum.Title,
+                ForumImage = post.Forum.ImageUrl,
                 IsAuthorAdmin = IsAuthorAdmin(post.User)
             };
 

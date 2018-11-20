@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace BibleForum.Models.Post
 {
     public class PostIndexModel
+
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -20,6 +21,7 @@ namespace BibleForum.Models.Post
 
         public int ForumId { get; set; }
         public string ForumName { get; set; }
+        public string ForumImage { get; set; }
 
         public IEnumerable<PostReplyModel> Replies { get; set; }
     }

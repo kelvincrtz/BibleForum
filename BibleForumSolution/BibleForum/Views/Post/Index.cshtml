@@ -11,6 +11,7 @@
                 @Model.Title
             </span>
         </div>
+        <div class="forumLogo" style="background-image:url(@Model.ForumImage); background-size: 100px;"></div>
         <span id="headingBtn">
             <a asp-controller="Forum" asp-action="Topic" asp-route-id="@Model.ForumId" class="btn btn-back">Back to @Model.ForumName</a>
         </span>
@@ -18,7 +19,7 @@
 
     <div class="row" id="postIndexContent">
         <div class="col-md-3 postAuthorContainer">
-            <div class="postAuthorImage" style="background-image: url(@Model.AuthorImageUrl);"></div>
+            <div class="postAuthorImage" style="background-image: url(@Model.AuthorImageUrl); background-size: 100%;"></div>
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 @Model.AuthorName
             </a>
