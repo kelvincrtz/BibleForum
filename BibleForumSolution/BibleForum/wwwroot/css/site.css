@@ -311,6 +311,7 @@
 
 .searchTable {
     background-color: lightyellow;
+    margin-bottom: 20px;
 }
 
 
@@ -391,10 +392,14 @@
     margin-bottom: 12px;
 }
 
-.hasRecentPost{
+.hasRecentPost {
     padding: 2px;
     background-color: red;
     color: #fff;
+    border-radius: 1px;
+    width: 30px;
+    text-align: center;
+    align-content: center;
 }
 
 
@@ -445,7 +450,7 @@
 /* Replies */
 .replyContent {
     display: table;
-    background-color: lightgoldenrodyellow;
+    background-color: lightyellow;
     width: inherit;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
     padding: 10px 0 10px 10px;
