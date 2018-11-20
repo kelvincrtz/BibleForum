@@ -34,7 +34,11 @@ namespace BibleForum.Controllers
             var forums = _forumService.GetAll().Select(forum => new ForumListingModel {
                 Id = forum.Id,
                 Title = forum.Title,
-                Description = forum.Description
+                Description = forum.Description,
+                NumberOfPosts = forum.Posts?.Count() ?? 0, //check to see if its null < ? >
+                NumberOfUsers = _forumService.GetActiveUsers(forum.Id).Count(),
+                ImageUrl = forum.ImageUrl,
+                HasRecentPost = _forumService.HasRecentPost(forum.Id)
             });
 
             var model = new ForumIndexModel {
