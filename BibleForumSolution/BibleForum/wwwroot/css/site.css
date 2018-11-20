@@ -115,13 +115,19 @@
 }
 
 .frontPageContent {
-    padding-bottom: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
+    background-color:lightyellow;
 }
 
 #latestPosts {
     font-size: 1.2em;
     font-weight: bold;
     margin: 4px 0 16px 0;
+    align-content: center;
+    padding-top:20px;
 }
 
 #latestPosts td {
@@ -354,8 +360,6 @@
 }
 
 #forumIndexContent{
-    padding-bottom: 60px;
-    background-color: white;
 }
 
 .noPosts{
@@ -381,12 +385,20 @@
     margin-bottom: 12px;
 }
 
+.hasRecentPost{
+    padding: 2px;
+    background-color: red;
+    color: #fff;
+}
+
+
 /* User Profiles */
-.userProfile{
+.userProfile {
     padding: 32px 0 64px 24px;
     background-color: #fff;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
 #userEmailLabel, #userBioLabel, #userCreatedLabel, #userRating, #userActiveLabel{
