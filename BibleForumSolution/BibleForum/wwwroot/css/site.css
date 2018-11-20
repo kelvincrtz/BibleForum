@@ -165,7 +165,8 @@
 .postAuthorImage{
     height: 80px;
     width: 80px;
-    background-size: 100%;
+    background-size:cover;
+    background-position:center;
 }
 
 .postAuthorContainer{
@@ -383,6 +384,8 @@
 .userProfile{
     padding: 32px 0 64px 24px;
     background-color: #fff;
+    background-position: center;
+    background-size:cover;
 }
 
 #userEmailLabel, #userBioLabel, #userCreatedLabel, #userRating, #userActiveLabel{
@@ -404,14 +407,14 @@
     font-weight: bold;
 }
 
-#userProfileImage{
+#userProfileImage {
     display: inline-block;
     width: 200px;
     height: 200px;
-    background-size: 100%;
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 /* User Profile Index */
