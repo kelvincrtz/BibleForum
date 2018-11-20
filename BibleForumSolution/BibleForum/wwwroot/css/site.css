@@ -228,7 +228,7 @@
 
 
 .btn-newReply{
-    background-color: #5C6BC0 !important;
+    background-color: #59b9af !important;
     color: #fff !important;
     transition: ease-in 0.1s;
     border-radius: 0px !important;
@@ -434,7 +434,7 @@
 }
 
 #postReplyRow {
-    background-color: darkseagreen;
+    background-color: lightsteelblue;
     padding: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
@@ -476,7 +476,7 @@
 /* Create Post */
 .createPostSection {
     background-color: #fff;
-    padding: 24px;
+    padding: 33px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
@@ -488,6 +488,11 @@
 
 .noBorder{
     border: none;
+}
+
+/* Table */
+.tableShadow {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
 
