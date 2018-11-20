@@ -30,25 +30,44 @@ namespace BibleForum.Service
             await _dbContext.SaveChangesAsync();
         }
 
+        public IEnumerable<ApplicationUser> GetActiveUsers(int id)
+        {
+            var posts = GetById(id).Posts;
+
+            if(posts != null || !posts.Any())
+            {
+                var postUsers = posts.Select(p => p.User);
+                var replyUsers = posts.SelectMany(p => p.Replies).Select(r => r.User);
+
+                return postUsers.Union(replyUsers).Distinct();
+            }
+
+            return new List<ApplicationUser>();
+        }
+
         public IEnumerable<Forum> GetAll()
         {
             return _dbContext.Forums.Include(forum => forum.Posts);
-        }
-
-        public IEnumerable<ApplicationUser> GetAllActiveUsers()
-        {
-            throw new NotImplementedException();
         }
 
         public Forum GetById(int id)
         {
             return _dbContext.Forums.Where(f => f.Id == id)
                 .Include(f => f.Posts)
-                    .ThenInclude(f => f.Replies)
+                    .ThenInclude(f 
+                    => f.Replies)
                     .ThenInclude(f => f.User)
                 .Include(f => f.Posts)
                     .ThenInclude(f => f.User)
                 .FirstOrDefault();
+        }
+
+        public bool HasRecentPost(int id)
+        {
+            const int hoursAgo = 12;
+            var window = DateTime.Now.AddHours(-hoursAgo);
+
+            return GetById(id).Posts.Any(post => post.Created > window);
         }
 
         public Task UpdateForumDescription(int forumId, string newTitle)
