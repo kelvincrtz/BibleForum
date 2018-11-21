@@ -47,6 +47,11 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
+        public IActionResult Search(string searchQuery)
+        {
+            return RedirectToAction("Results", new { searchQuery });
+        }
+
         private ForumListingModel BuildForumListing(Post post)
         {
             var forum = post.Forum;
@@ -58,11 +63,6 @@ namespace BibleForum.Controllers
                 ImageUrl = forum.ImageUrl,
                 Title = forum.Title
             };
-        }
-
-        public IActionResult Search(string searchQuery)
-        {
-            return RedirectToAction("Results", new { searchQuery });
         }
     }
 }

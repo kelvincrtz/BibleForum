@@ -7,6 +7,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.ApplicationUser;
 using BibleForum.Models.Profile;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace BibleForum.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -48,6 +50,7 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var profiles = _userService.GetAll()

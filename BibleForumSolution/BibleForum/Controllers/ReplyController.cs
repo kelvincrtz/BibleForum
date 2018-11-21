@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Reply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BibleForum.Controllers
 {
+    [Authorize]
     public class ReplyController : Controller
     {
         private readonly IPost _postService;

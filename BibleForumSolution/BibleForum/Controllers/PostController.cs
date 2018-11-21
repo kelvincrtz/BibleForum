@@ -6,6 +6,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Post;
 using BibleForum.Models.Reply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -53,6 +54,7 @@ namespace BibleForum.Controllers
         }
 
         //A method to create a new Post FROM the Forum Index View
+        [Authorize]
         public IActionResult Create (int id)
         {
             //Note ID is Forum ID
@@ -71,6 +73,7 @@ namespace BibleForum.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddPost(NewPostModel model)
         {
             var userId = _userManager.GetUserId(User);

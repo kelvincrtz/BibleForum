@@ -7,6 +7,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Forum;
 using BibleForum.Models.Post;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace BibleForum.Controllers
 {
+
     public class ForumController : Controller
     {
         private readonly IForum _forumService;
@@ -85,6 +87,7 @@ namespace BibleForum.Controllers
             return RedirectToAction("Topic", new { id, SearchQuery });
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             //Create a empty model and pass it to the view
@@ -95,6 +98,7 @@ namespace BibleForum.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddForum(AddForumModel model)
         {
             var imageUri = "/images/users/default.png";
