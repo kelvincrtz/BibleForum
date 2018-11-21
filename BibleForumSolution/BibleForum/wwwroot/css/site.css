@@ -55,14 +55,15 @@
     background-color: white;
 }
 
-.frontPageSplash{
+.frontPageSplash {
     background-image: url("../images/theme/front-splash.png");
-    background-repeat:no-repeat;
-    background-position:left;
-    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
 
-.frontPageLearn{
+.frontPageLearn {
     font-family: 'Roboto';
     padding: 12px 0 0 32px;
     height: 360px;
@@ -73,14 +74,15 @@
 }
 
 .frontPageHeading {
-    font-size:3.4em;
+    font-size: 3.4vw;
     margin: 16px 0;
-    color:floralwhite;
+    color: floralwhite;
 }
 
 .frontPageSubHeading{
-    font-size: 1.1em;
-    color:floralwhite;
+    font-size: 1.4vw;
+    color: floralwhite;
+    font-family: "Roboto";
 }
 
 .frontPageHeading span {
