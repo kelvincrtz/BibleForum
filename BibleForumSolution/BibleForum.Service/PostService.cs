@@ -30,14 +30,26 @@ namespace BibleForum.Service
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var post = _dbContext.PostReplies.FirstOrDefault(p => p.Id == id);
+
+            _dbContext.Update(post);
+
+            _dbContext.Remove(post);
+
+            await _dbContext.SaveChangesAsync();
         }
 
-        public Task EditPostContent(int id, string newContent)
+        public async Task EditPostContent(int id, string newContent)
         {
-            throw new NotImplementedException();
+            var post = _dbContext.PostReplies.FirstOrDefault(p => p.Id == id);
+
+            _dbContext.Update(post);
+
+            post.Content = newContent;
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<Post> GetAll()
