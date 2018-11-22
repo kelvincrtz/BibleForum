@@ -61,8 +61,6 @@ namespace BibleForum.Tests
                 var postCount = result.Count();
 
                 //Assert
-                Assert.AreEqual(4, postCount);
-                Assert.AreEqual(0, postCount);
                 Assert.AreEqual(1, postCount);
             }
         }
