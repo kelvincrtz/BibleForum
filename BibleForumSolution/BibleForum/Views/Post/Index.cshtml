@@ -1,4 +1,5 @@
 ﻿@model BibleForum.Models.Post.PostIndexModel
+@inject UserManager<BibleForum.Data.Models.ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
@@ -52,26 +53,37 @@
     {
         foreach (var reply in Model.Replies)
         {
-            <div class="row replyContent">
-                <div class="col-md-3 replyAuthorContainer">
-                    <div class="postAuthorImage" style="background-image:url(@reply.AuthorImageUrl)"></div>
-                    <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
-                        @reply.AuthorName
-                    </a>
+        <div class="row replyContent">
+            <div class="col-md-3 replyAuthorContainer">
+                <div class="postAuthorImage" style="background-image:url(@reply.AuthorImageUrl)"></div>
+                <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
+                    @reply.AuthorName
+                </a>
+                <br />
+                @if (reply.IsAuthorAdmin)
+                {
+                    <div class="isAdmin smaller">Admin</div>
                     <br />
-                    @if (reply.IsAuthorAdmin)
-                    {
-                        <div class="isAdmin smaller">Admin</div>
-                        <br />
-                    }
-                    <span class="postDate">@reply.Created</span>
-                </div>
-                <div class="col-md-9 replyContentContainer">
-                    <div class="postContent" style="white-space: pre-line ">
-                        @Html.Raw(reply.ReplyContent)
-                    </div>
+                }
+                <span class="postDate">@reply.Created</span>
+            </div>
+            <div class="col-md-9 replyContentContainer">
+                <div class="postContent" style="white-space: pre-line ">
+                    @Html.Raw(reply.ReplyContent)
                 </div>
             </div>
+            @if (reply.AuthorId == @UserManager.GetUserId(User))
+            {
+            <div class="postOptions"> 
+                <div class="postOptionEdit">
+                    <a asp-controller="Post" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-back">Edit</a>
+                </div>
+                <div class="postOptionDelete">
+                    <a asp-controller="Post" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-back">Delete</a>
+                </div>
+            </div>
+            }
+        </div>
 
             <div class="row" id="replyDivider"></div>
         }
