@@ -11,11 +11,13 @@ namespace BibleForum.Tests
     [TestFixture]
     public class Post_Service_Should
     {
-        [Test]
-        public void Return_Filtered_Results_Corresponding_To_Query()
+        [TestCase("coffee", 3)]
+        [TestCase("TeA", 1)]
+        [TestCase("Water", 0)]
+        public void Return_Filtered_Results_Corresponding_To_Query(string query, int expected)
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "Search_Database").Options;
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
 
             //Arrange
             using (var ctx = new ApplicationDbContext(options))
@@ -28,7 +30,7 @@ namespace BibleForum.Tests
                 ctx.Posts.Add(new Post
                 {
                     Forum = ctx.Forums.Find(19),
-                    Id = 22323,
+                    Id = 23245,
                     Title = "First Post",
                     Content = "Coffee"
                 });
@@ -36,7 +38,7 @@ namespace BibleForum.Tests
                 ctx.Posts.Add(new Post
                 {
                     Forum = ctx.Forums.Find(19),
-                    Id = -2323,
+                    Id = -3245,
                     Title = "Coffee",
                     Content = "Some Content"
                 });
@@ -44,7 +46,7 @@ namespace BibleForum.Tests
                 ctx.Posts.Add(new Post
                 {
                     Forum = ctx.Forums.Find(19),
-                    Id = 223,
+                    Id = 215,
                     Title = "Tea",
                     Content = "Coffee"
                 });
@@ -56,13 +58,15 @@ namespace BibleForum.Tests
             using (var ctx = new ApplicationDbContext(options))
             {
                 var postService = new PostService(ctx);
-                var result = postService.GetFilteredPost("Coffee");
+
+                var result = postService.GetFilteredPost(query);
 
                 var postCount = result.Count();
 
                 //Assert
-                Assert.AreEqual(1, postCount);
+                Assert.AreEqual(expected, postCount);
             }
+
         }
     }
 }

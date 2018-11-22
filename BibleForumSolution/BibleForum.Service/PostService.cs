@@ -79,7 +79,9 @@ namespace BibleForum.Service
 
         public IEnumerable<Post> GetFilteredPost(string searchQuery)
         {
-            return GetAll().Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
+            var normalized = searchQuery.ToLower();
+
+            return GetAll().Where(post => post.Title.ToLower().Contains(normalized) || post.Content.ToLower().Contains(normalized));
         }
 
         public IEnumerable<Post> GetLastestPosts(int n)
