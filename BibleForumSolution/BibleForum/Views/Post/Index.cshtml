@@ -75,7 +75,7 @@
             @if (reply.AuthorId == @UserManager.GetUserId(User))
             {
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                <a asp-controller="Post" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-edit">Edit</a>
+                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-edit">Edit</a>
                 <a asp-controller="Post" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-delete">Delete</a>
             </div>
             }

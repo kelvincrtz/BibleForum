@@ -91,28 +91,21 @@ namespace BibleForum.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             //Get post and track for reply
-            var post = _postService.GetById(id);
+            var postReply = _postReplyService.GetById(id);
 
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            var model = new PostReplyModel
+            var model = new PostReplyEditModel
             {
-                PostContent = post.Content,
-                PostTitle = post.Title,
-                PostId = post.Id,
-
                 AuthorName = User.Identity.Name,
                 AuthorImageUrl = user.ImageUrl,
                 AuthorId = user.Id,
                 AuthorRating = user.Rating,
                 IsAuthorAdmin = User.IsInRole("Admin"),
 
-                ForumName = post.Forum.Title,
-                ForumId = post.Forum.Id,
-                ForumImageUrl = post.Forum.ImageUrl,
-
-                Created = post.Created
+                Created = postReply.Created,
+                ReplyContent = postReply.Content
             };
 
             return View(model);

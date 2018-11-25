@@ -50,9 +50,5 @@ namespace BibleForum.Service
                 .First();
         }
 
-        public string GetContentById(int id)
-        {
-            return GetById(id).Content;
-        }
     }
 }

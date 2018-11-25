@@ -43,6 +43,7 @@ namespace BibleForum
             services.AddScoped<IPost, PostService>();
             services.AddScoped<IApplicationUser, ApplicationUserService>();
             services.AddScoped<IUpload, UploadService>();
+            services.AddScoped<IPostReply, PostReplyService>();
 
             //For Configuration Injection
             services.AddSingleton(Configuration);

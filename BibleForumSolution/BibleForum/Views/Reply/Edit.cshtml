@@ -1,0 +1,39 @@
+﻿@model BibleForum.Models.Reply.PostReplyEditModel
+
+@{
+    ViewData["Title"] = "Edit Content";
+}
+
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <div class="sectionHeading">
+            Edit Reply  |
+        </div>
+        <span id="headingBtn">
+            <a asp-controller="Post" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-back">
+                Back to Reply Post
+            </a>
+        </span>
+    </div>
+    <div class="row createPostSection">
+        <div class="row">
+            <div id="createReply">
+                <div class="authorBlock">
+                    You're editing this Reply as <strong>@Model.AuthorName</strong>
+                </div>
+
+                <form asp-action="AddEditContent" method="post" id="addPostForm">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ReplyContent">Reply:</label>
+                        <textarea asp-for="ReplyContent" rows="20" class="form-control" placeholder="@Model.ReplyContent"></textarea>
+                        <span asp-validation-for="ReplyContent" class="text-danger"></span>
+                    </div>
+                    <button type="submit" id="submitReplyBtn" class="btn btn-submitPost">Submit Reply</button>
+                    <input asp-for="AuthorId" type="hidden" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
