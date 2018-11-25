@@ -43,7 +43,7 @@ namespace BibleForum.Service
 
         public async Task EditPostContent(int id, string newContent)
         {
-            var post = _dbContext.PostReplies.FirstOrDefault(p => p.Id == id);
+            var post = _dbContext.Posts.FirstOrDefault(p => p.Id == id);
 
             _dbContext.Update(post);
 
