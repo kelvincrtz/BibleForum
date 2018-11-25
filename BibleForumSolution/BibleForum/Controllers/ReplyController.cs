@@ -84,5 +84,36 @@ namespace BibleForum.Controllers
                 // id from the PostReplies data table is automated - No need to wire one for it
             };
         }
+
+        //Edit 
+        public async Task<IActionResult> Edit(int id)
+        {
+            //Get post and track for reply
+            var post = _postService.get(id);
+
+            //Get the application user that will write the reply for this post
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var model = new PostReplyModel
+            {
+                PostContent = post.Content,
+                PostTitle = post.Title,
+                PostId = post.Id,
+
+                AuthorName = User.Identity.Name,
+                AuthorImageUrl = user.ImageUrl,
+                AuthorId = user.Id,
+                AuthorRating = user.Rating,
+                IsAuthorAdmin = User.IsInRole("Admin"),
+
+                ForumName = post.Forum.Title,
+                ForumId = post.Forum.Id,
+                ForumImageUrl = post.Forum.ImageUrl,
+
+                Created = post.Created
+            };
+
+            return View(model);
+        }
     }
 }
