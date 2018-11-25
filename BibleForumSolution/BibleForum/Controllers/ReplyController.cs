@@ -15,12 +15,14 @@ namespace BibleForum.Controllers
     public class ReplyController : Controller
     {
         private readonly IPost _postService;
+        private readonly IPostReply _postReplyService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IApplicationUser _userService;
 
-        public ReplyController(IPost postService, UserManager<ApplicationUser> userManager, IApplicationUser userService)
+        public ReplyController(IPost postService, IPostReply postReplyService, UserManager<ApplicationUser> userManager, IApplicationUser userService)
         {
             _postService = postService;
+            _postReplyService = postReplyService;
             _userManager = userManager;
             _userService = userService;
         }
@@ -89,7 +91,7 @@ namespace BibleForum.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             //Get post and track for reply
-            var post = _postService.get(id);
+            var post = _postService.GetById(id);
 
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);

@@ -47,7 +47,12 @@ namespace BibleForum.Service
             return _dbContext.PostReplies.Where(postReply => postReply.Id == id)
                 .Include(user => user.User)
                 .Include(post => post.Post)
-                .FirstOrDefault();
+                .First();
+        }
+
+        public string GetContentById(int id)
+        {
+            return GetById(id).Content;
         }
     }
 }

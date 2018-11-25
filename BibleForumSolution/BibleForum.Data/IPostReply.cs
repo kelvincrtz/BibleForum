@@ -9,6 +9,7 @@ namespace BibleForum.Data
     public interface IPostReply
     {
         PostReply GetById(int id);
+        string GetContentById(int id);
 
         IEnumerable<PostReply> GetAll();
 
