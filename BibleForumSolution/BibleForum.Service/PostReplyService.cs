@@ -23,20 +23,30 @@ namespace BibleForum.Service
             throw new NotImplementedException();
         }
 
-        public Task EditPostReplyContent(int id, string newContent)
+        public async Task EditPostReplyContent(int id, string newContent)
         {
-            throw new NotImplementedException();
+            var postReply = GetById(id);
+
+            _dbContext.Update(postReply);
+
+            postReply.Content = newContent;
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<PostReply> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplies
+                .Include(user => user.User)
+                .Include(post => post.Post);
+            
         }
 
         public PostReply GetById(int id)
         {
             return _dbContext.PostReplies.Where(postReply => postReply.Id == id)
-                .Include(u => u.User)
+                .Include(user => user.User)
+                .Include(post => post.Post)
                 .FirstOrDefault();
         }
     }
