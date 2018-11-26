@@ -67,18 +67,30 @@
                 }
                 <span class="postDate">@reply.Created</span>
             </div>
-            <div class="col-md-9 replyContentContainer">
+            <div class="col-md-8 replyContentContainer">
                 <div class="postContent" style="white-space: pre-line ">
                     @Html.Raw(reply.ReplyContent)
                 </div>
+                <div class="ifEdited">
+                    <br />
+                    <p>(Edited)</p>
+                </div>
             </div>
-            @if (reply.AuthorId == @UserManager.GetUserId(User))
-            {
-            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-edit">Edit</a>
-                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-delete">Delete</a>
-            </div>
-            }
+            <div class="col-sm-offset-1">
+                @if (reply.AuthorId == @UserManager.GetUserId(User))
+                {
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-success btn-sm">Edit</a>
+                        <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                }
+                    <div class="">
+                        <br />
+                        <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-thumbs-up"></span> Vote
+                        </a>
+                    </div>
+              </div>
         </div>
 
             <div class="row" id="replyDivider"></div>
