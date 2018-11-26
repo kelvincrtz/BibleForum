@@ -108,6 +108,9 @@ namespace BibleForum.Controllers
                 Created = postReply.Created,
                 ReplyContent = postReply.Content,
 
+                //TO BE IMPLEMENTED:
+                EditedCreatedDate = DateTime.Now,
+
                 PostId = postReply.Post.Id,
                 ForumId = postReply.Post.Forum.Id,
                 ForumImageUrl = postReply.Post.Forum.ImageUrl,

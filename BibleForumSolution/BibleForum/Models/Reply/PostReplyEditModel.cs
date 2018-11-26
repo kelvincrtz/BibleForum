@@ -16,6 +16,7 @@ namespace BibleForum.Models.Reply
         public bool IsAuthorAdmin { get; set; }
 
         public DateTime Created { get; set; }
+        public DateTime EditedCreatedDate { get; set; }
         public string ReplyContent { get; set; }
 
         public int PostId { get; set; }
