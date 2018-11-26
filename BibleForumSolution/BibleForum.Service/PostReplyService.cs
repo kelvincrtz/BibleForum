@@ -35,6 +35,8 @@ namespace BibleForum.Service
             _dbContext.Update(postReply);
 
             postReply.Content = newContent;
+            postReply.IsEdited = true;
+            postReply.EditedDate = DateTime.Now;
 
             await _dbContext.SaveChangesAsync();
         }
