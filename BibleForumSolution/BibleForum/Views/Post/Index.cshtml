@@ -71,25 +71,30 @@
                 <div class="postContent" style="white-space: pre-line ">
                     @Html.Raw(reply.ReplyContent)
                 </div>
-                <div class="ifEdited">
+                <div class="isEdited doubleLineBreak">
                     <br />
                     <p>(Edited)</p>
                 </div>
             </div>
-            <div class="col-sm-offset-1">
-                @if (reply.AuthorId == @UserManager.GetUserId(User))
-                {
-                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-success btn-sm">Edit</a>
-                        <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+            <div class="col-md-1 replyVoteEditDeleteContainer">
+                <div class="row">
+                    @if (reply.AuthorId == @UserManager.GetUserId(User))
+                    {
+                        <br />
+                    <div class="editOrDelete">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
                     </div>
-                }
-                    <div class="">
+                    }
+                    <div class="vote">
                         <br />
                         <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-thumbs-up"></span> Vote
                         </a>
                     </div>
+                </div>
               </div>
         </div>
 

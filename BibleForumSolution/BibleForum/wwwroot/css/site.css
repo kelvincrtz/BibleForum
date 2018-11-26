@@ -510,6 +510,11 @@
 
 }
 
+.replyVoteEditDeleteContainer {
+    padding: 1px;
+    font-family: 'Roboto';
+}
+
 .isAdmin{
    display: inline-block;
    padding: 3px;
@@ -526,6 +531,26 @@
 #replyDivider{
     height: 2px;
     margin-bottom: 12px;
+}
+
+.isEdited{
+    font-family:"Roboto Mono";
+    font-style:italic;
+    font-size:x-small;
+    text-align:left;
+    color:grey;
+}
+
+.editOrDelete {
+    text-align: end;
+}
+
+.vote{
+    text-align: end;
+}
+
+.doubleLineBreak {
+    line-height: 2em; /* chrome for instance */
 }
 
 /* Create Post */
