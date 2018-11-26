@@ -58,12 +58,11 @@ namespace BibleForum.Service
 
         public async Task Vote(int id)
         {
-            var num = 1;
             var postReply = GetById(id);
 
             _dbContext.Update(postReply);
 
-            postReply.VoteCount = num++;
+            postReply.VoteCount += 1;
 
             await _dbContext.SaveChangesAsync();
 
