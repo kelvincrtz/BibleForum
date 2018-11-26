@@ -106,7 +106,13 @@ namespace BibleForum.Controllers
                 IsAuthorAdmin = User.IsInRole("Admin"),
 
                 Created = postReply.Created,
-                ReplyContent = postReply.Content
+                ReplyContent = postReply.Content,
+
+                PostId = postReply.Post.Id,
+                ForumId = postReply.Post.Forum.Id,
+                ForumImageUrl = postReply.Post.Forum.ImageUrl,
+                ForumName = postReply.Post.Forum.Title
+
             };
 
             return View(model);
@@ -118,7 +124,7 @@ namespace BibleForum.Controllers
 
             await _postReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
 
-            return RedirectToAction("Index", "Post");
+            return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
 
     }

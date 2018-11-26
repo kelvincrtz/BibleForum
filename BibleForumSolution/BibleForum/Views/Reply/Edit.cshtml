@@ -6,14 +6,13 @@
 
 <div class="container body-content">
     <div class="row sectionHeader">
-        <div class="sectionHeading">
-            Edit Reply  |
+        <div class="sectionHeading noBorder">
+            Edit Reply  | @Model.ForumName
+            <div class="forumLogo" style="background-image:url(@Model.ForumImageUrl);background-size: 100%;"></div>
+            <span id="headingBtn">
+                <a asp-controller="Forum" asp-action="Topic" asp-route-id="@Model.PostId" class="btn btn-back">Back to @Model.ForumName</a>
+            </span>
         </div>
-        <span id="headingBtn">
-            <a asp-controller="Post" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-back">
-                Back to Reply Post
-            </a>
-        </span>
     </div>
     <div class="row createPostSection">
         <div class="row">
@@ -32,6 +31,7 @@
                     <button type="submit" id="submitReplyBtn" class="btn btn-submitPost">Submit Reply</button>
                     <input asp-for="AuthorId" type="hidden" />
                     <input asp-for="Id" type="hidden" />
+                    <input asp-for="PostId" type="hidden" />
                 </form>
             </div>
         </div>

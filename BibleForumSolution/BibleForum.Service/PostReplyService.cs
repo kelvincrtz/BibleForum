@@ -47,6 +47,7 @@ namespace BibleForum.Service
             return _dbContext.PostReplies.Where(postReply => postReply.Id == id)
                 .Include(user => user.User)
                 .Include(post => post.Post)
+                    .ThenInclude(forum => forum.Forum)
                 .First();
         }
 
