@@ -112,7 +112,6 @@ namespace BibleForum.Controllers
                 ForumId = postReply.Post.Forum.Id,
                 ForumImageUrl = postReply.Post.Forum.ImageUrl,
                 ForumName = postReply.Post.Forum.Title
-
             };
 
             return View(model);
@@ -125,6 +124,17 @@ namespace BibleForum.Controllers
             await _postReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
 
             return RedirectToAction("Index", "Post", new { id = model.PostId });
+        }
+
+
+        //Delete
+        public async Task<IActionResult> Delete (int id)
+        {
+            var postReply = _postReplyService.GetById(id);
+
+            await _postReplyService.Delete(id);
+
+            return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
         }
 
     }

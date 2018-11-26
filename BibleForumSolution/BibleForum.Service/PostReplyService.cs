@@ -18,9 +18,14 @@ namespace BibleForum.Service
             _dbContext = dbContext;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var postReply = GetById(id);
+
+            _dbContext.Remove(postReply);
+
+            await _dbContext.SaveChangesAsync();
+
         }
 
         public async Task EditPostReplyContent(int id, string newContent)
