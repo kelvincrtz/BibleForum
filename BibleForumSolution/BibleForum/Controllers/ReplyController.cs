@@ -140,10 +140,12 @@ namespace BibleForum.Controllers
             return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
         }
 
-        //Voting system
+        //Voting
         public async Task<IActionResult> Vote (int id)
         {
             var postReply = _postReplyService.GetById(id);
+
+            await _postReplyService.Vote(id);
 
             return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
         }

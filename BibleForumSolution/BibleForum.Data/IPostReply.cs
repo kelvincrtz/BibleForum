@@ -15,7 +15,7 @@ namespace BibleForum.Data
         Task Delete(int id);
         Task EditPostReplyContent(int id, string newContent);
 
-        Task Vote(int id, int num);
+        Task Vote(int id);
 
     }
 }
