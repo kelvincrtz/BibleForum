@@ -98,6 +98,7 @@ namespace BibleForum.Controllers
 
             var model = new PostReplyEditModel
             {
+                Id = postReply.Id,
                 AuthorName = User.Identity.Name,
                 AuthorImageUrl = user.ImageUrl,
                 AuthorId = user.Id,
@@ -110,5 +111,15 @@ namespace BibleForum.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddEditContent(PostReplyEditModel model)
+        {
+
+            await _postReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
+
+            return RedirectToAction("Index", "Post");
+        }
+
     }
 }
