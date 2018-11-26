@@ -123,6 +123,13 @@ namespace BibleForum.Controllers
                 Created = reply.Created,
                 PostId = reply.Post.Id,
                 ReplyContent = reply.Content,
+
+                //
+                VoteCount = reply.VoteCount,
+                EditedCreatedDate = reply.EditedDate,
+                IsEdited = reply.IsEdited,
+                //
+
                 IsAuthorAdmin = IsAuthorAdmin(reply.User)
             });
         }

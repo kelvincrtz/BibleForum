@@ -108,8 +108,9 @@ namespace BibleForum.Controllers
                 Created = postReply.Created,
                 ReplyContent = postReply.Content,
 
-                //TO BE IMPLEMENTED:
                 EditedCreatedDate = DateTime.Now,
+                VoteCount = postReply.VoteCount,
+                IsEdited = postReply.IsEdited,
 
                 PostId = postReply.Post.Id,
                 ForumId = postReply.Post.Forum.Id,
