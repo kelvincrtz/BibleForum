@@ -536,7 +536,7 @@
 .isEdited{
     font-family:"Roboto Mono";
     font-style:italic;
-    font-size:x-small;
+    font-size:xx-small;
     text-align:left;
     color:grey;
 }
@@ -547,6 +547,10 @@
 
 .vote{
     text-align: end;
+}
+
+.voteCount{
+    font-family:"Roboto Mono";
 }
 
 .doubleLineBreak {

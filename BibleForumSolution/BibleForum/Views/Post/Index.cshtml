@@ -93,8 +93,8 @@
                     }
                     <div class="vote">
                         <br />
-                        <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Vote (@reply.VoteCount)
+                        <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-thumbs-up"></span> Vote <span class="voteCount">(@reply.VoteCount)</span>
                         </a>
                     </div>
                 </div>
