@@ -17,6 +17,10 @@ namespace BibleForum.Models.Reply
 
         public DateTime Created { get; set; }
         public DateTime EditedCreatedDate { get; set; }
+
+        public bool IsEdited { get; set; }
+        public int VoteCount { get; set; }
+
         public string ReplyContent { get; set; }
 
         public int PostId { get; set; }
