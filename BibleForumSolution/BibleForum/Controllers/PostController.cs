@@ -6,6 +6,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Post;
 using BibleForum.Models.Reply;
+using BibleForum.Models.ReplySupportingBibleVerse;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -113,6 +114,7 @@ namespace BibleForum.Controllers
 
         private IEnumerable<PostReplyModel> BuildPostReplies(IEnumerable<PostReply> replies)
         {
+
             return replies.Select(reply => new PostReplyModel
             {
                 Id = reply.Id,
@@ -123,12 +125,18 @@ namespace BibleForum.Controllers
                 Created = reply.Created,
                 PostId = reply.Post.Id,
                 ReplyContent = reply.Content,
-
-                //
+                PostReplySupportingBibleVerses = reply.PostReplySupportingBibleVerse
+                    .Select(supportVerse => new PostReplySupportingBibleVerseModel
+                        {
+                            BibleChapter = supportVerse.BibleChapter,
+                            BibleTranslation = supportVerse.BibleTranslation,
+                            BibleVerse = supportVerse.BibleVerse,
+                            Created = supportVerse.Created,
+                            Id = supportVerse.Id
+                        }),
                 VoteCount = reply.VoteCount,
                 EditedCreatedDate = reply.EditedDate,
                 IsEdited = reply.IsEdited,
-                //
 
                 IsAuthorAdmin = IsAuthorAdmin(reply.User)
             });

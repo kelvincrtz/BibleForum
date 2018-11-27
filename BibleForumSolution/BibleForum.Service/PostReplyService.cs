@@ -55,6 +55,7 @@ namespace BibleForum.Service
                 .Include(user => user.User)
                 .Include(post => post.Post)
                     .ThenInclude(forum => forum.Forum)
+                .Include(supportVerse => supportVerse.PostReplySupportingBibleVerse)
                 .First();
         }
 
