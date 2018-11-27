@@ -84,12 +84,16 @@
                     @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
                     {
                         <br />
-                    <div class="editOrDelete">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
-                            <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+                        <div class="editOrDelete">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
+                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
                         </div>
-                    </div>
+                    }
+                    @if (reply.AuthorId == UserManager.GetUserId(User))
+                    {
+                        <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
                     }
                     <div class="vote">
                         <br />
