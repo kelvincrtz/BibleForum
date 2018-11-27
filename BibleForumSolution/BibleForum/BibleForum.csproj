@@ -24,8 +24,4 @@
     <ProjectReference Include="..\BibleForum.Service\BibleForum.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ReplySupportVerse\" />
-  </ItemGroup>
-
 </Project>

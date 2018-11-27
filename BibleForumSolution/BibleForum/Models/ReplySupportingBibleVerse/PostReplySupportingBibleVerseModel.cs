@@ -13,5 +13,16 @@ namespace BibleForum.Models.ReplySupportingBibleVerse
         public string BibleTranslation { get; set; }
         public DateTime Created { get; set; }
 
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public int AuthorRating { get; set; }
+        public string AuthorImageUrl { get; set; }
+        public bool IsAuthorAdmin { get; set; }
+
+        public int PostId { get; set; }
+        public string PostTitle { get; set; }
+
+        public int PostReplyId { get; set; }
+
     }
 }

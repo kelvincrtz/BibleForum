@@ -81,7 +81,7 @@
 
                 @if (reply.AuthorId == UserManager.GetUserId(User))
                 {
-                    <a asp-controller="SupportVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                    <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
                         <span class="glyphicon glyphicon-book"></span> Support reply with a Bible Verse
                     </a>
                 }
@@ -97,7 +97,7 @@
                     </div>
                 }
                 <div class="vote">
-                    <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                    <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-sm">
                         <span class="glyphicon glyphicon-heart-empty"></span> Vote <span class="voteCount">(@reply.VoteCount)</span>
                     </a>
                 </div>
