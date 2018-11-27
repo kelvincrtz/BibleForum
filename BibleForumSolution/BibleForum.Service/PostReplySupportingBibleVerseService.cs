@@ -16,9 +16,10 @@ namespace BibleForum.Service
             _dbContext = dbContext;
         }
 
-        public Task Add(int id)
+        public async Task Add(PostReplySupportingBibleVerse postReplySupportingBibleVerse)
         {
-            throw new NotImplementedException();
+            _dbContext.Add(postReplySupportingBibleVerse);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task Delete(int id)

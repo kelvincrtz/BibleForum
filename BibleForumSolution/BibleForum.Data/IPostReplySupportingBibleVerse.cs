@@ -11,7 +11,8 @@ namespace BibleForum.Data
         PostReplySupportingBibleVerse GetById(int id);
         IEnumerable<PostReplySupportingBibleVerse> GetAll();
 
-        Task Add(int id);
+        
+        Task Add(PostReplySupportingBibleVerse postReplySupportingBibleVerse);
         Task Delete(int id);
         Task EditPostReplyVerseContent(int id, string newContent, string newChapter, string newTranslation);
     }
