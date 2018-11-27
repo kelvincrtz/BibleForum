@@ -10,6 +10,7 @@ namespace BibleForum.Data.Models
         public string BibleChapter { get; set; }
         public string BibleVerse { get; set; }
         public string BibleTranslation { get; set; }
+        public DateTime Created { get; set; }
 
         public virtual ApplicationUser User { get; set; }
         public virtual Post Post { get; set; }
