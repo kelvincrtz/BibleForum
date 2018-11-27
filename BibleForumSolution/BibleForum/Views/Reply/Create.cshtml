@@ -37,6 +37,7 @@
                         <label asp-for="ReplyContent">Reply:</label>
                         <textarea asp-for="ReplyContent" rows="20" class="form-control" placeholder="Your reply.."></textarea>
                         <span asp-validation-for="ReplyContent" class="text-danger"></span>
+
                     </div>
                     <button type="submit" id="submitReplyBtn" class="btn btn-submitPost">Submit Reply</button>
                     <input asp-for="AuthorId" type="hidden" />

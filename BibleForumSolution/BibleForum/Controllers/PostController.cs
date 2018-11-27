@@ -128,11 +128,11 @@ namespace BibleForum.Controllers
                 PostReplySupportingBibleVerses = reply.PostReplySupportingBibleVerse
                     .Select(supportVerse => new PostReplySupportingBibleVerseModel
                         {
+                            Id = supportVerse.Id,
                             BibleChapter = supportVerse.BibleChapter,
                             BibleTranslation = supportVerse.BibleTranslation,
                             BibleVerse = supportVerse.BibleVerse,
                             Created = supportVerse.Created,
-                            Id = supportVerse.Id
                         }),
                 VoteCount = reply.VoteCount,
                 EditedCreatedDate = reply.EditedDate,
