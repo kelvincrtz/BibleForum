@@ -13,6 +13,9 @@
                 <span id="headingBtn">
                     <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newpost">Create Post</a>
                 </span>
+                <span id="headingBtn">
+                    <a asp-controller="Forum" asp-action="EditForum" asp-route-id="@Model.Forum.Id" class="btn btn-primary">Edit Forum</a>
+                </span>
             }
             <form asp-controller="Forum" asp-action="Search" method="post">
                 <div class="searchForm">

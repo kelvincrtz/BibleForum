@@ -542,11 +542,13 @@
 }
 
 .editOrDelete {
-    text-align: end;
+    float: right;
+    margin-right: 20px;
 }
 
-.vote{
-    text-align: end;
+.vote {
+    float: right;
+    margin-right: 20px;
 }
 
 .voteCount{

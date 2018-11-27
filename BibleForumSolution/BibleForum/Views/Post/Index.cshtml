@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-1 replyVoteEditDeleteContainer">
                 <div class="row">
-                    @if (reply.AuthorId == @UserManager.GetUserId(User))
+                    @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
                     {
                         <br />
                     <div class="editOrDelete">

@@ -121,6 +121,11 @@ namespace BibleForum.Controllers
             return RedirectToAction("Index", "Forum");
         }
 
+        public async Task<IActionResult> EditForum()
+        {
+            return View();
+        }
+
         private CloudBlockBlob UploadForumImage(IFormFile file)
         {
 
