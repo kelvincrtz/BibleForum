@@ -86,19 +86,25 @@
                         <br />
                         <div class="editOrDelete">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
-                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">Delete</a>
+                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-erase"></span> Delete
+                                </a>
                             </div>
                         </div>
                     }
                     @if (reply.AuthorId == UserManager.GetUserId(User))
                     {
-                        <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">Edit</a>
+                        <a asp-controller="SupportVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-book"></span> Support reply with a Bible Verse
+                        </a>
                     }
                     <div class="vote">
                         <br />
                         <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Vote <span class="voteCount">(@reply.VoteCount)</span>
+                            <span class="glyphicon glyphicon-heart-empty"></span> Vote <span class="voteCount">(@reply.VoteCount)</span>
                         </a>
                     </div>
                 </div>
