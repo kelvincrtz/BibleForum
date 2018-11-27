@@ -22,8 +22,12 @@ namespace BibleForum.Controllers
 
         public IActionResult Results(string searchQuery)
         {
+            if(searchQuery == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var posts = _postService.GetFilteredPost(searchQuery);
-            var areNoResults = (!String.IsNullOrEmpty(searchQuery) && !posts.Any());
+            var areNoResults = (String.IsNullOrEmpty(searchQuery) && !posts.Any());
 
             var postListings = posts.Select(post => new PostListingModel
             {
