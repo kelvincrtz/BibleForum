@@ -16,6 +16,5 @@ namespace BibleForum.Models.Forum
         public int NumberOfUsers { get; set; }
         public bool HasRecentPost { get; set; }
 
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BibleForum.Models.Reply;
+using BibleForum.Models.ReplySupportingBibleVerse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,6 @@ namespace BibleForum.Models.Post
         public string ForumImage { get; set; }
 
         public IEnumerable<PostReplyModel> Replies { get; set; }
+        public IEnumerable<PostReplySupportingBibleVerseModel> SupportingVerse { get; set; }
     }
 }
