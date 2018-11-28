@@ -44,7 +44,9 @@
     {
         <div class="row" id="postReplyRow">
             <span>
-                <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">Post Reply</a>
+                <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">
+                    <span class=""></span> Reply
+                </a>
             </span>
         </div>
     }
@@ -82,17 +84,17 @@
                     @if (reply.AuthorId == UserManager.GetUserId(User))
                     {
                         <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span> Add a verse
+                            <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
                         </a>
                     }
                     @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
                     {
                         <div class="btn-group" role="group">
                             <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-edit"></span> Edit
+                                <span class="glyphicon glyphicon-wrench"></span> Edit
                             </a>
                             <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-erase"></span> Delete
+                                <span class="glyphicon glyphicon-trash"></span> Delete
                             </a>
                         </div>
                     }
@@ -107,22 +109,22 @@
                             @foreach (var verse in reply.PostReplySupportingBibleVerses)
                             {
                                 <div class="row supportingBibleVerseContent">
-                                        <div class="">
-                                            @verse.BibleChapter
-                                        </div>
-                                        <div class="">
-                                            @verse.BibleTranslation
-                                        </div>
-                                        <div class="">
-                                            @verse.BibleVerse
-                                        </div>
+                                    <div class="">
+                                        @verse.BibleChapter
+                                    </div>
+                                    <div class="">
+                                        @verse.BibleTranslation
+                                    </div>
+                                    <div class="">
+                                        @verse.BibleVerse
+                                    </div>
                                 </div>
                             }
                         </div>
                     }
                 </div>
             </div>
-            <div class="row" id="replyDivider"></div>
+        <div class="row" id="replyDivider"></div>
         }
     }
     else
