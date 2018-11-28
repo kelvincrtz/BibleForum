@@ -61,7 +61,7 @@ namespace BibleForum.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddSupportingVerse(PostReplySupportingBibleVerse model)
+        public async Task<IActionResult> AddSupportingVerse(PostReplySupportingBibleVerseModel model)
         {
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(userId);
@@ -70,11 +70,13 @@ namespace BibleForum.Controllers
 
             await _supportingBibleVerseService.Add(replySupportingVerse);
 
-            return RedirectToAction("Index", "Post", new { id = model.Post.Id });
+            return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
 
-        private PostReplySupportingBibleVerse BuildSupportingVerse(PostReplySupportingBibleVerse model, ApplicationUser user)
+        private PostReplySupportingBibleVerse BuildSupportingVerse(PostReplySupportingBibleVerseModel model, ApplicationUser user)
         {
+            var post = _postService.GetById(model.PostId);
+            var postReply = _postReplyService.GetById(model.PostReplyId);
 
             return new PostReplySupportingBibleVerse
             {
@@ -82,8 +84,8 @@ namespace BibleForum.Controllers
                 BibleTranslation = model.BibleTranslation,
                 BibleVerse = model.BibleVerse,
 
-                Post = model.Post,
-                PostReply = model.PostReply,
+                Post = post,
+                PostReply = postReply,
                 Created = DateTime.Now,
                 User = user
             };

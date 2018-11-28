@@ -67,6 +67,7 @@ namespace BibleForum.Controllers
 
             await _postService.AddReply(reply);
 
+
             //Raise the rating of the user
             await _userService.UpdateUserRating(userId, typeof(PostReply));
 
