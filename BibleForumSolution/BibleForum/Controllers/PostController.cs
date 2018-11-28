@@ -129,6 +129,7 @@ namespace BibleForum.Controllers
                     .Select(supportVerse => new PostReplySupportingBibleVerseModel
                         {
                             Id = supportVerse.Id,
+                            BibleBook = supportVerse.BibleBook,
                             BibleChapter = supportVerse.BibleChapter,
                             BibleTranslation = supportVerse.BibleTranslation,
                             BibleVerse = supportVerse.BibleVerse,
