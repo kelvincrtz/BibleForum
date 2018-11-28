@@ -16,13 +16,15 @@ namespace BibleForum.Controllers
     {
         private readonly IPost _postService;
         private readonly IPostReply _postReplyService;
+        private readonly IPostReplySupportingBibleVerse _supportingBibleVerseService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IApplicationUser _userService;
 
-        public SupportingVerseController(IPost postService, IPostReply postReplyService, UserManager<ApplicationUser> userManager, IApplicationUser userService)
+        public SupportingVerseController(IPost postService, IPostReply postReplyService, UserManager<ApplicationUser> userManager, IApplicationUser userService, IPostReplySupportingBibleVerse supportingBibleVerseService)
         {
             _postService = postService;
             _postReplyService = postReplyService;
+            _supportingBibleVerseService = supportingBibleVerseService;
             _userManager = userManager;
             _userService = userService;
         }
@@ -66,25 +68,24 @@ namespace BibleForum.Controllers
 
             var replySupportingVerse = BuildSupportingVerse(model, user);
 
-            //await _postReplyService.AddReplySupportingVerse(replySupportingVerse);
+            await _supportingBibleVerseService.Add(replySupportingVerse);
 
             return RedirectToAction("Index", "Post", new { id = model.Post.Id });
         }
 
-        private object BuildSupportingVerse(PostReplySupportingBibleVerse model, ApplicationUser user)
+        private PostReplySupportingBibleVerse BuildSupportingVerse(PostReplySupportingBibleVerse model, ApplicationUser user)
         {
-            var postReplySupportVerse = _postReplyService.GetById(model.Id);
 
             return new PostReplySupportingBibleVerse
             {
                 BibleChapter = model.BibleChapter,
                 BibleTranslation = model.BibleTranslation,
                 BibleVerse = model.BibleVerse,
+
                 Post = model.Post,
                 PostReply = model.PostReply,
                 Created = DateTime.Now,
                 User = user
-               
             };
         }
     }

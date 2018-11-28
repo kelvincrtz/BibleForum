@@ -82,7 +82,7 @@
                 @if (reply.AuthorId == UserManager.GetUserId(User))
                 {
                     <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-book"></span> Support reply with a Bible Verse
+                        <span class="glyphicon glyphicon-book"></span> Add a verse
                     </a>
                 }
                 @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
