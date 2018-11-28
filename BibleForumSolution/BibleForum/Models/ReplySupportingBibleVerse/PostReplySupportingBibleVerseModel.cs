@@ -8,6 +8,7 @@ namespace BibleForum.Models.ReplySupportingBibleVerse
     public class PostReplySupportingBibleVerseModel
     {
         public int Id { get; set; }
+        public string BibleBook { get; set; }
         public string BibleChapter { get; set; }
         public string BibleVerse { get; set; }
         public string BibleTranslation { get; set; }
