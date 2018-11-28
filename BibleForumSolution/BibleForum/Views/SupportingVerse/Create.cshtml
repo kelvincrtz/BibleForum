@@ -17,27 +17,23 @@
                     <div asp-validation-summary="All" class="">
 
                         <div class="form-group">
+                            <label asp-for="BibleBook">Book</label>
+                            <input asp-for="BibleBook" class="form-control" id="italicPlaceholder" placeholder="John" />
+                            <span asp-validation-for="BibleBook" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
                             <label asp-for="BibleChapter">Chapter</label>
-                            <input asp-for="BibleChapter" class="form-control" placeholder="Choose chapter" />
+                            <input asp-for="BibleChapter" class="form-control" id="italicPlaceholder" placeholder="3:16" />
                             <span asp-validation-for="BibleChapter" class="text-danger"></span>
                         </div>
-                        @*
-                        <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
-                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        *@
                         <div class="form-group">
                             <label asp-for="BibleTranslation">Translation</label>
-                            <input asp-for="BibleTranslation" class="form-control" placeholder="Choose translation" />
+                            <input asp-for="BibleTranslation" class="form-control" id="italicPlaceholder" placeholder="NIV" />
                             <span asp-validation-for="BibleTranslation" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="BibleVerse">Verse</label>
-                            <textarea asp-for="BibleVerse" class="form-control" placeholder="Choose verse"></textarea>
+                            <textarea asp-for="BibleVerse" class="form-control" id="italicPlaceholder" placeholder="For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."></textarea>
                             <span asp-validation-for="BibleVerse" class="text-danger"></span>
                         </div>
                         <button type="submit" id="newFormBtn" class="btn btn-submitPost">Create Verse</button>

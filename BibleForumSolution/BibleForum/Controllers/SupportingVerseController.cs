@@ -83,7 +83,7 @@ namespace BibleForum.Controllers
                 BibleChapter = model.BibleChapter,
                 BibleTranslation = model.BibleTranslation,
                 BibleVerse = model.BibleVerse,
-
+                BibleBook = model.BibleBook,
                 Post = post,
                 PostReply = postReply,
                 Created = DateTime.Now,
