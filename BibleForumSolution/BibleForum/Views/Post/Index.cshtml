@@ -104,6 +104,28 @@
                   
             </div>
         </div>
+        <div class="supportingBibleVerse">
+            @if (Model.SupportingVerse.Any())
+            {
+                foreach(var verse in Model.SupportingVerse)
+                {
+                    <div class="row supportingBibleVerseContent">
+                        @if(verse.PostReplyId == reply.Id)
+                        {
+                            <div class="">
+                                @verse.BibleChapter
+                            </div>
+                            <div class="">
+                                @verse.BibleTranslation
+                            </div>
+                            <div class="">
+                                @verse.BibleVerse
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
 
          <div class="row" id="replyDivider"></div>
         }
