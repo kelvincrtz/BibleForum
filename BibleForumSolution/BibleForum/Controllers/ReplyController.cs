@@ -150,6 +150,7 @@ namespace BibleForum.Controllers
             await _postReplyService.Vote(id);
 
             return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
+
         }
 
     }
