@@ -82,23 +82,23 @@
                 @if (reply.AuthorId == UserManager.GetUserId(User))
                 {
                     <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-book"></span> Add a verse
+                        <span class="glyphicon glyphicon-pencil"></span> Add a verse
                     </a>
                 }
                 @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
                 {
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
+                            <span class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-erase"></span> Delete
+                            <span class="glyphicon glyphicon-erase"></span> 
                         </a>
                     </div>
                 }
                 <div class="vote">
                     <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-sm">
-                        <span class="glyphicon glyphicon-heart-empty"></span> Vote <span class="voteCount">(@reply.VoteCount)</span>
+                        <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@reply.VoteCount)</span>
                     </a>
                 </div>
                   

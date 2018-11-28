@@ -7,30 +7,40 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
-            Create New Forum
+            Create Supporting Verse
         </div>
     </div>
     <div class="row">
         <div class="createPostSection">
             <div id="createForumSection">
                 <form asp-action="AddSupportingVerse" method="post" id="createForumForm">
-                    <div asp-validation-summary="All" class="text-danger">
+                    <div asp-validation-summary="All" class="">
+
                         <div class="form-group">
-                            <label asp-for="BibleChapter">Bible Chapter</label>
-                            <input asp-for="BibleChapter" class="form-control" placeholder="Choose forum title" />
+                            <label asp-for="BibleChapter">Chapter</label>
+                            <input asp-for="BibleChapter" class="form-control" placeholder="Choose chapter" />
                             <span asp-validation-for="BibleChapter" class="text-danger"></span>
                         </div>
+                        @*
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        *@
                         <div class="form-group">
-                            <label asp-for="BibleTranslation">Bible Translation</label>
-                            <input asp-for="BibleTranslation" class="form-control" placeholder="Choose a bible translation" />
+                            <label asp-for="BibleTranslation">Translation</label>
+                            <input asp-for="BibleTranslation" class="form-control" placeholder="Choose translation" />
                             <span asp-validation-for="BibleTranslation" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="BibleVerse">Bible Verse</label>
-                            <textarea asp-for="BibleVerse" class="form-control" placeholder="Choose a bible translation"></textarea>
+                            <label asp-for="BibleVerse">Verse</label>
+                            <textarea asp-for="BibleVerse" class="form-control" placeholder="Choose verse"></textarea>
                             <span asp-validation-for="BibleVerse" class="text-danger"></span>
                         </div>
-                        <button type="submit" id="newFormBtn" class="btn btn-submitPost">Create Forum</button>
+                        <button type="submit" id="newFormBtn" class="btn btn-submitPost">Create Verse</button>
                     </div>
                     <input asp-for="AuthorId" type="hidden" />
                     <input asp-for="PostId" type="hidden" />
