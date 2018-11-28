@@ -107,8 +107,6 @@
                             @foreach (var verse in reply.PostReplySupportingBibleVerses)
                             {
                                 <div class="row supportingBibleVerseContent">
-                                    @if (verse.PostReplyId == reply.Id)
-                                    {
                                         <div class="">
                                             @verse.BibleChapter
                                         </div>
@@ -118,15 +116,6 @@
                                         <div class="">
                                             @verse.BibleVerse
                                         </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="noSupportingBibleVerse">
-                                            <h4>
-                                                Create one
-                                            </h4>
-                                        </div>
-                                    }
                                 </div>
                             }
                         </div>
