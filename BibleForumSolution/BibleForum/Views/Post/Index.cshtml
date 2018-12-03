@@ -105,29 +105,28 @@
                     </div>
                     @if (reply.PostReplySupportingBibleVerses.Any())
                     {
-                        <div class="supportingBibleVerse">
-                            @foreach (var verse in reply.PostReplySupportingBibleVerses)
-                            {
-                                <div class="row supportingBibleVerseContent">
-                                    <div class="">
-                                        <span id="bibleVerse">
-                                            <span id="quotes">"</span>
-                                            @verse.BibleVerse
-                                        </span>
-                                        <span id="">
-                                            @verse.BibleBook
-                                        </span>
-                                        <span id="">
-                                            @verse.BibleChapter
-                                        </span>
-                                        <span id="">
-                                            @verse.BibleTranslation
-                                        </span>
-                                    </div>
+                    <div class="supportingBibleVerse">
+                        @foreach (var verse in reply.PostReplySupportingBibleVerses)
+                        {
+                            <blockquote class="quote-box">
+                                <p class="quotation-mark">
+                                    “
+                                </p>
+                                <p class="quote-text">
+                                    @verse.BibleVerse
+                                </p>
+                                <hr>
+                                <div class="blog-post-actions">
+                                    <p class="blog-post-bottom pull-left">
+                                        @verse.BibleBook @verse.BibleChapter @verse.BibleTranslation
+                                    </p>
+                                    <p class="blog-post-bottom pull-right">
+                                        <span class="badge quote-badge">896</span>  ❤
+                                    </p>
                                 </div>
-                                <br />
-                            }
-                        </div>
+                            </blockquote>
+                        }
+                    </div>
                     }
                 </div>
             </div>
