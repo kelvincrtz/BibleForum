@@ -1,0 +1,88 @@
+﻿
+/* Forum Page */
+
+#forumIndexTable td {
+    background-color: rgba(255,255,255,0.9);
+}
+
+#forumIndexTable tr:hover {
+    background-color: rgba(0,116,238,1);
+}
+
+.forumData {
+    display: inline-block;
+}
+
+.forumTitle {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.forumSubtitle {
+    color: #888;
+    font-family: 'Roboto Mono';
+    font-size: 0.8em;
+}
+
+.forumDescription {
+    color: #555;
+    font-family: 'Roboto';
+}
+
+.forumLogo {
+    border-radius: 3px;
+    float: left;
+    margin-right: 20px;
+    height: 46px;
+    width: 40px;
+    background-repeat: no-repeat;
+}
+
+.forumPostCount {
+    color: #888;
+    font-family: 'Roboto Mono';
+    font-size: 0.9em;
+}
+
+.forumMemberCount {
+    color: #888;
+    font-family: 'Roboto Mono';
+    font-size: 0.9em;
+}
+
+#forumIndexContent {
+}
+
+.noPosts {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.forumHeader {
+    font-family: 'Roboto';
+}
+
+.forumHeader {
+    background-color: rgba(0,0,0,0.9);
+    padding: 8px 0 14px 15px;
+}
+
+.forumHeading {
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Roboto';
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid #335;
+    margin-bottom: 12px;
+}
+
+.hasRecentPost {
+    padding: 2px;
+    background-color: red;
+    color: #fff;
+    border-radius: 1px;
+    width: 30px;
+    text-align: center;
+    align-content: center;
+}
