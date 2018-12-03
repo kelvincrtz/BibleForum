@@ -139,7 +139,6 @@
     }
 }
 
-
 .frontPageContent {
     padding-right: 20px;
     padding-left: 20px;
@@ -428,45 +427,6 @@
     align-content: center;
 }
 
-
-/* User Profiles */
-.userProfile {
-    padding: 32px 0 64px 24px;
-    background-color: #fff;
-    background-position: center;
-    background-size: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-}
-
-#userEmailLabel, #userBioLabel, #userCreatedLabel, #userRating, #userActiveLabel{
-    display: block;
-    color: #444;
-    font-family: 'Roboto';
-    padding-top: 3px;
-}
-
-#userName{
-    display: block;
-    color: #2569d5;
-    font-family: 'Roboto';
-    font-size: 1.7em;
-}
-
-#isAdmin{
-    color:red;
-    font-weight: bold;
-}
-
-#userProfileImage {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
 /* Profile Index */
 .userProfilePic{
 
@@ -475,88 +435,6 @@
 .profileTableIndex{
     background-color:floralwhite;
     font-family: 'Roboto';
-}
-
-
-/* Replies */
-.replyContent {
-    display: table;
-    background-color: lightyellow;
-    width: inherit;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-    padding: 10px 0 10px 10px;
-}
-
-#postReplyRow {
-    background-color: lightsteelblue;
-    padding: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-}
-
-.replyContentContainer, .replyAuthorContainer {
-    display: table-cell;
-    padding: 12px;
-}
-
-.replyContentContainer {
-    border-left: 1px solid #ddd
-}
-
-.replyAuthorContainer {
-    padding: 12px;
-    color: #444;
-    font-family: 'Roboto';
-    width: 190px;
-
-}
-
-.replyVoteEditDeleteContainer {
-    padding: 1px;
-    font-family: 'Roboto';
-}
-
-.isAdmin{
-   display: inline-block;
-   padding: 3px;
-   background-color: #FFEB3B;
-   color: #000;
-   font-family: 'Roboto Mono';
-}
-
-.smaller{
-    font-size: 0.8em;
-
-}
-
-#replyDivider{
-    height: 2px;
-    margin-bottom: 12px;
-}
-
-.isEdited{
-    font-family:"Roboto Mono";
-    font-style:italic;
-    font-size:xx-small;
-    text-align:left;
-    color:grey;
-}
-
-.editOrDelete {
-    float: right;
-    margin-right: 20px;
-}
-
-.vote {
-    float: right;
-    margin-right: 20px;
-}
-
-.voteCount{
-    font-family:"Roboto Mono";
-}
-
-.doubleLineBreak {
-    line-height: 2em; /* chrome for instance */
 }
 
 /* Create Post */
@@ -579,13 +457,6 @@
 /* Table */
 .tableShadow {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-}
-
-/*Supporting Bible Verse*/
-
-#italicPlaceholder{
-    font-style:italic;
-    font-size:small;
 }
 
 
