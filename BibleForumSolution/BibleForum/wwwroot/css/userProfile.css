@@ -37,3 +37,12 @@
     background-position: center;
     background-size: cover;
 }
+
+/* Profile Index */
+.userProfilePic {
+}
+
+.profileTableIndex {
+    background-color: floralwhite;
+    font-family: 'Roboto';
+}
