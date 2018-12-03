@@ -51,20 +51,15 @@
 
     <div class="page-header">
         <h3 class="reviews">Leave your comment</h3>
-        <div class="logout">
-            <button class="btn btn-default btn-circle text-uppercase" type="button" onclick="$('#logout').hide(); $('#login').show()">
-                <span class="glyphicon glyphicon-off"></span> Logout
-            </button>
-        </div>
     </div>
     <div class="comment-tabs">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+            <li class="active"><a href="#comments" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
             <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
             <li><a href="#account-settings" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Account settings</h4></a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="comments-logout">
+            <div class="tab-pane active" id="comments">
                 <ul class="media-list">
                     <li class="media">
                         @if (Model.Replies.Any())
@@ -74,14 +69,11 @@
                                 <div class="pull-left postAuthorImage img-circle" style="background-image:url(@reply.AuthorImageUrl)"></div>
                                 <div class="media-body">
                                     <div class="well well-lg">
-                                        <h4 class="media-heading text-uppercase reviews">@reply.AuthorName </h4>
-                                        @if (reply.IsEdited)
-                                        {
-                                            <div class="isEdited doubleLineBreak">
-                                                <br />
-                                                <p>(Edited - @reply.EditedCreatedDate)</p>
-                                            </div>
-                                        }
+                                        <h4 class="media-heading text-uppercase reviews">
+                                            <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
+                                                @reply.AuthorName
+                                            </a>
+                                        </h4>
                                         @if (reply.IsAuthorAdmin)
                                         {
                                             <div class="isAdmin smaller">Admin</div>
@@ -120,8 +112,36 @@
                                                 }
                                             </div>
                                         }
+                                        @if (reply.IsEdited)
+                                        {
+                                            <div class="isEdited doubleLineBreak">
+                                                <p>(This comment has been edited - @reply.EditedCreatedDate)</p>
+                                            </div>
+                                        }
                                         <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
                                         <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
+                                        @if (reply.AuthorId == UserManager.GetUserId(User))
+                                        {
+                                            <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                                                <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
+                                            </a>
+                                        }
+                                        @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                        {
+                                            <div class="btn-group" role="group">
+                                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                                                    <span class="glyphicon glyphicon-wrench"></span> Edit
+                                                </a>
+                                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
+                                                    <span class="glyphicon glyphicon-trash"></span> Delete
+                                                </a>
+                                            </div>
+                                        }
+                                        <div class="vote">
+                                            <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-sm">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@reply.VoteCount)</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             }
@@ -208,85 +228,7 @@
 
     @if (Model.Replies.Any())
     {
-        foreach (var reply in Model.Replies)
-        {
-            <div class="row replyContent">
-                <div class="col-md-3 replyAuthorContainer">
-                    <div class="postAuthorImage" style="background-image:url(@reply.AuthorImageUrl)"></div>
-                    <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
-                        @reply.AuthorName
-                    </a>
-                    <br />
-                    @if (reply.IsAuthorAdmin)
-                    {
-                        <div class="isAdmin smaller">Admin</div>
-                        <br />
-                    }
-                    <span class="postDate">@reply.Created</span>
-                </div>
-                <div class="col-md-9 replyContentContainer">
-                    <div class="postContent" style="white-space: pre-line ">
-                        @Html.Raw(reply.ReplyContent)
-                    </div>
-                    @if (reply.IsEdited)
-                    {
-                        <div class="isEdited doubleLineBreak">
-                            <br />
-                            <p>(Edited - @reply.EditedCreatedDate)</p>
-                        </div>
-                    }
 
-                    @if (reply.AuthorId == UserManager.GetUserId(User))
-                    {
-                        <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
-                        </a>
-                    }
-                    @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
-                    {
-                        <div class="btn-group" role="group">
-                            <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-wrench"></span> Edit
-                            </a>
-                            <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-trash"></span> Delete
-                            </a>
-                        </div>
-                    }
-                    <div class="vote">
-                        <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-sm">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@reply.VoteCount)</span>
-                        </a>
-                    </div>
-                    @if (reply.PostReplySupportingBibleVerses.Any())
-                    {
-                        <div class="supportingBibleVerse">
-                            @foreach (var verse in reply.PostReplySupportingBibleVerses)
-                            {
-                                <blockquote class="quote-box">
-                                    <p class="quotation-mark">
-                                        “
-                                    </p>
-                                    <p class="quote-text">
-                                        @verse.BibleVerse
-                                    </p>
-                                    <hr>
-                                    <div class="blog-post-actions">
-                                        <p class="blog-post-bottom pull-left">
-                                            @verse.BibleBook @verse.BibleChapter @verse.BibleTranslation
-                                        </p>
-                                        <p class="blog-post-bottom pull-right">
-                                            <span class="badge quote-badge">896</span>  ❤
-                                        </p>
-                                    </div>
-                                </blockquote>
-                            }
-                        </div>
-                    }
-                </div>
-            </div>
-            <div class="row" id="replyDivider"></div>
-        }
     }
     else
     {
