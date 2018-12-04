@@ -31,7 +31,7 @@
 .sectionHeader {
     background-color: rgba(0,0,0,0.9);
     padding: 8px 0 24px 25px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
 }
 
 .sectionHeading{

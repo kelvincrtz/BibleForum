@@ -18,9 +18,9 @@
         </span>
     </div>
 
-    <div class="row" id="postIndexContent">
-        <div class="col-md-3 postAuthorContainer">
-            <div class="postAuthorImage" style="background-image: url(@Model.AuthorImageUrl);"></div>
+    <div class="row postIndexBox">
+        <div class="col-md-2 postAuthorContainer">
+            <div class="pull-left postAuthorImage img-circle" style="background-image: url(@Model.AuthorImageUrl);"></div>
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 @Model.AuthorName
             </a>
@@ -30,7 +30,7 @@
                 <div class="isAdmin smaller">Admin</div>
             }
         </div>
-        <div class="col-md-9 postContentContainer">
+        <div class="col-md-10 postContentContainer">
 
             <div class="postContent" style="white-space: pre-line">
                 @Html.Raw(Model.PostContent)
@@ -122,23 +122,23 @@
                                         <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
                                         {
-                                            <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                                            <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-info btn-circle text-uppercase">
                                                 <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
                                             </a>
                                         }
                                         @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
                                         {
                                             <div class="btn-group" role="group">
-                                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-primary btn-sm">
+                                                <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-default btn-circle text-uppercase">
                                                     <span class="glyphicon glyphicon-wrench"></span> Edit
                                                 </a>
-                                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-danger btn-sm">
+                                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-default btn-circle text-uppercase">
                                                     <span class="glyphicon glyphicon-trash"></span> Delete
                                                 </a>
                                             </div>
                                         }
                                         <div class="vote">
-                                            <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-sm">
+                                            <a asp-controller="Reply" asp-action="Vote" asp-route-id="@reply.Id" class="btn btn-success btn-circle text-uppercase">
                                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@reply.VoteCount)</span>
                                             </a>
                                         </div>
