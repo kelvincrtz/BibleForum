@@ -41,15 +41,19 @@
     <div class="page-header">
         @if (User.Identity.IsAuthenticated)
         {
-            <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-info btn-circle btn-xl">
-                Reply
-            </a>
+            <div class="well text-center">
+                <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-fresh text-uppercase btn-lg">
+                    Add Comment
+                </a>
+            </div>
         }
     </div>
     <div class="comment-tabs">
         <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#comments" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+            @*
             <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+            *@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="comments">
@@ -142,6 +146,7 @@
                     </li>
                 </ul>
             </div>
+            @*
             <div class="tab-pane" id="add-comment">
                 <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
                     <div class="form-group">
@@ -166,6 +171,7 @@
                     </div>
                 </form>
             </div>
+             *@
         </div>
     </div>
 

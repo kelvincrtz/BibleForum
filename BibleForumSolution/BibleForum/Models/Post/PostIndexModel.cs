@@ -26,5 +26,6 @@ namespace BibleForum.Models.Post
 
         public IEnumerable<PostReplyModel> Replies { get; set; }
         public IEnumerable<PostReplySupportingBibleVerseModel> SupportingVerse { get; set; }
+
     }
 }
