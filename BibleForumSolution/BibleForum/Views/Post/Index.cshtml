@@ -50,7 +50,7 @@
     </div>
     <div class="comment-tabs">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#comments" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+            <li class="active"><a href="#comments" role="tab" data-toggle="tab"><span class="text-uppercase reviews" style="font-family:Roboto">Comments</span></a></li>
             @*
             <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
             *@
@@ -68,7 +68,9 @@
                                     <div class="well well-lg">
                                         <h4 class="media-heading text-uppercase reviews">
                                             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
-                                                @reply.AuthorName
+                                                <span style="font-family:Roboto">
+                                                    @reply.AuthorName
+                                                </span>
                                             </a>
                                         </h4>
                                         @if (reply.IsAuthorAdmin)
