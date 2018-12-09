@@ -38,19 +38,13 @@
         </div>
     </div>
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        <div class="row" id="postReplyRow">
-            <span>
-                <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-info btn-circle btn-xl">
-                    Reply
-                </a>
-            </span>
-        </div>
-    }
-
     <div class="page-header">
-
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-info btn-circle btn-xl">
+                Reply
+            </a>
+        }
     </div>
     <div class="comment-tabs">
         <ul class="nav nav-tabs" role="tablist">
