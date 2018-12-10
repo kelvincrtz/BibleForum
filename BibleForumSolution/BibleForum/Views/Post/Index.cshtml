@@ -117,7 +117,11 @@
                                                 <p>(This comment has been edited - @reply.EditedCreatedDate)</p>
                                             </div>
                                         }
-                                        <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+
+                                        <a asp-controller="ReplyReply" asp-action="Reply" asp-route-id="@reply.Id" class="btn btn-info btn-circle text-uppercase" id="reply">
+                                            <span class="glyphicon glyphicon-share-alt"></span> Reply
+                                        </a>
+
                                         <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
                                         {
