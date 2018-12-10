@@ -3,7 +3,7 @@
 .frontPageSplash {
     background-image: url("../images/theme/front-splash.png");
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: right;
     background-size: cover;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
 }
@@ -89,7 +89,7 @@
     padding-left: 20px;
     padding-bottom: 5px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-    background-color: lightyellow;
+    background-color: ghostwhite;
 }
 
 #latestPosts {
