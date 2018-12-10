@@ -17,5 +17,6 @@ namespace BibleForum.Data
 
         Task Vote(int id);
 
+        Task Add(PostReplyReply replyReply);
     }
 }
