@@ -18,6 +18,14 @@ namespace BibleForum.Service
             _dbContext = dbContext;
         }
 
+        public async Task Add(PostReplyReply replyReply)
+        {
+
+            _dbContext.Add(replyReply);
+            await _dbContext.SaveChangesAsync();
+
+        }
+
         public Task Delete(int id)
         {
             throw new NotImplementedException();
