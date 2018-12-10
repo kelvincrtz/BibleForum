@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
+using BibleForum.Models.ReplyReply;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,9 +28,61 @@ namespace BibleForum.Controllers
             _userService = userService;
         }
 
-        public IActionResult Reply(int id)
+        public async Task<IActionResult> Create(int id)
         {
-            return View();
+            //Get postReplyID and track for reply
+            var postReply = _postReplyService.GetById(id);
+
+            //Get postID and track for reply
+            var post = _postService.GetById(id);
+
+            //Get the application user that will write the reply for this post
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var model = new PostReplyReplyModel
+            {
+                PostId = post.Id,
+                PostReply = postReply.Id,
+                PostReplyContent = postReply.Content,
+
+                AuthorName = User.Identity.Name,
+                AuthorImageUrl = user.ImageUrl,
+                AuthorId = user.Id,
+                AuthorRating = user.Rating,
+                IsAuthorAdmin = User.IsInRole("Admin"),
+
+                Created = DateTime.Now
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddReply(PostReplyReplyModel model)
+        {
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            var reply = BuildReply(model, user);
+
+            await _postReplyReplyService.Add(reply);
+
+            return RedirectToAction("Index", "Post", new { id = model.PostId });
+        }
+
+        private PostReplyReply BuildReply(PostReplyReplyModel model, ApplicationUser user)
+        {
+            var post = _postService.GetById(model.PostId);
+            var postReply = _postReplyService.GetById(model.PostReply);
+
+            return new PostReplyReply
+            {
+                Post = post,
+                PostReply = postReply,
+                Content = model.ReplyContent,
+                Created = DateTime.Now,
+                User = user
+            };
         }
     }
 }

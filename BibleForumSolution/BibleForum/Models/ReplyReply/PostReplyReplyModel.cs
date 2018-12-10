@@ -24,7 +24,7 @@ namespace BibleForum.Models.ReplyReply
 
         public int PostId { get; set; }
 
-        public int PostReplyId { get; set; }
+        public int PostReply { get; set; }
         public string PostReplyContent { get; set; }
 
         public IEnumerable<PostReplySupportingBibleVerseModel> PostReplySupportingBibleVerses { get; set; }
