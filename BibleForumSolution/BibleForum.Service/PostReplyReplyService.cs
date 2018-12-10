@@ -3,6 +3,7 @@ using BibleForum.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,12 +30,20 @@ namespace BibleForum.Service
 
         public IEnumerable<PostReplyReply> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplyReplies
+                .Include(post => post.Post)
+                .Include(postReply => postReply.PostReply)
+                .Include(user => user.User);
         }
 
         public PostReplyReply GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplyReplies
+                .Where(rreply => rreply.Id == id)
+                .Include(post => post.Post)
+                .Include(postReply => postReply.PostReply)
+                .Include(user => user.User)
+                .First();
         }
 
         public Task Vote(int id)
