@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BibleForum.Data.Models
 {
-    public class PostReply
+    public class PostReplyReply
     {
         public int Id { get; set; }
         public string Content { get; set; }
@@ -16,7 +16,5 @@ namespace BibleForum.Data.Models
         public virtual ApplicationUser User { get; set; }
         public virtual Post Post { get; set; }
         public virtual IEnumerable<PostReplySupportingBibleVerse> PostReplySupportingBibleVerse { get; set; }
-        public virtual IEnumerable<PostReplyReply> PostReplyReply { get; set; }
-
     }
 }
