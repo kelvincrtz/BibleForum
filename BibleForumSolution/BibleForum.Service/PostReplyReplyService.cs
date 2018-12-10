@@ -1,5 +1,6 @@
 ﻿using BibleForum.Data;
 using BibleForum.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,12 @@ namespace BibleForum.Service
 {
     public class PostReplyReplyService : IPostReplyReply
     {
+        private readonly ApplicationDbContext _dbContext;
 
+        public PostReplyReplyService(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public Task Delete(int id)
         {
