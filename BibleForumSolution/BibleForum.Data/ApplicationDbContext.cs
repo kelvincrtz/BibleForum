@@ -20,6 +20,7 @@ namespace BibleForum.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostReply> PostReplies { get; set; }
         public DbSet<PostReplySupportingBibleVerse> PostReplySupportingBibleVerses { get; set; }
+        public DbSet<PostReplyReply> PostReplyReplies { get; set; }
 
     }
 }
