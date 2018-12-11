@@ -6,6 +6,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Post;
 using BibleForum.Models.Reply;
+using BibleForum.Models.ReplyReply;
 using BibleForum.Models.ReplySupportingBibleVerse;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -140,6 +141,16 @@ namespace BibleForum.Controllers
                 IsEdited = reply.IsEdited,
 
                 IsAuthorAdmin = IsAuthorAdmin(reply.User)
+
+                /*
+                PostReplyReplies = reply.PostReplyReply
+                    .Select(replyreply => new PostReplyReplyModel
+                    {
+                            Id = replyreply.Id,
+                            AuthorId = replyreply.User.Id,
+                            ReplyContent = replyreply.Content
+                    })
+                 */
             });
         }
     }

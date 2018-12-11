@@ -1,4 +1,5 @@
-﻿using BibleForum.Models.ReplySupportingBibleVerse;
+﻿using BibleForum.Models.ReplyReply;
+using BibleForum.Models.ReplySupportingBibleVerse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace BibleForum.Models.Reply
         public int ForumId { get; set; }
 
         public IEnumerable<PostReplySupportingBibleVerseModel> PostReplySupportingBibleVerses { get; set; }
+        public IEnumerable<PostReplyReplyModel> PostReplyReplies { get; set; }
 
     }
 }
