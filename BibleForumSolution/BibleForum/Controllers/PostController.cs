@@ -139,10 +139,7 @@ namespace BibleForum.Controllers
                 VoteCount = reply.VoteCount,
                 EditedCreatedDate = reply.EditedDate,
                 IsEdited = reply.IsEdited,
-
-                IsAuthorAdmin = IsAuthorAdmin(reply.User)
-
-                /*
+                IsAuthorAdmin = IsAuthorAdmin(reply.User),
                 PostReplyReplies = reply.PostReplyReply
                     .Select(replyreply => new PostReplyReplyModel
                     {
@@ -150,7 +147,6 @@ namespace BibleForum.Controllers
                             AuthorId = replyreply.User.Id,
                             ReplyContent = replyreply.Content
                     })
-                 */
             });
         }
     }
