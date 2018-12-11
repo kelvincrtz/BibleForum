@@ -128,14 +128,14 @@ namespace BibleForum.Controllers
                 ReplyContent = reply.Content,
                 PostReplySupportingBibleVerses = reply.PostReplySupportingBibleVerse
                     .Select(supportVerse => new PostReplySupportingBibleVerseModel
-                        {
-                            Id = supportVerse.Id,
-                            BibleBook = supportVerse.BibleBook,
-                            BibleChapter = supportVerse.BibleChapter,
-                            BibleTranslation = supportVerse.BibleTranslation,
-                            BibleVerse = supportVerse.BibleVerse,
-                            Created = supportVerse.Created,
-                        }),
+                    {
+                        Id = supportVerse.Id,
+                        BibleBook = supportVerse.BibleBook,
+                        BibleChapter = supportVerse.BibleChapter,
+                        BibleTranslation = supportVerse.BibleTranslation,
+                        BibleVerse = supportVerse.BibleVerse,
+                        Created = supportVerse.Created,
+                    }),
                 VoteCount = reply.VoteCount,
                 EditedCreatedDate = reply.EditedDate,
                 IsEdited = reply.IsEdited,
@@ -143,9 +143,16 @@ namespace BibleForum.Controllers
                 PostReplyReplies = reply.PostReplyReply
                     .Select(replyreply => new PostReplyReplyModel
                     {
-                            Id = replyreply.Id,
-                            AuthorId = replyreply.User.Id,
-                            ReplyContent = replyreply.Content
+                        Id = replyreply.Id,
+                        AuthorId = replyreply.User.Id,
+                        ReplyContent = replyreply.Content,
+                        AuthorImageUrl = replyreply.User.ImageUrl,
+                        AuthorName = replyreply.User.UserName,
+                        AuthorRating = replyreply.User.Rating,
+                        Created = replyreply.Created,
+                        EditedCreatedDate = replyreply.EditedDate,
+                        IsEdited = replyreply.IsEdited,
+                        IsAuthorAdmin = IsAuthorAdmin(replyreply.User)
                     })
             });
         }

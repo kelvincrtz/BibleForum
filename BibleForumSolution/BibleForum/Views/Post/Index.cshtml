@@ -160,16 +160,26 @@
                                                     <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)"></div>
                                                     <div class="media-body">
                                                         <div class="well well-lg">
-                                                            <h4 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> @replyreply.AuthorName</h4>
+                                                            <h4 class="media-heading text-uppercase reviews">
+                                                                <a asp-controller="Profile" asp-action="Detail" asp-route-id="@replyreply.AuthorId">
+                                                                    <span style="font-family:Roboto">
+                                                                        @replyreply.AuthorName
+                                                                    </span>
+                                                                </a>
+                                                            </h4>
+                                                            @if (replyreply.IsAuthorAdmin)
+                                                            {
+                                                                <div class="isAdmin smaller">Admin</div>
+                                                                <br />
+                                                            }
                                                             <ul class="media-date text-uppercase reviews list-inline">
-                                                                <li class="dd">22</li>
-                                                                <li class="mm">09</li>
-                                                                <li class="aaaa">2014</li>
+                                                                <li class="dd">@replyreply.Created.Day</li>
+                                                                <li class="mm">@replyreply.Created.Month</li>
+                                                                <li class="aaaa">@replyreply.Created.Year</li>
                                                             </ul>
-                                                            <p class="media-comment">
-                                                                @replyreply.ReplyContent
+                                                            <p class="media-comment" style="white-space: pre-line">
+                                                                @Html.Raw(replyreply.ReplyContent)
                                                             </p>
-                                                            <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
                                                         </div>
                                                     </div>
                                                 </li>
