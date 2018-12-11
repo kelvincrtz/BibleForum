@@ -122,7 +122,9 @@
                                             <span class="glyphicon glyphicon-share-alt"></span> Reply
                                         </a>
 
-                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#@reply.Id"><span class="glyphicon glyphicon-comment">
+                                                  </span>@reply.PostReplyReplies.Count() Comments</a>
+
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
                                         {
                                             <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-info btn-circle text-uppercase">
@@ -150,14 +152,12 @@
 
                                 if (reply.PostReplyReplies.Any())
                                 {
-                                    @foreach (var replyreply in reply.PostReplyReplies)
-                                    {
-                                        <div class="collapse" id="replyOne">
-                                            <ul class="media-list">
+                                    <div class="collapse" id="@reply.Id">
+                                        <ul class="media-list">
+                                            @foreach (var replyreply in reply.PostReplyReplies)
+                                            {
                                                 <li class="media media-replied">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg" alt="profile">
-                                                    </a>
+                                                    <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)"></div>
                                                     <div class="media-body">
                                                         <div class="well well-lg">
                                                             <h4 class="media-heading text-uppercase reviews"><span class="glyphicon glyphicon-share-alt"></span> @replyreply.AuthorName</h4>
@@ -173,11 +173,11 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </ul>
-                                        </div>
-
-                                    }
+                                            }
+                                        </ul>
+                                    </div>                     
                                 }
+                                
                             }
                         }
                     </li>
