@@ -42,7 +42,7 @@ namespace BibleForum.Controllers
             var model = new PostReplyReplyModel
             {
                 PostId = post.Id,
-                PostReply = postReply.Id,
+                PostReplyId = postReply.Id,
                 PostReplyContent = postReply.Content,
 
                 AuthorName = User.Identity.Name,
@@ -73,7 +73,7 @@ namespace BibleForum.Controllers
         private PostReplyReply BuildReply(PostReplyReplyModel model, ApplicationUser user)
         {
             var post = _postService.GetById(model.PostId);
-            var postReply = _postReplyService.GetById(model.PostReply);
+            var postReply = _postReplyService.GetById(model.PostReplyId);
 
             return new PostReplyReply
             {
