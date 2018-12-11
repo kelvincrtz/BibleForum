@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.ReplyReply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BibleForum.Controllers
 {
+    [Authorize]
     public class ReplyReplyController : Controller
     {
         private readonly IPost _postService;
@@ -34,7 +36,7 @@ namespace BibleForum.Controllers
             var postReply = _postReplyService.GetById(id);
 
             //Get postID and track for reply
-            var post = _postService.GetById(id);
+            var post = _postService.GetById(postReply.Post.Id);
 
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);

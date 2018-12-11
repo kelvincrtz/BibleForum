@@ -45,6 +45,7 @@ namespace BibleForum
             services.AddScoped<IUpload, UploadService>();
             services.AddScoped<IPostReply, PostReplyService>();
             services.AddScoped<IPostReplySupportingBibleVerse, PostReplySupportingBibleVerseService>();
+            services.AddScoped<IPostReplyReply, PostReplyReplyService>();
 
             //For Configuration Injection
             services.AddSingleton(Configuration);
