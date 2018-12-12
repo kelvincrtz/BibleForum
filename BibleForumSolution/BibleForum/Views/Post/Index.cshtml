@@ -122,8 +122,9 @@
                                             <span class="glyphicon glyphicon-share-alt"></span> Reply
                                         </a>
 
-                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#@reply.Id"><span class="glyphicon glyphicon-comment">
-                                                  </span>@reply.PostReplyReplies.Count() Comments</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#@reply.Id">
+                                            <span class="glyphicon glyphicon-comment"></span>@reply.PostReplyReplies.Count() Comments
+                                        </a>
 
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
                                         {
@@ -187,7 +188,6 @@
                                         </ul>
                                     </div>                     
                                 }
-                                
                             }
                         }
                     </li>
