@@ -6,18 +6,18 @@
 
 <div class="container body-content">
     <div class="row frontPageSplash">
-        <div class="col-md-10 frontPageLearn">
-            <div class="frontPageHeading"><span>Learn Bible artifacts, share your biblical knowledge, read bible stories and more!</span></div>
+        <div class="frontPageLearn">
+            <div class="frontPageHeading"><span>Learn Bible artifacts</span></div>
+            <div class="frontPageHeading"><span>Share biblical knowledge, read bible stories and more!</span></div>
             <p class="frontPageSubHeading">
                 <span><strong>BibleForum</strong> is a New Zealand based bible forum website.</span>
             </p>
             <div>
                 <form asp-controller="Search" asp-action="Search" method="post">
-                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search..."/>
+                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search..." />
                 </form>
             </div>
         </div>
-        <div class="col-md-6"></div>
     </div>
     <div class="row frontPageContent">
         <h3 id="latestPosts">Latest Posts!</h3>

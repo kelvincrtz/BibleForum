@@ -18,7 +18,11 @@
 }
 
 .navbarColor {
-    background-color:hsla(206, 25%, 75%, 0.40);
+    background-color: hsla(192, 100%, 100%, 0.75)
+}
+
+.navbar-inner {
+    height: 80px;
 }
 
 .navbar li{
