@@ -123,7 +123,18 @@
                                         </a>
 
                                         <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#@reply.Id">
-                                            <span class="glyphicon glyphicon-comment"></span>@reply.PostReplyReplies.Count() Comments
+                                            @if (reply.PostReplyReplies.Any() && reply.PostReplyReplies.Count() > 1)
+                                            {
+                                                <span class="glyphicon glyphicon-comment"></span>@reply.PostReplyReplies.Count() <span>Comments</span>
+                                            }
+                                            else if (reply.PostReplyReplies.Any() && reply.PostReplyReplies.Count() == 1)
+                                            {
+                                                <span class="glyphicon glyphicon-comment"></span>@reply.PostReplyReplies.Count() <span>Comment</span>
+                                            }
+                                            else if (!reply.PostReplyReplies.Any())
+                                            {
+                                                <span class="glyphicon glyphicon-comment"></span><span>No Comments</span>
+                                            }
                                         </a>
 
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
