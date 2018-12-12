@@ -68,7 +68,11 @@
 
 .vote {
     float: right;
-    margin-right: 20px;
+}
+
+.voteReplyReply {
+    background-color:blue;
+    color: white;
 }
 
 .voteCount {

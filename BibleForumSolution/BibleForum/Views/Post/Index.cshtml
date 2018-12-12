@@ -169,7 +169,8 @@
                                             @foreach (var replyreply in reply.PostReplyReplies)
                                             {
                                                 <li class="media media-replied">
-                                                    <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)"></div>
+                                                    <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)">
+                                                    </div>
                                                     <div class="media-body">
                                                         <div class="well well-lg">
                                                             <h4 class="media-heading text-uppercase reviews">
@@ -192,6 +193,28 @@
                                                             <p class="media-comment" style="white-space: pre-line">
                                                                 @Html.Raw(replyreply.ReplyContent)
                                                             </p>
+                                                            @if (reply.AuthorId == UserManager.GetUserId(User))
+                                                            {
+                                                                <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@replyreply.Id" class="btn btn-info btn-circle text-uppercase">
+                                                                    <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
+                                                                </a>
+                                                            }
+                                                            @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                                            {
+                                                                <div class="btn-group" role="group">
+                                                                    <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
+                                                                        <span class="glyphicon glyphicon-wrench"></span> Edit
+                                                                    </a>
+                                                                    <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
+                                                                        <span class="glyphicon glyphicon-trash"></span> Delete
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                            <div class="vote">
+                                                                <a asp-controller="ReplyReply" asp-action="Vote" asp-route-id="@replyreply.Id" class="btn btn-primary btn-circle text-uppercase">
+                                                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@replyreply.VoteCount)</span>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </li>
