@@ -140,7 +140,7 @@
                                         @if (reply.AuthorId == UserManager.GetUserId(User))
                                         {
                                             <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-info btn-circle text-uppercase">
-                                                <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
+                                                <span class="glyphicon glyphicon-plus-sign"></span> Add verse
                                             </a>
                                         }
                                         @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
@@ -196,7 +196,7 @@
                                                             @if (reply.AuthorId == UserManager.GetUserId(User))
                                                             {
                                                                 <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@replyreply.Id" class="btn btn-info btn-circle text-uppercase">
-                                                                    <span class="glyphicon glyphicon-plus-sign"></span> Add a verse
+                                                                    <span class="glyphicon glyphicon-plus-sign"></span> Add verse
                                                                 </a>
                                                             }
                                                             @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
