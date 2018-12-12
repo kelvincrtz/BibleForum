@@ -7,8 +7,7 @@
 .frontPageLearn {
     font-family:"Roboto";
     color: lightyellow;
-    height: 360px;
-    padding: 40px;
+    padding: 50px;
 }
 
 .sectionDescription {
@@ -17,12 +16,11 @@
 
 .frontPageHeading {
     margin: 0 auto 35px;
-    font-size: 1.2em;
     text-align: center;
     font-weight: 900;
-    font-size: 3.25em;
+    font-size: 3vw;
     margin-bottom: 30px;
-    padding:0 100px 0 100px;
+    padding:0 150px 0 150px;
     text-shadow: 2px 3px 0px #898999;
     line-height: 1.2;
 }
