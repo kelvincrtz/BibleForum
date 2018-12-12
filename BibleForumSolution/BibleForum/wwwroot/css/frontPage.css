@@ -6,7 +6,7 @@
 
 .frontPageLearn {
     font-family:"Roboto";
-    color: lightyellow;
+    color: white;
     padding: 50px;
 }
 
@@ -15,12 +15,13 @@
 }
 
 .frontPageHeading {
+    font-family: 'Knewave', cursive;
     margin: 0 auto 35px;
     text-align: center;
     font-weight: 900;
-    font-size: 3vw;
+    font-size: 3.2vw;
     margin-bottom: 30px;
-    padding:0 150px 0 150px;
+    padding: 0 150px 0 150px;
     text-shadow: 2px 3px 0px #898999;
     line-height: 1.2;
 }
