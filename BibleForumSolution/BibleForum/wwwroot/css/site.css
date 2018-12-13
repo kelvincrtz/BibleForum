@@ -62,7 +62,7 @@
 
 /* Search Table */
 .searchTable {
-    background-color: lightyellow;
+    background-color: hsla(192, 100%, 100%, 0.30);
     margin-bottom: 20px;
 }
 
