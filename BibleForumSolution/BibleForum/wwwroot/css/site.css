@@ -29,22 +29,28 @@
 }
 
 .sectionHeader {
-    background-color:black;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
     padding: 8px 0 24px 25px;
-    box-shadow: 2px 2px 2px 2px #E0E0E0;
 }
 
-.sectionHeading{
-    color: white;
+.sectionHeading {
+    color: darkslategrey;
     font-size: 1.3em;
     font-family: 'Roboto';
+    font-weight:200;
     padding: 16px 0 16px 0;
     border-bottom: 1px solid #335;
     margin-bottom: 12px;
 }
 
+.sectionDescription {
+    color: darkslategrey;
+    font-family: 'Roboto';
+}
+
 .postHeading{
-    color: white;
+    color: black;
     font-size: 1.1em;
     font-family: 'Roboto';
     padding: 16px 0 16px 0;

@@ -2,11 +2,11 @@
 /* Forum Page */
 
 #forumIndexTable td {
-    background-color: rgba(255,255,255,0.9);
+    background-color: hsla(192, 100%, 100%, 0.40);
 }
 
 #forumIndexTable tr:hover {
-    background-color: rgba(0,116,238,1);
+    background-color: white;
 }
 
 .forumData {
