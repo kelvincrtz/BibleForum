@@ -2,7 +2,7 @@
 /* Custom Button -> Hover pattern*/
 
 .btn-back {
-    background-color: #555;
+    background-color: #59b9af;
     color: #fff !important;
     transition: ease-in 0.1s;
     border-radius: 0px !important;
@@ -10,7 +10,7 @@
 
     .btn-back:hover {
         transition: ease-in 0.1s;
-        background-color: #1E88E5 !important;
+        background-color: #9FA8DA !important;
     }
 
 

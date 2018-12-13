@@ -29,13 +29,11 @@
 }
 
 .sectionHeader {
-    background-color: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.3);
-    padding: 8px 0 24px 25px;
+    padding: 15px;
 }
 
 .sectionHeading {
-    color: darkslategrey;
+    color: dimgrey;
     font-size: 1.3em;
     font-family: 'Roboto';
     font-weight:200;
@@ -45,7 +43,7 @@
 }
 
 .sectionDescription {
-    color: darkslategrey;
+    color: dimgrey;
     font-family: 'Roboto';
 }
 
