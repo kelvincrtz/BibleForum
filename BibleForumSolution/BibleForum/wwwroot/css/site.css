@@ -1,5 +1,5 @@
 ﻿body {
-    padding: 50px 0 20px 0;
+    padding: 0 20px 0 20px;
     background: linear-gradient(to right bottom, #ffffff, #f6f5fb, #ebecf8, #e0e3f4, #d3dbf1, #c8daf6, #bbdafa, #abdafd, #95e3ff, #7decff, #68f4fe, #5ffbf1);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@
 }
 
 .navbarColor {
-    background-color: hsla(192, 100%, 100%, 0.22);
+    background:none;
 }
 
 .navbar-inner {
