@@ -13,14 +13,14 @@
         <div class="sectionDescription">
             <p>Welcome to <strong>BibleForum</strong> community. Post are categorized into separate forums by the books found in the Bible.</p>
             <p>
-                Please read the Forum Guidelines before creating a new post.
+                Please read the forum guidelines before creating a new post.
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <span>You must be a <a asp-controller="Account" asp-action="Register">registered member</a> to create a new post</span>
                 }
             </p>
         </div>
-     </div>
+    </div>
     <div class="row" id="forumIndexContent">
         <table class="table table-hover tableShadow" id="forumIndexTable">
             <tbody>
