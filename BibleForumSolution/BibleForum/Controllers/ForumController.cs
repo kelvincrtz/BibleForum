@@ -116,6 +116,8 @@ namespace BibleForum.Controllers
                 Title = model.Title,
                 Description = model.Description,
                 Created = DateTime.Now,
+                BookOrder = model.BookOrder,
+                OldOrNew = model.OldOrNew,
                 ImageUrl = imageUri
             };
 
