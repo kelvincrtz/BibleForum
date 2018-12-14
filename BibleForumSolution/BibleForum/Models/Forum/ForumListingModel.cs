@@ -11,6 +11,8 @@ namespace BibleForum.Models.Forum
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        public string OldOrNew { get; set; }
+        public int BookOrder { get; set; }
 
         public int NumberOfPosts { get; set; }
         public int NumberOfUsers { get; set; }
