@@ -11,6 +11,9 @@ namespace BibleForum.Data
         Forum GetById(int id);
         IEnumerable<Forum> GetAll();
 
+        IEnumerable<Forum> GetAllOldTestament();
+        IEnumerable<Forum> GetAllNewTestament();
+
         Task Create(Forum forum);
         Task Delete(int forumId);
         Task UpdateForumTitle(int forumId, string newTitle);

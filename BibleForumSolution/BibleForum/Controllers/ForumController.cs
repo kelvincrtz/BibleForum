@@ -33,14 +33,16 @@ namespace BibleForum.Controllers
 
         public IActionResult Index()
         {
-            var forums = _forumService.GetAll().Select(forum => new ForumListingModel {
+            var forums = _forumService.GetAllOldTestament().Select(forum => new ForumListingModel {
                 Id = forum.Id,
                 Title = forum.Title,
                 Description = forum.Description,
                 NumberOfPosts = forum.Posts?.Count() ?? 0, //check to see if its null < ? >
                 NumberOfUsers = _forumService.GetActiveUsers(forum.Id).Count(),
                 ImageUrl = forum.ImageUrl,
-                HasRecentPost = _forumService.HasRecentPost(forum.Id)
+                HasRecentPost = _forumService.HasRecentPost(forum.Id),
+                BookOrder = forum.BookOrder,
+                OldOrNew = forum.OldOrNew
             });
 
             var model = new ForumIndexModel {

@@ -50,6 +50,18 @@ namespace BibleForum.Service
             return _dbContext.Forums.Include(forum => forum.Posts);
         }
 
+        public IEnumerable<Forum> GetAllNewTestament()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Forum> GetAllOldTestament()
+        {
+            return _dbContext.Forums.Include(forum => forum.Posts)
+                .Where(forum => forum.OldOrNew == "Old")
+                .OrderBy(forum => forum.BookOrder);
+        }
+
         public Forum GetById(int id)
         {
             return _dbContext.Forums.Where(f => f.Id == id)
