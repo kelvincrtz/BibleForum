@@ -11,6 +11,8 @@ namespace BibleForum.Data.Models
         public string Description { get; set; }
         public DateTime Created { get; set; }
         public string ImageUrl { get; set; }
+        public string OldOrNew { get; set; }
+        public int BookOrder { get; set; }
 
         public virtual IEnumerable<Post> Posts { get; set; }
 
