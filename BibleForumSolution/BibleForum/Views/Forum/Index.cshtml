@@ -28,8 +28,12 @@
                 @foreach (var forum in Model.ForumListing)
                 {
                     <tr>
-                        <td style="width:20%">
-                            <div class="forumLogo" style="background-image:url(@forum.ImageUrl); background-size:100%;"></div>
+                        <td style="width:4%">
+                            <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
+                                <div class="forumLogo" style="background-image:url(@forum.ImageUrl); background-size:100%;"></div>
+                            </a>
+                        </td>
+                        <td style="width:13%">
                             <div class="forumData">
                                 <div class="forumTitle" style="padding-top:5px">
                                     <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">@forum.Title</a>
@@ -50,7 +54,7 @@
                                 @forum.NumberOfUsers Users
                             </div>
                         </td>
-                        <td style="width:70%">
+                        <td style="width:73%">
                             <div class="forumDescription">
                                 @forum.Description
                             </div>
@@ -60,4 +64,39 @@
             </tbody>
         </table>
     </div>
+
+    @*
+        Start
+    *@
+
+    <div class="comment-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+                <a href="#old-testament" role="tab" data-toggle="tab">
+                <span class="text-uppercase reviews" style="font-family:Roboto">Old Testament</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#new-testament" role="tab" data-toggle="tab">
+                    <span class="text-uppercase reviews" style="font-family:Roboto">New Testament</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="old-testament">
+                Old
+            </div>
+
+            <div class="tab-pane" id="new-testament">
+                New
+            </div>
+        </div>
+    </div>
+
+    @*
+        End
+    *@
 </div>
