@@ -49,6 +49,7 @@
     padding: 0 160px 0 160px;
     text-shadow: 2px 3px 0px #898999;
     line-height: 1.2;
+    text-transform:capitalize;
 }
 
 .forumPostCount {
