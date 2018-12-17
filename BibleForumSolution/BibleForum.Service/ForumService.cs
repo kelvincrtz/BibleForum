@@ -52,7 +52,9 @@ namespace BibleForum.Service
 
         public IEnumerable<Forum> GetAllNewTestament()
         {
-            throw new NotImplementedException();
+            return _dbContext.Forums.Include(forum => forum.Posts)
+                .Where(forum => forum.OldOrNew == "New")
+                .OrderBy(forum => forum.BookOrder);
         }
 
         public IEnumerable<Forum> GetAllOldTestament()
