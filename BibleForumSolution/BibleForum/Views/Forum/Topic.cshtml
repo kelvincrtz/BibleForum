@@ -7,7 +7,7 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
-            <span> @Model.Forum.Title Forum</span>
+            <span> Book of @Model.Forum.Title Forum</span>
             @if (Context.User.Identity.IsAuthenticated)
             {
                 <span id="headingBtn">
@@ -29,7 +29,7 @@
         </div>
         <div class="sectionDescription">
             <div class="forumLogo" style="background-image:url(@Model.Forum.ImageUrl); background-size: 100%"></div>
-            <p>Welcome to @Model.Forum.Title forum. Please keep posts friendly and on-topic.</p>
+            <p>Welcome to the Book of @Model.Forum.Title forum. Please keep posts friendly and on-topic.</p>
             @if (!User.Identity.IsAuthenticated)
             {
                 <p>
