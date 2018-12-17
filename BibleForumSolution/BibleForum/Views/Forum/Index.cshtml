@@ -21,49 +21,6 @@
             </p>
         </div>
     </div>
-    <div class="row" id="forumIndexContent">
-        <h3 style="font-family:Roboto; color:dimgray">Old Testament</h3>
-        <table class="table table-hover">
-            <tbody>
-                @foreach (var forum in Model.ForumListing)
-                {
-                    <tr>
-                        <td style="width:4%">
-                            <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
-                                <div class="forumLogo" style="background-image:url(@forum.ImageUrl); background-size:100%;"></div>
-                            </a>
-                        </td>
-                        <td style="width:13%">
-                            <div class="forumData">
-                                <div class="forumTitle" style="padding-top:5px">
-                                    <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">@forum.Title</a>
-                                </div>
-                                <div class="forumSubtitle">
-                                    @if (forum.HasRecentPost)
-                                    {
-                                        <div class="hasRecentPost">Hot</div>
-                                    }
-                                </div>
-                            </div>
-                        </td>
-                        <td style="width:10%">
-                            <div class="forumPostCount">
-                                @forum.NumberOfPosts Posts
-                            </div>
-                            <div class="forumMemberCount">
-                                @forum.NumberOfUsers Users
-                            </div>
-                        </td>
-                        <td style="width:73%">
-                            <div class="forumDescription">
-                                @forum.Description
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
 
     @*
         Start
@@ -84,10 +41,50 @@
             </li>
         </ul>
 
-        <div class="tab-content">
-
+        <div class="tab-content tab-content-oldOrNew">
             <div class="tab-pane active" id="old-testament">
-                Old
+                <div class="row" id="forumIndexContent">
+                    <table class="table table-hover">
+                        <tbody>
+                            @foreach (var forum in Model.ForumListing)
+                            {
+                                <tr>
+                                    <td style="width:4%">
+                                        <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
+                                            <div class="forumLogo" style="background-image:url(@forum.ImageUrl); background-size:100%;"></div>
+                                        </a>
+                                    </td>
+                                    <td style="width:13%">
+                                        <div class="forumData">
+                                            <div class="forumTitle" style="padding-top:5px">
+                                                <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">@forum.Title</a>
+                                            </div>
+                                            <div class="forumSubtitle">
+                                                @if (forum.HasRecentPost)
+                                                {
+                                                    <div class="hasRecentPost">Hot</div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width:10%">
+                                        <div class="forumPostCount">
+                                            @forum.NumberOfPosts Posts
+                                        </div>
+                                        <div class="forumMemberCount">
+                                            @forum.NumberOfUsers Users
+                                        </div>
+                                    </td>
+                                    <td style="width:73%">
+                                        <div class="forumDescription">
+                                            @forum.Description
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="tab-pane" id="new-testament">
