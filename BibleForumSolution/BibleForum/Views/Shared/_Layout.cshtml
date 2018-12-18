@@ -115,13 +115,15 @@
         {
             <div id="container-floating">
 
-                @*
+
                 <div class="nd5 nds" data-toggle="tooltip" data-placement="left">
-                    <a asp-controller="Forum" asp-action="Index">
-                        <div class="forumLogo" style="background-image:url(/images/navigation/profile.png); background-size:100%;"></div>
-                    </a>
+                    <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                        <button type="submit" class="btn btn-link navbar-btn navbar-link" style="align-items:center">
+                            <div class="forumLogo" type="submit" style="background-image:url(/images/navigation/logout.png); background-size:100%;"></div>
+                        </button>
+                    </form>
                 </div>
-                *@
+
                 <div class="nd4 nds" data-toggle="tooltip" data-placement="left">
                     <a asp-controller="Profile" asp-action="Detail" asp-route-id="@UserManager.GetUserId(User)">
                         <div class="forumLogo" style="background-image:url(/images/navigation/profile.png); background-size:100%;"></div>
