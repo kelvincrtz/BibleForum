@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container body-content">
+<div class="container body-content body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
             <span class="postIndexTitle">
@@ -21,6 +21,7 @@
     <div class="row postIndexBox">
         <div class="col-md-2 postAuthorContainer">
             <div class="pull-left postAuthorImage img-circle" style="background-image: url(@Model.AuthorImageUrl);"></div>
+
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 @Model.AuthorName
             </a>
