@@ -10,20 +10,30 @@ using BibleForum.Data;
 using BibleForum.Models.Post;
 using BibleForum.Data.Models;
 using BibleForum.Models.Forum;
+using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace BibleForum.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IPost _postService;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(IPost postService)
+        public HomeController(IPost postService, IConfiguration configuration)
         {
             _postService = postService;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
         {
+            /*TEST ONLY for other Projects SUCCESS
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(connectionString);
+            */
+
             var model = BuildHomeIndexModel();
 
             return View(model);
