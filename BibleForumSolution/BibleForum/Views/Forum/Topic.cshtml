@@ -11,10 +11,7 @@
             @if (Context.User.Identity.IsAuthenticated)
             {
                 <span id="headingBtn">
-                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newpost">Create Post</a>
-                </span>
-                <span id="headingBtn">
-                    <a asp-controller="Forum" asp-action="EditForum" asp-route-id="@Model.Forum.Id" class="btn btn-primary">Edit Forum</a>
+                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-back">Create Post</a>
                 </span>
             }
             <form asp-controller="Forum" asp-action="Search" method="post">
