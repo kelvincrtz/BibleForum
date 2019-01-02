@@ -194,27 +194,28 @@
                                                             <p class="media-comment" style="white-space: pre-line">
                                                                 @Html.Raw(replyreply.ReplyContent)
                                                             </p>
-                                                            @if (reply.AuthorId == UserManager.GetUserId(User))
-                                                            {
-                                                                <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@replyreply.Id" class="btn btn-info btn-circle text-uppercase">
-                                                                    <span class="glyphicon glyphicon-plus-sign"></span> Add verse
-                                                                </a>
-                                                            }
-                                                            @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
-                                                            {
-                                                                <div class="btn-group" role="group">
-                                                                    <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
-                                                                        <span class="glyphicon glyphicon-wrench"></span> Edit
-                                                                    </a>
-                                                                    <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
-                                                                        <span class="glyphicon glyphicon-trash"></span> Delete
-                                                                    </a>
+                                                            <div class="row">
+                                                                <div class="col-md-10 " style="text-align:left">
+                                                                    @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                                                    {
+                                                                        <div class="btn-group" role="group">
+                                                                            <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
+                                                                                <span class="glyphicon glyphicon-wrench"></span> Edit
+                                                                            </a>
+                                                                            <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle text-uppercase">
+                                                                                <span class="glyphicon glyphicon-trash"></span> Delete
+                                                                            </a>
+                                                                        </div>
+                                                                    }
                                                                 </div>
-                                                            }
-                                                            <div class="vote">
-                                                                <a asp-controller="ReplyReply" asp-action="Vote" asp-route-id="@replyreply.Id" class="btn btn-primary btn-circle text-uppercase">
-                                                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="voteCount">(@replyreply.VoteCount)</span>
-                                                                </a>
+
+                                                                <div class="col-md-2" style="text-align:right">
+                                                                    <div class="vote">
+                                                                        <a asp-controller="ReplyReply" asp-action="Vote" asp-route-id="@replyreply.Id" class="btn btn-primary btn-circle text-uppercase">
+                                                                            <span class="glyphicon glyphicon-thumbs-up"></span> Likey <span class="voteCount">(@replyreply.VoteCount)</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
