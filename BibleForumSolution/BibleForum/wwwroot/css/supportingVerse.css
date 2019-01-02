@@ -88,3 +88,14 @@
     border: none;
     cursor: pointer;
 }
+
+.btn-Support-Back {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #4ADFCC;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
