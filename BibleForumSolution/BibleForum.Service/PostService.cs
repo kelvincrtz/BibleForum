@@ -78,8 +78,20 @@ namespace BibleForum.Service
 
         public IEnumerable<Post> GetFilteredPost(Forum forum, string searchQuery)
         {
-            return string.IsNullOrEmpty(searchQuery) ? forum.Posts 
-                : forum.Posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
+            var normalized = "";
+
+            if (searchQuery != null)
+            {
+                normalized = searchQuery.ToLower();
+
+                return string.IsNullOrEmpty(normalized) ? forum.Posts
+                    : forum.Posts.Where(post => post.Title.ToLower().Contains(normalized) || post.Content.ToLower().Contains(normalized));
+            }
+            else
+            {
+                return string.IsNullOrEmpty(searchQuery) ? forum.Posts
+                    : forum.Posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
+            }
         }
 
         public IEnumerable<Post> GetFilteredPost(string searchQuery)
