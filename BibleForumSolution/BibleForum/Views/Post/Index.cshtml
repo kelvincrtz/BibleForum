@@ -169,7 +169,7 @@
                                                             <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-default btn-circle">
                                                                 <span class="glyphicon glyphicon-wrench"></span> Edit
                                                             </a>
-                                                            <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" class="btn btn-default btn-circle">
+                                                            <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" onclick="return confirm('Are you sure you want to delete this post?');" class="btn btn-default btn-circle">
                                                                 <span class="glyphicon glyphicon-trash"></span> Delete
                                                             </a>
                                                         </div>
