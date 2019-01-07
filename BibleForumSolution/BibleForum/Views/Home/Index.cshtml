@@ -26,22 +26,24 @@
                 {
                     <tr>
                         <td>
-                            <div class="forumLogo" style="background-image: url(@post.Forum.ImageUrl); background-size: 100%"></div>
+                            <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">
+                                <div class="forumLogo" style="background-image: url(@post.Forum.ImageUrl); background-size: 100%"></div>
+                            </a>
                             <div class="postTitle">
                                 <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">
                                     @post.Title
                                 </a>
                             </div>
                             <div class="postSubTitle">
-                                @if(post.RepliesCount == 1)
+                                @if (post.RepliesCount == 1)
                                 {
                                     <span>@post.RepliesCount Reply</span>
                                 }
-                                @if(post.RepliesCount == 0)
+                                @if (post.RepliesCount == 0)
                                 {
                                     <span>No replies.</span>
                                 }
-                                @if(post.RepliesCount > 1)
+                                @if (post.RepliesCount > 1)
                                 {
                                     <span>@post.RepliesCount Replies</span>
                                 }
