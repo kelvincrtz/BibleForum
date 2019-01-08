@@ -72,7 +72,7 @@ namespace BibleForum.Controllers
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
 
-        /*
+        
         public async Task<IActionResult> Delete(int id)
         {
             var postReply = _postReplyReplyService.GetById(id);
@@ -81,7 +81,7 @@ namespace BibleForum.Controllers
 
             return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
         }
-        */
+        
 
         private PostReplyReply BuildReply(PostReplyReplyModel model, ApplicationUser user)
         {
