@@ -11,8 +11,10 @@ namespace BibleForum.Data
         PostReply GetById(int id);
 
         IEnumerable<PostReply> GetAll();
+        IEnumerable<PostReplyReply> GetAllPostReplies(int postReplyId);
 
         Task Delete(int id);
+        Task DeleteAllReplies(int postReplyId);
         Task EditPostReplyContent(int id, string newContent);
 
         Task Vote(int id);

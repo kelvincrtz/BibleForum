@@ -36,6 +36,21 @@ namespace BibleForum.Service
 
         }
 
+        public async Task DeleteAllReplies(int postReplyId)
+        {
+            IEnumerable<PostReplyReply> replies = GetAllPostReplies(postReplyId);
+
+            if (replies.Any())
+            {
+                foreach(var replyreplies in replies)
+                {
+                    _dbContext.Remove(replyreplies);
+                }
+
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task EditPostReplyContent(int id, string newContent)
         {
             var postReply = GetById(id);
@@ -55,6 +70,12 @@ namespace BibleForum.Service
                 .Include(user => user.User)
                 .Include(post => post.Post);
             
+        }
+
+        public IEnumerable<PostReplyReply> GetAllPostReplies(int postReplyId)
+        {
+            return _dbContext.PostReplyReplies.Where(postReply => postReply.Id == postReplyId);
+                
         }
 
         public PostReply GetById(int id)
