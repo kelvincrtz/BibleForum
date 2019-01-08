@@ -75,11 +75,11 @@ namespace BibleForum.Controllers
         
         public async Task<IActionResult> Delete(int id)
         {
-            var postReply = _postReplyReplyService.GetById(id);
+            var postReplyReply = _postReplyReplyService.GetById(id);
 
             await _postReplyReplyService.Delete(id);
 
-            return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
+            return RedirectToAction("Index", "Post", new { id = postReplyReply.Post.Id });
         }
         
 
