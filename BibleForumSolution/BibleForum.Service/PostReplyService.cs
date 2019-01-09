@@ -39,6 +39,7 @@ namespace BibleForum.Service
         public async Task DeleteAllReplies(int postReplyId)
         {
             IEnumerable<PostReplyReply> replies = GetAllPostReplies(postReplyId);
+            IEnumerable<PostReplySupportingBibleVerse> supportVerse = GetAllSupportVersePostReplies(postReplyId);
 
             if (replies.Any())
             {
@@ -46,9 +47,19 @@ namespace BibleForum.Service
                 {
                     _dbContext.Remove(replyreplies);
                 }
-
-                await _dbContext.SaveChangesAsync();
             }
+
+            if (supportVerse.Any())
+            {
+                foreach(var supportVerseReply in supportVerse)
+                {
+                    _dbContext.Remove(supportVerseReply);
+                }
+            }
+
+            await Delete(postReplyId);
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task EditPostReplyContent(int id, string newContent)
@@ -76,6 +87,11 @@ namespace BibleForum.Service
         {
             return _dbContext.PostReplyReplies.Where(postReply => postReply.PostReply.Id == postReplyId);
                 
+        }
+
+        public IEnumerable<PostReplySupportingBibleVerse> GetAllSupportVersePostReplies(int postReplyId)
+        {
+            return _dbContext.PostReplySupportingBibleVerses.Where(postReply => postReply.PostReply.Id == postReplyId);
         }
 
         public PostReply GetById(int id)
