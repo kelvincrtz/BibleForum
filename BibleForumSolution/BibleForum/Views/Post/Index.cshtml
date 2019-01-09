@@ -185,7 +185,7 @@
                                                     @if (reply.AuthorId == UserManager.GetUserId(User))
                                                     {
                                                         <a asp-controller="SupportingVerse" asp-action="Create" asp-route-id="@reply.Id" class="btn btn-info btn-circle">
-                                                            <span class="glyphicon glyphicon-plus-sign"></span> erse
+                                                            <span class="glyphicon glyphicon-plus-sign"></span> Verse
                                                         </a>
                                                     }
                                                     @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
@@ -244,13 +244,18 @@
                                                                 </p>
                                                                 <div class="row">
                                                                     <div class="col-md-10 " style="text-align:left">
-                                                                        @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                                                        @if (replyreply.AuthorId == @UserManager.GetUserId(User))
                                                                         {
                                                                             <div class="btn-group" role="group">
                                                                                 <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
                                                                                     <span class="glyphicon glyphicon-wrench"></span> Edit
                                                                                 </a>
-                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
+                                                                                @*
+                                                                                    <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
+                                                                                        <span class="glyphicon glyphicon-trash"></span> Delete
+                                                                                    </a>
+                                                                                *@
+                                                                                <a class="btn btn-default btn-circle delete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?" redirect-url="">
                                                                                     <span class="glyphicon glyphicon-trash"></span> Delete
                                                                                 </a>
                                                                             </div>
