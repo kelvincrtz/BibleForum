@@ -124,6 +124,11 @@
                                                                             <span class="badge quote-badge">2222</span>  ❤
                                                                     </p>
                                                                 *@
+                                                                <p class="blog-post-bottom pull-right">
+                                                                    <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" onclick="return confirm('Are you sure you want to delete this verse?');">
+                                                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                                                    </a>
+                                                                </p>
                                                             </div>
                                                         </blockquote>
                                                     }
