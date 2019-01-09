@@ -22,9 +22,12 @@ namespace BibleForum.Service
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var supportVerse = GetById(id);
+            _dbContext.Remove(supportVerse);
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task EditPostReplyVerseContent(int id, string newContent, string newChapter, string newTranslation)
