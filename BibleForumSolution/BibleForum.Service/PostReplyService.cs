@@ -74,7 +74,7 @@ namespace BibleForum.Service
 
         public IEnumerable<PostReplyReply> GetAllPostReplies(int postReplyId)
         {
-            return _dbContext.PostReplyReplies.Where(postReply => postReply.Id == postReplyId);
+            return _dbContext.PostReplyReplies.Where(postReply => postReply.PostReply.Id == postReplyId);
                 
         }
 

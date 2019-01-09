@@ -137,7 +137,7 @@ namespace BibleForum.Controllers
         {
             var postReply = _postReplyService.GetById(id);
 
-            await _postReplyService.Delete(id);
+            await _postReplyService.DeleteAllReplies(id);
 
             return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
         }
