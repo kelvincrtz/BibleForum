@@ -60,6 +60,15 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var verse = _supportingBibleVerseService.GetById(id);
+
+            await _supportingBibleVerseService.Delete(id);
+
+            return RedirectToAction("Index", "Post", new { id = verse.Post.Id });
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddSupportingVerse(PostReplySupportingBibleVerseModel model)
         {

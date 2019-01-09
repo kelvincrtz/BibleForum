@@ -1,7 +1,9 @@
 ﻿using BibleForum.Data;
 using BibleForum.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +27,7 @@ namespace BibleForum.Service
         public async Task Delete(int id)
         {
             var supportVerse = GetById(id);
+
             _dbContext.Remove(supportVerse);
 
             await _dbContext.SaveChangesAsync();
@@ -42,7 +45,10 @@ namespace BibleForum.Service
 
         public PostReplySupportingBibleVerse GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplySupportingBibleVerses.Where(supportVerse => supportVerse.Id == id)
+                .Include(supportVerse => supportVerse.PostReply)
+                .Include(supportVerse => supportVerse.Post)
+                .First();
         }
     }
 }
