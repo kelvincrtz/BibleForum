@@ -252,16 +252,16 @@
                                                                         @if (replyreply.AuthorId == @UserManager.GetUserId(User))
                                                                         {
                                                                             <div class="btn-group" role="group">
-                                                                                <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
-                                                                                    <span class="glyphicon glyphicon-wrench"></span> Edit
+                                                                                <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
+                                                                                    <span class="glyphicon glyphicon-pencil"></span>
                                                                                 </a>
                                                                                 @*
                                                                                     <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
                                                                                         <span class="glyphicon glyphicon-trash"></span> Delete
                                                                                     </a>
                                                                                 *@
-                                                                                <a class="btn btn-default btn-circle delete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?" redirect-url="">
-                                                                                    <span class="glyphicon glyphicon-trash"></span> Delete
+                                                                                <a class="btn btn-toolbar" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?" redirect-url="">
+                                                                                    <span class="glyphicon glyphicon-trash"></span>
                                                                                 </a>
                                                                             </div>
                                                                         }
