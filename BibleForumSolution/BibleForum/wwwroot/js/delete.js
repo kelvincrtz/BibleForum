@@ -44,7 +44,7 @@
                 swal("Success", "Your reply has been removed!", "success");
 
                 if (!redirectUrl) {
-                    return $(target).parent().parent().hide("slow");
+                    return $(target).closest(".well well-lg").hide("slow");
                 }
                 window.location.href = redirectUrl;
             })

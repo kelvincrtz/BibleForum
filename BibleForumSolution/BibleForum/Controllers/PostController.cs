@@ -74,6 +74,52 @@ namespace BibleForum.Controllers
             return View(model);
         }
 
+        [Authorize]
+        public async Task <IActionResult> Edit(int id)
+        {
+            //Get post and track for reply
+            var post = _postService.GetById(id);
+
+            //Get the application user that will write the reply for this post
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var model = new PostEditModel
+            {
+                Id = post.Id,
+                AuthorName = User.Identity.Name,
+                AuthorImageUrl = user.ImageUrl,
+                AuthorId = user.Id,
+                AuthorRating = user.Rating,
+                IsAuthorAdmin = User.IsInRole("Admin"),
+
+                PostCreated = post.Created,
+                PostContent = post.Content,
+                PostTitle = post.Title,
+
+                /* 
+                EditedCreatedDate = DateTime.Now,
+                VoteCount = post.VoteCount,
+                IsEdited = post.IsEdited,
+                 */
+
+                ForumId = post.Forum.Id,
+                ForumImageUrl = post.Forum.ImageUrl,
+                ForumName = post.Forum.Title,
+                
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddEditContent(PostEditModel model)
+        {
+
+            await _postService.EditPostContent(model.Id, model.PostContent);
+
+            return RedirectToAction("Index", "Post", new { id = model.Id });
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddPost(NewPostModel model)
