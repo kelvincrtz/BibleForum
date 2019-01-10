@@ -41,13 +41,14 @@ namespace BibleForum.Service
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task EditPostContent(int id, string newContent)
+        public async Task EditPostContent(int id, string newContent, string newTitle)
         {
             var post = _dbContext.Posts.FirstOrDefault(p => p.Id == id);
 
             _dbContext.Update(post);
 
             post.Content = newContent;
+            post.Title = newTitle;
 
             /* TODO
             post.IsEdited = true;
