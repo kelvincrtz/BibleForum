@@ -71,7 +71,7 @@
     <div class="page-header">
         @if (User.Identity.IsAuthenticated)
         {
-            <div class="well text-center">
+            <div class="well text-center" style="background-color:white">
                 <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-fresh text-uppercase btn-lg">
                     Add Comment
                 </a>
