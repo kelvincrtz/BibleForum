@@ -22,5 +22,8 @@ namespace BibleForum.Models.Post
         public int ForumId { get; set; }
         public string ForumName { get; set; }
         public string ForumImageUrl { get; set; }
+
+        public DateTime EditedDate { get; set; }
+        public bool IsEdited { get; set; }
     }
 }

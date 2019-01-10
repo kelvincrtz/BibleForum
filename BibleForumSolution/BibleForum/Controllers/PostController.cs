@@ -96,11 +96,9 @@ namespace BibleForum.Controllers
                 PostContent = post.Content,
                 PostTitle = post.Title,
 
-                /* 
-                EditedCreatedDate = DateTime.Now,
-                VoteCount = post.VoteCount,
+                EditedDate = DateTime.Now,
                 IsEdited = post.IsEdited,
-                 */
+
 
                 ForumId = post.Forum.Id,
                 ForumImageUrl = post.Forum.ImageUrl,
