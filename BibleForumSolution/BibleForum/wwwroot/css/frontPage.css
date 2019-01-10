@@ -15,15 +15,15 @@
     margin: 0 auto 35px;
     text-align: center;
     font-weight: 900;
-    font-size: 3.4vw;
-    margin-bottom: 30px;
-    padding: 0 160px 0 160px;
+    font-size: 3.4em;
+    margin-bottom: 40px;
+    padding: 0 80px 25px 80px;
     text-shadow: 2px 3px 0px #898999;
     line-height: 1.2;
 }
 
 .frontPageSubHeading {
-    font-size: 1.4vw;
+    font-size: 1.4em;
     color: grey;
     font-family: 'Righteous', cursive;
 }
@@ -66,19 +66,37 @@
     }
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (max-width: 800px) {
+    .frontPageHeading {
+        font-size: 1.8em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .frontPageHeading {
+        font-size: 1.2em;
+    }
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (max-width: 600px) {
-    .homeSearch {
-        font-size: 1.0em;
-        width: 85%;
+    .frontPageSubHeading {
+        font-size: 0.9em;
     }
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
     .homeSearch {
-        font-size: 0.9em;
-        width: 70%;
+        font-size: 1.7em;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .homeSearch {
+        font-size: 1em;
     }
 }
 
