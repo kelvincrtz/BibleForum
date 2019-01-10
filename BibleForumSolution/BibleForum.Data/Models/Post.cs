@@ -15,5 +15,8 @@ namespace BibleForum.Data.Models
         public virtual Forum Forum { get; set; }
 
         public virtual IEnumerable<PostReply> Replies { get; set; }
+
+        public DateTime EditedDate { get; set; }
+        public bool IsEdited { get; set; }
     }
 }
