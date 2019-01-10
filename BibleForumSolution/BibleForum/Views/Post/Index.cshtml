@@ -40,6 +40,11 @@
                     {
                         <div class="isAdmin smaller">Admin</div>
                     }
+
+                    @if (Model.IsEdited)
+                    {
+                        <div class="isEditedPost smaller">Edited</div>
+                    }
                 </div>
             </div>
         </div>
@@ -109,8 +114,14 @@
                                             @if (reply.IsAuthorAdmin)
                                             {
                                                 <div class="isAdmin smaller">Admin</div>
+                                            }
+
+                                            @if (reply.IsEdited)
+                                            {
+                                                <div class="isEditedPost smaller">Edited</div>
                                                 <br />
                                             }
+
                                             <ul class="media-date text-uppercase reviews list-inline">
                                                 <li class="dd">@reply.Created.Day</li>
                                                 <li class="mm">@reply.Created.Month</li>
@@ -141,7 +152,7 @@
                                                                             <span class="badge quote-badge">2222</span>  ❤
                                                                     </p>
                                                                 *@
-                                                                @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                                                @if (reply.AuthorId == @UserManager.GetUserId(User))
                                                                 {
                                                                     <p class="blog-post-bottom pull-right">
                                                                         <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" onclick="return confirm('Are you sure you want to delete this verse?');">
@@ -149,15 +160,9 @@
                                                                         </a>
                                                                     </p>
                                                                 }
-                                                                </div>
+                                                            </div>
                                                         </blockquote>
                                                     }
-                                                </div>
-                                            }
-                                            @if (reply.IsEdited)
-                                            {
-                                                <div class="isEdited doubleLineBreak">
-                                                    <p>(This comment has been edited - @reply.EditedCreatedDate)</p>
                                                 </div>
                                             }
 
@@ -188,7 +193,7 @@
                                                             <span class="glyphicon glyphicon-plus-sign"></span> Verse
                                                         </a>
                                                     }
-                                                    @if (reply.AuthorId == @UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                                                    @if (reply.AuthorId == @UserManager.GetUserId(User))
                                                     {
                                                         <div class="btn-group" role="group">
                                                             <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-toolbar">

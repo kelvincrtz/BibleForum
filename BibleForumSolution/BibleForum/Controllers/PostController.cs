@@ -49,7 +49,9 @@ namespace BibleForum.Controllers
                 ForumId = post.Forum.Id,
                 ForumName = post.Forum.Title,
                 ForumImage = post.Forum.ImageUrl,
-                IsAuthorAdmin = IsAuthorAdmin(post.User)
+                IsAuthorAdmin = IsAuthorAdmin(post.User),
+                EditedCreated = post.EditedDate,
+                IsEdited = post.IsEdited
             };
 
             return View(model);

@@ -24,6 +24,9 @@ namespace BibleForum.Models.Post
         public string ForumName { get; set; }
         public string ForumImage { get; set; }
 
+        public DateTime EditedCreated { get; set; }
+        public bool IsEdited { get; set; }
+
         public IEnumerable<PostReplyModel> Replies { get; set; }
         public IEnumerable<PostReplySupportingBibleVerseModel> SupportingVerse { get; set; }
 
