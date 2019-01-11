@@ -41,15 +41,15 @@
     $("#confirm-delete").on('click', () => {
         $.get(url)
             .done((result) => {
-                swal("Success", "Your reply has been removed!", "success");
+                swal("Success", "Your pet has been removed!", "success");
 
                 if (!redirectUrl) {
-                    return $(target).closest(".well well-lg").hide("slow");
+                    return $(target).parent().parent().hide("slow");
                 }
                 window.location.href = redirectUrl;
             })
             .fail((error) => {
-                swal("Error", "Your reply could not be removed!", "error");
+                swal("Error", "Your pet could not be removed!", "error");
 
                 if (redirectUrl)
                     window.location.href = redirectUrl;

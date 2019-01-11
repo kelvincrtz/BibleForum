@@ -222,7 +222,7 @@
                                             <ul class="media-list">
                                                 @foreach (var replyreply in reply.PostReplyReplies)
                                                 {
-                                                    <li class="media media-replied">
+                                                    <li class="media media-replied" id="@replyreply.Id">
                                                         <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)">
                                                         </div>
                                                         <div class="media-body">
@@ -255,14 +255,16 @@
                                                                                 <a asp-controller="ReplyReply" asp-action="Edit" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
                                                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                                                 </a>
+
+                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
+                                                                                    <span class="glyphicon glyphicon-trash"></span> Delete
+                                                                                </a>
+
                                                                                 @*
-                                                                                    <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-default btn-circle">
-                                                                                        <span class="glyphicon glyphicon-trash"></span> Delete
-                                                                                    </a>
-                                                                                *@
-                                                                                <a class="btn btn-toolbar" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?" redirect-url="">
+                                                                               <a class="btn btn-toolbar delete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
                                                                                 </a>
+                                                                                *@
                                                                             </div>
                                                                         }
                                                                     </div>
