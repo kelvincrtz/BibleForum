@@ -256,15 +256,16 @@
                                                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                                                 </a>
 
+                                                                                @*
                                                                                 <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
                                                                                     <span class="glyphicon glyphicon-trash"></span> Delete
                                                                                 </a>
-
-                                                                                @*
-                                                                               <a class="btn btn-toolbar delete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete" data-body-message="Are you sure to delete this reply?">
+                                                                                *@
+                                                                                
+                                                                               <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
                                                                                 </a>
-                                                                                *@
+                                                                                
                                                                             </div>
                                                                         }
                                                                     </div>
@@ -328,4 +329,20 @@
         </div>
     }
 </div>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function (e) {
+
+            function DeleteReplyReply() {
+                $.ajax({
+                    type: "",
+                    url: "",
+                    data: "{Id: " + $(#)
+                })
+            }
+        }
+
+    </script>
+}
 
