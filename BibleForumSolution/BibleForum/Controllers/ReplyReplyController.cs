@@ -79,7 +79,8 @@ namespace BibleForum.Controllers
 
             await _postReplyReplyService.Delete(id);
 
-            return RedirectToAction("Index", "Post", new { id = postReplyReply.Post.Id });
+            return null;
+            //return RedirectToAction("Index", "Post", new { id = postReplyReply.Post.Id });
         }
         
 

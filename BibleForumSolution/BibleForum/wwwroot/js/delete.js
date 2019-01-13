@@ -44,7 +44,7 @@
                 swal("Success", "Your pet has been removed!", "success");
 
                 if (!redirectUrl) {
-                    return $(target).parent().parent().hide("slow");
+                    return $(target).closest().hide("slow");
                 }
                 window.location.href = redirectUrl;
             })

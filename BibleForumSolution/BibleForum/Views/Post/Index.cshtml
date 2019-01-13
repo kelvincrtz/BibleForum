@@ -334,13 +334,33 @@
     <script>
         $(document).ready(function (e) {
 
-            function DeleteReplyReply() {
+            //Delete Action
+            $(".testDelete").on('click', (e) => {
+                e.preventDefault();
+
+                target = e.target;
+                var Id = $(target).data('id');
+                var controller = $(target).data('controller');
+                var action = $(target).data('action');
+
                 $.ajax({
                     type: "",
-                    url: "",
-                    data: "{Id: " + $(#)
-                })
-            }
+                    url: "/" + controller + "/" + action,
+                    data: '{Id: ' + Id + ' }',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (json) {
+
+                    },
+                    failure: function (response) {
+                        alert('error');
+                    },
+                    error: function (response) {
+                        alert('error');
+                    }
+                });
+
+            });
         }
 
     </script>
