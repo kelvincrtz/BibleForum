@@ -66,7 +66,7 @@ namespace BibleForum.Controllers
 
             await _supportingBibleVerseService.Delete(id);
 
-            return RedirectToAction("Index", "Post", new { id = verse.Post.Id });
+            return NoContent();
         }
 
         [HttpPost]

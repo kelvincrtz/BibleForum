@@ -136,7 +136,7 @@
                                                     <div class="supportingBibleVerse">
                                                         @foreach (var verse in reply.PostReplySupportingBibleVerses)
                                                         {
-                                                            <blockquote class="quote-box">
+                                                            <blockquote class="quote-box" id="@verse.Id">
                                                                 <p class="quotation-mark">
                                                                     “
                                                                 </p>
@@ -156,7 +156,7 @@
                                                                     @if (reply.AuthorId == @UserManager.GetUserId(User))
                                                                     {
                                                                         <p class="blog-post-bottom pull-right">
-                                                                            <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" onclick="return confirm('Are you sure you want to delete this verse?');">
+                                                                            <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" data-ajax="true" data-ajax-success="deleteItem(@verse.Id)">
                                                                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                                                             </a>
                                                                         </p>
