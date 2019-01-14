@@ -139,7 +139,7 @@ namespace BibleForum.Controllers
 
             await _postReplyService.DeleteAllReplies(id);
 
-            return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
+            return NoContent();
         }
 
         //Voting
