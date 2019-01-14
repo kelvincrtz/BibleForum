@@ -222,7 +222,7 @@
                                             <ul class="media-list">
                                                 @foreach (var replyreply in reply.PostReplyReplies)
                                                 {
-                                                    <li class="media media-replied" id="@replyreply.Id">
+                                                    <li class="media media-replied replyreplyClass" id="@replyreply.Id">
                                                         <div class="pull-left postAuthorImage img-circle" style="background-image:url(@replyreply.AuthorImageUrl)">
                                                         </div>
                                                         <div class="media-body">
@@ -257,15 +257,14 @@
                                                                                 </a>
 
                                                                          
-                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
+                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar" data-ajax="true" data-ajax-success="deleteItem(this)">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
                                                                                 </a>
                                                                            
-
                                                                                 @*
-                                                                                    <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
-                                                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                                                    </a>
+                                                                                <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
+                                                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                                                </a>
                                                                                 *@
 
                                                                             </div>
@@ -332,39 +331,8 @@
     }
 </div>
 
-@section Scripts{ 
-    <script>
-        $(document).ready(function (e) {
-
-            //Delete Action
-            $(".").on('click', (e) => {
-                e.preventDefault();
-
-                target = e.target;
-                var Id = $(target).data('id');
-                var controller = $(target).data('controller');
-                var action = $(target).data('action');
-
-                $.ajax({
-                    type: "",
-                    url: "/" + controller + "/" + action,
-                    data: '{Id: ' + Id + ' }',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (json) {
-
-                    },
-                    failure: function (response) {
-                        alert('error');
-                    },
-                    error: function (response) {
-                        alert('error');
-                    }
-                });
-
-            });
-        }
-
-    </script>
-}
-
+<script>
+    function deleteItem(replyreplyClass) {
+        $(replyreplyClass).parents('li').remove();
+    }
+</script>
