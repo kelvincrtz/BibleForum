@@ -256,16 +256,9 @@
                                                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                                                 </a>
 
-                                                                         
-                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar" data-ajax="true" data-ajax-success="deleteItem(this)">
+                                                                                <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar" data-ajax="true" data-ajax-success="deleteItem(@replyreply.Id)">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
-                                                                                </a>
-                                                                           
-                                                                                @*
-                                                                                <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
-                                                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                                                </a>
-                                                                                *@
+                                                                                </a>                                                                        
 
                                                                             </div>
                                                                         }
@@ -332,7 +325,8 @@
 </div>
 
 <script>
-    function deleteItem(replyreplyClass) {
-        $(replyreplyClass).parents('li').remove();
+    function deleteItem(comment) {
+        var commentDelete = document.getElementById(comment);
+        commentDelete.remove();
     }
 </script>
