@@ -256,16 +256,18 @@
                                                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                                                 </a>
 
-                                                                                @*
+                                                                         
                                                                                 <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar">
-                                                                                    <span class="glyphicon glyphicon-trash"></span> Delete
-                                                                                </a>
-                                                                                *@
-                                                                                
-                                                                               <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
                                                                                 </a>
-                                                                                
+                                                                           
+
+                                                                                @*
+                                                                                    <a class="btn btn-toolbar testDelete" data-id="@replyreply.Id" data-controller="ReplyReply" data-action="Delete">
+                                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                                    </a>
+                                                                                *@
+
                                                                             </div>
                                                                         }
                                                                     </div>
@@ -335,7 +337,7 @@
         $(document).ready(function (e) {
 
             //Delete Action
-            $(".testDelete").on('click', (e) => {
+            $(".").on('click', (e) => {
                 e.preventDefault();
 
                 target = e.target;
