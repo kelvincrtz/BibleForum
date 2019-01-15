@@ -101,7 +101,7 @@
                             {
                                 foreach (var reply in Model.Replies)
                                 {
-                                    <div id="@reply.Id">
+                                    <div id="@reply.Id+postdelete">
                                         <div class="pull-left postAuthorImage img-circle" style="background-image:url(@reply.AuthorImageUrl)"></div>
                                         <div class="media-body">
                                             <div class="wellColor well-lg">
@@ -200,7 +200,7 @@
                                                                 <a asp-controller="Reply" asp-action="Edit" asp-route-id="@reply.Id" class="btn btn-toolbar">
                                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                                 </a>
-                                                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" data-ajax="true" data-ajax-success="deleteItem(@reply.Id)" class="btn btn-toolbar">
+                                                                <a asp-controller="Reply" asp-action="Delete" asp-route-id="@reply.Id" data-ajax="true" data-ajax-success="deleteItem(@reply.Id+postdelete)" class="btn btn-toolbar">
                                                                     <span class="glyphicon glyphicon-trash"></span>
                                                                 </a>
                                                             </div>
