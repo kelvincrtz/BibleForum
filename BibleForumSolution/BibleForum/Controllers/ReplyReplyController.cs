@@ -81,6 +81,13 @@ namespace BibleForum.Controllers
 
             return NoContent();
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var postReplyReply = _postReplyReplyService.GetById(id);
+
+            return null;
+        }
         
 
         private PostReplyReply BuildReply(PostReplyReplyModel model, ApplicationUser user)

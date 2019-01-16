@@ -35,9 +35,17 @@ namespace BibleForum.Service
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task EditPostReplyContent(int id, string newContent)
+        public async Task EditPostReplyContent(int id, string newContent)
         {
-            throw new NotImplementedException();
+            var postReplyReply = GetById(id);
+
+            _dbContext.Update(postReplyReply);
+
+            postReplyReply.Content = newContent;
+            postReplyReply.IsEdited = true;
+            postReplyReply.EditedDate = DateTime.Now;
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<PostReplyReply> GetAll()
