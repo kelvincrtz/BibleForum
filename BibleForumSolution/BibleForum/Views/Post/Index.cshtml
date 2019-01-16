@@ -136,7 +136,7 @@
                                                     <div class="supportingBibleVerse">
                                                         @foreach (var verse in reply.PostReplySupportingBibleVerses)
                                                         {
-                                                            <blockquote class="quote-box" id="@verse.Id">
+                                                            <blockquote class="quote-box" id="@verse.GetHashCode()">
                                                                 <p class="quotation-mark">
                                                                     “
                                                                 </p>
@@ -156,7 +156,7 @@
                                                                     @if (reply.AuthorId == @UserManager.GetUserId(User))
                                                                     {
                                                                         <p class="blog-post-bottom pull-right">
-                                                                            <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" data-ajax="true" data-ajax-success="deleteItem(@verse.Id)">
+                                                                            <a asp-controller="SupportingVerse" asp-action="Delete" asp-route-id="@verse.Id" data-ajax="true" data-ajax-success="deleteItem(@verse.GetHashCode())">
                                                                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                                                             </a>
                                                                         </p>
@@ -173,7 +173,7 @@
                                                             <span class="glyphicon glyphicon-share-alt"></span> Reply
                                                         </a>
 
-                                                        <a class="btn btn-warning btn-circle" data-toggle="collapse" href="#@reply.Id">
+                                                        <a class="btn btn-warning btn-circle" data-toggle="collapse" href="#@reply.GetHashCode()">
                                                             @if (reply.PostReplyReplies.Any() && reply.PostReplyReplies.Count() > 1)
                                                             {
                                                                 <span class="glyphicon glyphicon-comment"></span>@reply.PostReplyReplies.Count() <span>Comments</span>
@@ -221,7 +221,7 @@
 
                                     if (reply.PostReplyReplies.Any())
                                     {
-                                        <div class="collapse" id="@reply.Id">
+                                        <div class="collapse" id="@reply.GetHashCode()">
                                             <ul class="media-list">
                                                 @foreach (var replyreply in reply.PostReplyReplies)
                                                 {
