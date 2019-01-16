@@ -85,7 +85,7 @@ namespace BibleForum.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             //Get post and track for reply
-            var postReplyReply = _postReplyService.GetById(id);
+            var postReplyReply = _postReplyReplyService.GetById(id);
 
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -99,7 +99,6 @@ namespace BibleForum.Controllers
                 AuthorRating = user.Rating,
                 IsAuthorAdmin = User.IsInRole("Admin"),
 
-                Created = postReplyReply.Created,
                 ReplyContent = postReplyReply.Content,
 
                 EditedCreatedDate = DateTime.Now,
@@ -107,9 +106,7 @@ namespace BibleForum.Controllers
                 IsEdited = postReplyReply.IsEdited,
 
                 PostId = postReplyReply.Post.Id,
-                ForumId = postReplyReply.Post.Forum.Id,
-                ForumImageUrl = postReplyReply.Post.Forum.ImageUrl,
-                ForumName = postReplyReply.Post.Forum.Title
+                PostReplyId = postReplyReply.PostReply.Id
             };
 
             return View(model);

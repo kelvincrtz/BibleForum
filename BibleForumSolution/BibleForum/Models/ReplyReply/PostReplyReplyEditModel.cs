@@ -21,5 +21,6 @@ namespace BibleForum.Models.ReplyReply
         public int VoteCount { get; set; }
 
         public int PostId { get; set; }
+        public int PostReplyId { get; set; }
     }
 }
