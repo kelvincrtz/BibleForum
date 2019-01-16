@@ -116,7 +116,7 @@ namespace BibleForum.Controllers
         public async Task<IActionResult> AddEditContent(PostReplyReplyEditModel model)
         {
 
-            await _postReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
+            await _postReplyReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
 
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
