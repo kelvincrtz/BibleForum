@@ -240,8 +240,14 @@
                                                                 @if (replyreply.IsAuthorAdmin)
                                                                 {
                                                                     <div class="isAdmin smaller">Admin</div>
+                                                                }
+
+                                                                @if (replyreply.IsEdited)
+                                                                {
+                                                                    <div class="isEditedPost smaller">Edited</div>
                                                                     <br />
                                                                 }
+
                                                                 <ul class="media-date text-uppercase reviews list-inline">
                                                                     <li class="dd">@replyreply.Created.Day</li>
                                                                     <li class="mm">@replyreply.Created.Month</li>
@@ -261,7 +267,7 @@
 
                                                                                 <a asp-controller="ReplyReply" asp-action="Delete" asp-route-id="@replyreply.Id" class="btn btn-toolbar" data-ajax="true" data-ajax-success="deleteItem(@replyreply.Id)">
                                                                                     <span class="glyphicon glyphicon-trash"></span>
-                                                                                </a>                                                                        
+                                                                                </a>
 
                                                                             </div>
                                                                         }
