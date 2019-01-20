@@ -149,9 +149,9 @@
                                                                         @verse.BibleBook @verse.BibleChapter @verse.BibleTranslation
                                                                     </p>
                                                                     @*
-                                                                    <p class="blog-post-bottom pull-right">
-                                                                            <span class="badge quote-badge">2222</span>  ❤
-                                                                    </p>
+                                                                        <p class="blog-post-bottom pull-right">
+                                                                                <span class="badge quote-badge">2222</span>  ❤
+                                                                        </p>
                                                                     *@
                                                                     @if (reply.AuthorId == @UserManager.GetUserId(User))
                                                                     {
@@ -332,6 +332,18 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>// your jquery reference
+    <script>
+        $(document).ready(function () {
+            var JumpTo = '@ViewBag.JumpToDivId';
+            if (JumpTo != "") {
+                $(this).scrollTop($('#' + JumpTo).position().top);
+            }
+        });
+    </script>
+}
 
 <script>
     function deleteItem(comment) {
