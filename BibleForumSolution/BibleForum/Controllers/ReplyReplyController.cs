@@ -87,6 +87,8 @@ namespace BibleForum.Controllers
             //Get post and track for reply
             var postReplyReply = _postReplyReplyService.GetById(id);
 
+            ViewBag.JumpToDivId = postReplyReply.GetHashCode();
+
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
