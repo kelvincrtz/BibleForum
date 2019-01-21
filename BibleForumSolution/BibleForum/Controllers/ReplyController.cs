@@ -130,6 +130,8 @@ namespace BibleForum.Controllers
 
             await _postReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
 
+            ViewBag.JumpToDivId = model.Id;
+
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
 
