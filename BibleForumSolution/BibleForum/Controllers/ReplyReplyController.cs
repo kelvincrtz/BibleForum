@@ -87,7 +87,7 @@ namespace BibleForum.Controllers
             //Get post and track for reply
             var postReplyReply = _postReplyReplyService.GetById(id);
 
-            ViewBag.JumpToDivId = postReplyReply.GetHashCode();
+            ViewBag.JumpToDivId = postReplyReply.PostReply.Id;
 
             //Get the application user that will write the reply for this post
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -119,6 +119,8 @@ namespace BibleForum.Controllers
         {
 
             await _postReplyReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
+
+            ViewBag.JumpToDivId = model.PostReplyId;
 
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }
