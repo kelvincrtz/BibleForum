@@ -22,33 +22,37 @@ namespace BibleForum.Controllers
 
         public IActionResult Results(string searchQuery)
         {
-            if(searchQuery == null)
+
+            if(searchQuery != null)
+            {
+                var posts = _postService.GetFilteredPost(searchQuery);
+                var areNoResults = (String.IsNullOrEmpty(searchQuery) && !posts.Any());
+
+                var postListings = posts.Select(post => new PostListingModel
+                {
+                    Title = post.Title,
+                    Id = post.Id,
+                    AuthorId = post.User.Id,
+                    AuthorName = post.User.UserName,
+                    AuthorRating = post.User.Rating,
+                    DatePosted = post.Created.ToString(),
+                    RepliesCount = post.Replies.Count(),
+                    Forum = BuildForumListing(post)
+                });
+
+                var model = new SearchResultModel
+                {
+                    Posts = postListings,
+                    SearchQuery = searchQuery,
+                    EmptySearchResults = areNoResults
+                };
+
+                return View(model);
+            }
+            else
             {
                 return RedirectToAction("Index", "Home");
             }
-            var posts = _postService.GetFilteredPost(searchQuery);
-            var areNoResults = (String.IsNullOrEmpty(searchQuery) && !posts.Any());
-
-            var postListings = posts.Select(post => new PostListingModel
-            {
-                Title = post.Title,
-                Id = post.Id,
-                AuthorId = post.User.Id,
-                AuthorName = post.User.UserName,
-                AuthorRating = post.User.Rating,
-                DatePosted = post.Created.ToString(),
-                RepliesCount = post.Replies.Count(),
-                Forum = BuildForumListing(post)
-            });
-
-            var model = new SearchResultModel
-            {
-                Posts = postListings,
-                SearchQuery = searchQuery,
-                EmptySearchResults = areNoResults
-            };
-
-            return View(model);
         }
 
         public IActionResult Search(string searchQuery)

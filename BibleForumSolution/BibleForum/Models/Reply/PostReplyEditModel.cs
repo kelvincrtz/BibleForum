@@ -28,5 +28,6 @@ namespace BibleForum.Models.Reply
         public string ForumName { get; set; }
         public string ForumImageUrl { get; set; }
         public int ForumId { get; set; }
+
     }
 }
