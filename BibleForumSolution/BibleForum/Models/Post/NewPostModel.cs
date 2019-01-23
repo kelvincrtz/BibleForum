@@ -14,12 +14,15 @@ namespace BibleForum.Models.Post
         public string ForumImageUrl { get; set; }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(100)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
+        [Display(Name = "Title")]
         public string Title { get; set; }
 
         [Required]
-        [MinLength(3)]
+        [StringLength(10000, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Content")]
         public string Content { get; set; }
 
         public DateTime Created { get; set; }
