@@ -18,7 +18,7 @@ namespace BibleForum.Models.ReplyReply
         [Required]
         [StringLength(50000, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Reply")]
+        [Display(Name = "Reply Content")]
         public string ReplyContent { get; set; }
 
         public DateTime EditedCreatedDate { get; set; }

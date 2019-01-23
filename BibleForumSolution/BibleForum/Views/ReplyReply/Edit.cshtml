@@ -23,7 +23,6 @@
 
                 <form asp-action="AddEditContent" method="post" id="addPostForm">
                     <div class="form-group">
-                        <label asp-for="ReplyContent">Reply:</label>
                         <textarea asp-for="ReplyContent" rows="12" class="form-control" placeholder="@Model.ReplyContent"></textarea>
                         <span asp-validation-for="ReplyContent" class="text-danger"></span>
                     </div>
