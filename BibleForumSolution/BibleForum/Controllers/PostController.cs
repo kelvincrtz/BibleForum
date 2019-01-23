@@ -129,6 +129,11 @@ namespace BibleForum.Controllers
 
             var post = BuildPost(model, user);
 
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             //Use "await" because of the "async" method
             await _postService.Add(post);
 

@@ -19,6 +19,7 @@ namespace BibleForum.Models.Post
 
         [Required]
         public string Content { get; set; }
+
         public DateTime Created { get; set; }
 
     }
