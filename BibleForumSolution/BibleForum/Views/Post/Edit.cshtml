@@ -23,12 +23,10 @@
 
                 <form asp-action="AddEditContent" method="post" id="addPostForm">
                     <div class="form-group">
-                        <label asp-for="PostTitle">Title:</label>
-                        <input asp-for="PostTitle" class="form-control" placeholder="@Model.PostTitle" />
+                        <input asp-for="PostTitle" class="form-control" placeholder="@Model.PostTitle"/>
                         <span asp-validation-for="PostTitle" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PostContent">Content:</label>
                         <textarea asp-for="PostContent" rows="10" class="form-control" placeholder="@Model.PostContent"></textarea>
                         <span asp-validation-for="PostContent" class="text-danger"></span>
                     </div>
