@@ -47,6 +47,8 @@ namespace BibleForum.Controllers
                 AuthorRating = user.Rating,
                 IsAuthorAdmin = User.IsInRole("Admin"),
                 
+                OriginalPostWritter = post.User.UserName,
+
                 ForumName = post.Forum.Title,
                 ForumId = post.Forum.Id,
                 ForumImageUrl = post.Forum.ImageUrl,

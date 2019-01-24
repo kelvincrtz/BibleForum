@@ -29,6 +29,8 @@ namespace BibleForum.Models.Reply
         public bool IsEdited { get; set; }
         public int VoteCount { get; set; }
 
+        public string OriginalPostWritter { get; set; }
+
         public int PostId { get; set; }
         public string PostTitle { get; set; }
         public string PostContent { get; set; }
