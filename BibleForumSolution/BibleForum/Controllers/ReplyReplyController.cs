@@ -46,7 +46,7 @@ namespace BibleForum.Controllers
                 PostId = post.Id,
                 PostReplyId = postReply.Id,
                 PostReplyContent = postReply.Content,
-
+                ReplyOriginalAuthor = postReply.User.UserName,
                 AuthorName = User.Identity.Name,
                 AuthorImageUrl = user.ImageUrl,
                 AuthorId = user.Id,
@@ -120,7 +120,7 @@ namespace BibleForum.Controllers
 
             await _postReplyReplyService.EditPostReplyContent(model.Id, model.ReplyContent);
 
-            ViewBag.JumpToDivId = model.PostReplyId;
+            //ViewBag.JumpToDivId = model.PostReplyId;
 
             return RedirectToAction("Index", "Post", new { id = model.PostId });
         }

@@ -28,6 +28,8 @@ namespace BibleForum.Models.ReplyReply
         public bool IsEdited { get; set; }
         public int VoteCount { get; set; }
 
+        public string ReplyOriginalAuthor { get; set; }
+
         public int PostId { get; set; }
 
         public int PostReplyId { get; set; }
