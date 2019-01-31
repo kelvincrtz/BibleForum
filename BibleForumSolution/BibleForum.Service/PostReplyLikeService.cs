@@ -16,9 +16,10 @@ namespace BibleForum.Service
             _dbContext = dbContext;
         }
 
-        public Task Add(PostReplyLike postReplyLike, PostReply postReplyId)
+        public async Task Add(PostReplyLike postReplyLike)
         {
-            throw new NotImplementedException();
+            _dbContext.PostReplyLikes.Add(postReplyLike);
+            await _dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<PostReplyLike> GetAll()

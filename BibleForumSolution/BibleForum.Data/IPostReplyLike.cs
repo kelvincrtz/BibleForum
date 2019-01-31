@@ -13,6 +13,6 @@ namespace BibleForum.Data
 
         IEnumerable<PostReplyLike> GetByPostReplyId(int postReplyId);
 
-        Task Add(PostReplyLike postReplyLike, PostReply postReplyId);
+        Task Add(PostReplyLike postReplyLike);
     }
 }
