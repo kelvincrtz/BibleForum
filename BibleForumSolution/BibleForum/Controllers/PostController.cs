@@ -6,6 +6,7 @@ using BibleForum.Data;
 using BibleForum.Data.Models;
 using BibleForum.Models.Post;
 using BibleForum.Models.Reply;
+using BibleForum.Models.ReplyLike;
 using BibleForum.Models.ReplyReply;
 using BibleForum.Models.ReplySupportingBibleVerse;
 using Microsoft.AspNetCore.Authorization;
@@ -187,7 +188,13 @@ namespace BibleForum.Controllers
                         BibleVerse = supportVerse.BibleVerse,
                         Created = supportVerse.Created,
                     }),
-                VoteCount = reply.VoteCount,
+                /*
+                PostReplyLikes = reply.PostReplyLikes
+                    .Select(postReplyLikes => new PostReplyLikeModel
+                    {
+                        Id = postReplyLikes.Id,
+                        AuthorName = postReplyLikes.User.UserName
+                    }), */
                 EditedCreatedDate = reply.EditedDate,
                 IsEdited = reply.IsEdited,
                 IsAuthorAdmin = IsAuthorAdmin(reply.User),
