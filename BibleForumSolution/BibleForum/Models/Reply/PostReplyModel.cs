@@ -1,4 +1,5 @@
-﻿using BibleForum.Models.ReplyReply;
+﻿using BibleForum.Models.ReplyLike;
+using BibleForum.Models.ReplyReply;
 using BibleForum.Models.ReplySupportingBibleVerse;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace BibleForum.Models.Reply
 
         public IEnumerable<PostReplySupportingBibleVerseModel> PostReplySupportingBibleVerses { get; set; }
         public IEnumerable<PostReplyReplyModel> PostReplyReplies { get; set; }
+        public IEnumerable<PostReplyLikeModel> PostReplyLikes { get; set; }
 
     }
 }
