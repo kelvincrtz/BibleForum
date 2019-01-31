@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BibleForum.Data
 {
@@ -11,5 +12,7 @@ namespace BibleForum.Data
         IEnumerable<PostReplyLike> GetAll();
 
         IEnumerable<PostReplyLike> GetByPostReplyId(int postReplyId);
+
+        Task Add(PostReplyLike postReplyLike, PostReply postReplyId);
     }
 }
