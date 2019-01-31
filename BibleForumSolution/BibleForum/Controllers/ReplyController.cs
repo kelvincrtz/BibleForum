@@ -154,7 +154,6 @@ namespace BibleForum.Controllers
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(userId);
 
-            //await _postReplyService.Vote(id);
             var vote = BuildVote(postReply.Id, user);
 
             await _postReplyLikeService.Add(vote);
@@ -170,8 +169,7 @@ namespace BibleForum.Controllers
             return new PostReplyLike
             {
                 PostReply = postReply,
-                //Content = model.ReplyContent,
-                //Created = DateTime.Now,
+                Created = DateTime.Now,
                 User = user
             };
         }
