@@ -16,6 +16,7 @@ namespace BibleForum.Data.Models
         public virtual ApplicationUser User { get; set; }
         public virtual Post Post { get; set; }
         public virtual IEnumerable<PostReplySupportingBibleVerse> PostReplySupportingBibleVerse { get; set; }
+        public virtual IEnumerable<PostReplyLike> PostReplyLikes { get; set; }
         public virtual IEnumerable<PostReplyReply> PostReplyReply { get; set; }
 
     }
