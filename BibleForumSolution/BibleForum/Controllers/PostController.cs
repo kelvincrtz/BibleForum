@@ -20,15 +20,17 @@ namespace BibleForum.Controllers
         private readonly IPost _postService;
         private readonly IForum _forumService;
         private readonly IApplicationUser _userService;
+        private readonly IPostReplyLike _postReplyLikeService;
 
         //Made available from the Identity Membership System
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager, IApplicationUser userService) {
+        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager, IApplicationUser userService, IPostReplyLike postReplyLikeService) {
             _postService = postService;
             _forumService = forumService;
             _userManager = userManager;
             _userService = userService;
+            _postReplyLikeService = postReplyLikeService;
         }
 
         public IActionResult Index(int id)
