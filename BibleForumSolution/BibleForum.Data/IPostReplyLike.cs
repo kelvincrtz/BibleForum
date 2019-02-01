@@ -11,7 +11,7 @@ namespace BibleForum.Data
         PostReplyLike GetById(int id);
         IEnumerable<PostReplyLike> GetAll();
 
-        IEnumerable<PostReplyLike> GetByPostReplyId(int postReplyId);
+        IEnumerable<PostReplyLike> GetLikesByPostReplyId(int postReplyId);
 
         Task Add(PostReplyLike postReplyLike);
     }

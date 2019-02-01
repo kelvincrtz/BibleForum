@@ -188,13 +188,9 @@ namespace BibleForum.Controllers
                         BibleVerse = supportVerse.BibleVerse,
                         Created = supportVerse.Created,
                     }),
-                /*
-                PostReplyLikes = reply.PostReplyLikes
-                    .Select(postReplyLikes => new PostReplyLikeModel
-                    {
-                        Id = postReplyLikes.Id,
-                        AuthorName = postReplyLikes.User.UserName
-                    }), */
+                
+                PostReplyLikes = BuildPostReplyLikes(reply.PostReplyLikes),
+
                 EditedCreatedDate = reply.EditedDate,
                 IsEdited = reply.IsEdited,
                 IsAuthorAdmin = IsAuthorAdmin(reply.User),
@@ -213,6 +209,11 @@ namespace BibleForum.Controllers
                         IsAuthorAdmin = IsAuthorAdmin(replyreply.User)
                     })
             });
+        }
+
+        private IEnumerable<PostReplyLikeModel> BuildPostReplyLikes(IEnumerable<PostReplyLike> postReplyLikes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

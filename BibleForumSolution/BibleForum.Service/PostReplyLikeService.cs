@@ -2,6 +2,7 @@
 using BibleForum.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,9 +33,9 @@ namespace BibleForum.Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PostReplyLike> GetByPostReplyId(int postReplyId)
+        public IEnumerable<PostReplyLike> GetLikesByPostReplyId(int postReplyId)
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplyLikes.Where(postReplyLike => postReplyLike.PostReply.Id == postReplyId);
         }
     }
 }
