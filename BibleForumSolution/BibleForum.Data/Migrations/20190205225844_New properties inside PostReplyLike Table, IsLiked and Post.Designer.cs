@@ -11,9 +11,10 @@ using System;
 namespace BibleForum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205225844_New properties inside PostReplyLike Table, IsLiked and Post")]
+    partial class NewpropertiesinsidePostReplyLikeTableIsLikedandPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

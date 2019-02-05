@@ -8,7 +8,9 @@ namespace BibleForum.Data.Models
     {
         public int Id { get; set; }
         public DateTime Created { get; set; }
+        public bool IsLiked { get; set; }
 
+        public virtual Post Post { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual PostReply PostReply { get; set; }
 
