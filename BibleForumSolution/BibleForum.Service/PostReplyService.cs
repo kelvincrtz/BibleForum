@@ -89,6 +89,11 @@ namespace BibleForum.Service
                 
         }
 
+        public IEnumerable<PostReplyLike> GetAllPostReplyLikes(int postReplyId)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<PostReplySupportingBibleVerse> GetAllSupportVersePostReplies(int postReplyId)
         {
             return _dbContext.PostReplySupportingBibleVerses.Where(postReply => postReply.PostReply.Id == postReplyId);
@@ -102,6 +107,7 @@ namespace BibleForum.Service
                     .ThenInclude(forum => forum.Forum)
                 .Include(supportVerse => supportVerse.PostReplySupportingBibleVerse)
                 .Include(replyreply => replyreply.PostReplyReply)
+                .Include(postLikes => postLikes.PostReplyLikes)
                 .First();
         }
 

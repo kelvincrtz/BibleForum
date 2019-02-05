@@ -13,6 +13,7 @@ namespace BibleForum.Data
         IEnumerable<PostReply> GetAll();
         IEnumerable<PostReplyReply> GetAllPostReplies(int postReplyId);
         IEnumerable<PostReplySupportingBibleVerse> GetAllSupportVersePostReplies(int postReplyId);
+        IEnumerable<PostReplyLike> GetAllPostReplyLikes(int postReplyId);
 
         Task Delete(int id);
         Task DeleteAllReplies(int postReplyId);
