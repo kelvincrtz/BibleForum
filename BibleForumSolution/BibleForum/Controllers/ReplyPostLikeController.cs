@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BibleForum.Data;
 using BibleForum.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BibleForum.Controllers
 {
+    [Authorize]
     public class ReplyPostLikeController : Controller
     {
         private readonly IPost _postService;
@@ -50,7 +53,9 @@ namespace BibleForum.Controllers
             {
                 PostReply = postReply,
                 Created = DateTime.Now,
-                User = user
+                User = user,
+                IsLiked = true,
+                Post = postReply.Post
             };
         }
     }
