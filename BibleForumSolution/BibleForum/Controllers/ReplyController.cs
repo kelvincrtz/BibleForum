@@ -18,15 +18,13 @@ namespace BibleForum.Controllers
         private readonly IPostReply _postReplyService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IApplicationUser _userService;
-        private readonly IPostReplyLike _postReplyLikeService;
 
-        public ReplyController(IPost postService, IPostReply postReplyService, UserManager<ApplicationUser> userManager, IApplicationUser userService, IPostReplyLike postReplyLikeService)
+        public ReplyController(IPost postService, IPostReply postReplyService, UserManager<ApplicationUser> userManager, IApplicationUser userService)
         {
             _postService = postService;
             _postReplyService = postReplyService;
             _userManager = userManager;
             _userService = userService;
-            _postReplyLikeService = postReplyLikeService;
         }
 
         public async Task <IActionResult> Create(int id)
@@ -146,32 +144,5 @@ namespace BibleForum.Controllers
             return NoContent();
         }
 
-        //Voting
-        public async Task<IActionResult> Vote (int id)
-        {
-            var postReply = _postReplyService.GetById(id);
-
-            var userId = _userManager.GetUserId(User);
-            var user = await _userManager.FindByIdAsync(userId);
-
-            var vote = BuildVote(postReply.Id, user);
-
-            await _postReplyLikeService.Add(vote);
-
-            return RedirectToAction("Index", "Post", new { id = postReply.Post.Id });
-
-        }
-
-        private PostReplyLike BuildVote(int postReplyId, ApplicationUser user)
-        {
-            var postReply = _postReplyService.GetById(postReplyId);
-
-            return new PostReplyLike
-            {
-                PostReply = postReply,
-                Created = DateTime.Now,
-                User = user
-            };
-        }
     }
 }
