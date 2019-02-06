@@ -91,7 +91,7 @@ namespace BibleForum.Service
 
         public IEnumerable<PostReplyLike> GetAllPostReplyLikes(int postReplyId)
         {
-            throw new NotImplementedException();
+            return _dbContext.PostReplyLikes.Where(postReply => postReply.PostReply.Id == postReplyId);
         }
 
         public IEnumerable<PostReplySupportingBibleVerse> GetAllSupportVersePostReplies(int postReplyId)
@@ -111,16 +111,5 @@ namespace BibleForum.Service
                 .First();
         }
 
-        public async Task Vote(int id)
-        {
-            var postReply = GetById(id);
-
-            _dbContext.Update(postReply);
-
-            postReply.VoteCount += 1;
-
-            await _dbContext.SaveChangesAsync();
-
-        }
     }
 }
