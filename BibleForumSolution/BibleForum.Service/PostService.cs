@@ -76,6 +76,8 @@ namespace BibleForum.Service
                 .Include(post => post.Replies)
                     .ThenInclude(postReplyReplies => postReplyReplies.PostReplyReply)
                     .ThenInclude(postReplyReplies => postReplyReplies.User)
+                .Include(post => post.Replies)
+                    .ThenInclude(postReplies => postReplies.PostReplyLikes)
                 .Include(post => post.Forum)
                 .First();
         }
